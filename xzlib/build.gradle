@@ -1,9 +1,11 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
 android {
     compileSdkVersion 28
-
-
 
     defaultConfig {
         minSdkVersion 16
@@ -17,9 +19,13 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+    }
+
+    dataBinding {
+        enabled = true
     }
 
 }
