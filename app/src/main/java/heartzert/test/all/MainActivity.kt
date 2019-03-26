@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import heartzert.test.all.coordinatelayout.CoordinateLayoutAct
 import heartzert.test.all.nestedscrollview.NestedScrollViewAct
 
 class MainActivity : AppCompatActivity() {
@@ -15,5 +16,9 @@ class MainActivity : AppCompatActivity() {
 
     fun nestedScrollView(view: View) {
         startActivity(Intent(this, NestedScrollViewAct::class.java))
+    }
+
+    fun coordinateLayout(view: View) {
+        startActivity(Intent(this, CoordinateLayoutAct::class.java))
     }
 }

@@ -11,10 +11,11 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".coordinatelayout.CoordinateLayoutAct"></activity>
         <activity
             android:name=".setupactivities.TabbedSpinnerActivity"
             android:label="@string/title_activity_tabbed_spinner"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".setupactivities.TabbedSwipeActivity"
             android:label="@string/title_activity_tabbed_swipe"

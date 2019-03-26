@@ -13,7 +13,7 @@
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|enterAlways">
+            app:layout_scrollFlags="scroll|enterAlways|snap">
 
             <ImageView
                 android:layout_width="30dp"
@@ -39,7 +39,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
 
             <TextView
                 android:layout_width="match_parent"
