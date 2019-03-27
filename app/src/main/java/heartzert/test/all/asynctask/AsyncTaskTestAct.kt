@@ -55,6 +55,12 @@ class AsyncTaskTestAct : AppCompatActivity() {
     }
 
     fun cancel(view: View) {
-        task?.cancel(false)
+        //设置为true会立即中断thread并显示调用onCancel，设为false会等待thread执行结束，最后不调用onPostExecute，调用onCancel
+        task?.cancel(true)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        task?.cancel(true)
     }
 }
