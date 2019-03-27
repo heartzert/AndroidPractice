@@ -11,7 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".coordinatelayout.CoordinateLayoutAct"></activity>
+        <activity android:name=".constraintlayout.ConstraintLayoutChangeAct"></activity>
+        <activity android:name=".asynctask.AsyncTaskTestAct" />
+        <activity android:name=".coordinatelayout.CoordinateLayoutAct" />
         <activity
             android:name=".setupactivities.TabbedSpinnerActivity"
             android:label="@string/title_activity_tabbed_spinner"

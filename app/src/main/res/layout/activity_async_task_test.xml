@@ -4,48 +4,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".asynctask.AsyncTaskTestAct">
 
     <Button
-        android:id="@+id/b1"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#000000"
-        android:onClick="nestedScrollView"
-        android:text="NestedScrollView"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@id/b2"
+        android:onClick="button"
+        android:text="start"
+        app:layout_constraintBottom_toTopOf="@id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/b2"
+        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#000000"
-        android:onClick="coordinateLayout"
-        android:text="CoordinateLayout"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@id/b3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/b1" />
-
-    <Button
-        android:id="@+id/b3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#000000"
-        android:onClick="test"
-        android:text="test"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
+        android:onClick="cancel"
+        android:text="cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/b2" />
+        app:layout_constraintTop_toBottomOf="@id/button" />
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button" />
 
 </android.support.constraint.ConstraintLayout>
