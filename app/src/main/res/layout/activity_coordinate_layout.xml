@@ -6,24 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".coordinatelayout.CoordinateLayoutAct">
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#000000"
-            android:text="PopSnackBar"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            android:onClick="popSnackBar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </android.support.constraint.ConstraintLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#000000"
+        android:onClick="popSnackBar"
+        android:text="PopSnackBar"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF" />
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
@@ -34,7 +26,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:background="@color/colorPrimary"
-        android:layout_gravity="bottom"/>
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary" />
 
 </android.support.design.widget.CoordinatorLayout>
