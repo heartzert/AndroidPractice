@@ -8,9 +8,12 @@ import android.util.Log
 import android.view.View
 import heartzert.test.all.R
 import kotlinx.android.synthetic.main.activity_constraint_layout_change.button1
+import kotlinx.android.synthetic.main.activity_constraint_layout_change.button2
+import kotlinx.android.synthetic.main.activity_constraint_layout_change.button3
 import kotlinx.android.synthetic.main.activity_constraint_layout_change.full_layout
 
 class ConstraintLayoutChangeAct : AppCompatActivity() {
+    private var storeConstraintSet: ConstraintSet? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,9 +21,18 @@ class ConstraintLayoutChangeAct : AppCompatActivity() {
     }
 
     fun test(view: View) {
-        Log.d("======", "dianle")
+        if (storeConstraintSet == null) {
+            storeConstraintSet = ConstraintSet().apply { clone(full_layout) }
+        }
+        Log.d("======", "dianle test")
         TransitionManager.beginDelayedTransition(full_layout)
-        test1()
+        test2()
+    }
+
+    fun reset(view: View) {
+        Log.d("======", "dianle reset")
+        TransitionManager.beginDelayedTransition(full_layout)
+        storeConstraintSet?.applyTo(full_layout)
     }
 
     private fun test1() {
@@ -33,5 +45,40 @@ class ConstraintLayoutChangeAct : AppCompatActivity() {
 
     private fun test2() {
 
+        ConstraintSet()
+            .apply { clone(full_layout) }
+            .apply { clearConstraint(this, button1) }
+            .apply { clearConstraint(this, button2) }
+            .apply { clearConstraint(this, button3) }
+            .apply { setMargin0(this, button1.id) }
+            .apply { setMargin0(this, button2.id) }
+            .apply { setMargin0(this, button3.id) }
+            .apply { connect(button1.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, 200) }
+            .apply { connect(button1.id, ConstraintSet.START, ConstraintSet.PARENT_ID, ConstraintSet.START) }
+            .apply { connect(button1.id, ConstraintSet.END, button2.id, ConstraintSet.START) }
+            .apply { connect(button2.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, 200) }
+            .apply { connect(button2.id, ConstraintSet.START, button1.id, ConstraintSet.END) }
+            .apply { connect(button2.id, ConstraintSet.END, button3.id, ConstraintSet.START) }
+            .apply { connect(button3.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, 200) }
+            .apply { connect(button3.id, ConstraintSet.START, button2.id, ConstraintSet.END) }
+            .apply { connect(button3.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END) }
+            .applyTo(full_layout)
     }
+}
+
+fun clearConstraint(constraintSet: ConstraintSet, view: View, andMargin: Boolean = false): ConstraintSet {
+    val width = view.width
+    val height = view.height
+    return constraintSet.apply { clear(view.id) }
+        .apply { if (andMargin) setMargin0(constraintSet, view.id) }
+        .apply { constrainHeight(view.id, height) }
+        .apply { constrainWidth(view.id, width) }
+}
+
+fun setMargin0(constraintSet: ConstraintSet, viewId: Int): ConstraintSet {
+    return constraintSet
+        .apply { setMargin(viewId, ConstraintSet.START, 0) }
+        .apply { setMargin(viewId, ConstraintSet.TOP, 0)  }
+        .apply { setMargin(viewId, ConstraintSet.END, 0)  }
+        .apply { setMargin(viewId, ConstraintSet.BOTTOM, 0)  }
 }
