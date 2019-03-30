@@ -11,7 +11,8 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".constraintlayout.ConstraintLayoutChangeAct"></activity>
+        <activity android:name=".uitest.UITestAct"></activity>
+        <activity android:name=".constraintlayout.ConstraintLayoutChangeAct" />
         <activity android:name=".asynctask.AsyncTaskTestAct" />
         <activity android:name=".coordinatelayout.CoordinateLayoutAct" />
         <activity

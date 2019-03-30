@@ -7,6 +7,7 @@ import android.view.View
 import heartzert.test.all.constraintlayout.ConstraintLayoutChangeAct
 import heartzert.test.all.coordinatelayout.CoordinateLayoutAct
 import heartzert.test.all.nestedscrollview.NestedScrollViewAct
+import heartzert.test.all.uitest.UITestAct
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,7 +25,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun test(view: View) {
-        startActivity(Intent(this, ConstraintLayoutChangeAct::class.java))
+//        startActivity(Intent(this, ConstraintLayoutChangeAct::class.java))
+        startActivity(Intent(this, UITestAct::class.java))
 //        startActivity(Intent(this, AsyncTaskTestAct::class.java))
     }
 }
