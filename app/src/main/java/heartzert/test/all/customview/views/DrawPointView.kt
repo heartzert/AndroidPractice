@@ -4,9 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.graphics.Rect
 import android.graphics.RectF
-import android.transition.TransitionManager
 import android.util.AttributeSet
 import android.view.View
 
@@ -15,7 +13,9 @@ import android.view.View
  * Email: heartzert@163.com
  */
 
-class DrawPointView(context: Context) : BaseView(context) {
+class DrawPointView(context: Context) : View(context) {
+
+    constructor(context: Context, attributeSet: AttributeSet) : this(context)
 
     override fun onDraw(canvas: Canvas?) {
         val paint = Paint()
