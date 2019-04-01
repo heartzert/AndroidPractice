@@ -6,12 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".customview.ViewTestAct">
 
-    <heartzert.test.all.customview.views.DrawPointView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <!--<heartzert.test.all.customview.views.DrawPointView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
 
     <!--<heartzert.test.all.customview.views.PieDataView-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="match_parent" />-->
 
+    <heartzert.test.all.customview.views.CanvasTestView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </android.support.constraint.ConstraintLayout>
