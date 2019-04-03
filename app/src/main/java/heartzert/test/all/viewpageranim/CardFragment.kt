@@ -1,4 +1,4 @@
-package heartzert.test.all.leftswipecard
+package heartzert.test.all.viewpageranim
 
 import android.databinding.DataBindingUtil
 import android.databinding.ObservableField

@@ -1,4 +1,4 @@
-package heartzert.test.all.leftswipecard
+package heartzert.test.all.viewpageranim
 
 import android.support.v4.view.ViewPager.PageTransformer
 import android.view.View

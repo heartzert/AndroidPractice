@@ -1,4 +1,4 @@
-package heartzert.test.all.leftswipecard
+package heartzert.test.all.viewpageranim
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
