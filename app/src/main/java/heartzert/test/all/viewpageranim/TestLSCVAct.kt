@@ -6,6 +6,8 @@ import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
 import heartzert.test.all.R
+import heartzert.test.all.viewpageranim.item.CardFragment
+import heartzert.test.all.viewpageranim.transformers.LeftSwipeCardViewTransformer
 
 class TestLSCVAct : AppCompatActivity() {
 

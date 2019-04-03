@@ -1,4 +1,4 @@
-package heartzert.test.all.viewpageranim
+package heartzert.test.all.viewpageranim.item
 
 import android.databinding.DataBindingUtil
 import android.databinding.ObservableField
