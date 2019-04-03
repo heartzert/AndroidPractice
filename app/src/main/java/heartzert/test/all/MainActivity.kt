@@ -1,15 +1,12 @@
 package heartzert.test.all
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
-import heartzert.test.all.constraintlayout.ConstraintLayoutChangeAct
 import heartzert.test.all.coordinatelayout.CoordinateLayoutAct
-import heartzert.test.all.customview.ViewTestAct
 import heartzert.test.all.leftswipecard.TestLSCVAct
 import heartzert.test.all.nestedscrollview.NestedScrollViewAct
-import heartzert.test.all.uitest.UITestAct
 
 class MainActivity : AppCompatActivity() {
 

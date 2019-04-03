@@ -1,10 +1,10 @@
 package heartzert.test.all.leftswipecard
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.ViewPager
+import android.support.v7.app.AppCompatActivity
 import heartzert.test.all.R
 
 class TestLSCVAct : AppCompatActivity() {

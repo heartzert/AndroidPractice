@@ -1,10 +1,8 @@
 package heartzert.test.all.leftswipecard
 
 import android.support.v4.view.ViewPager.PageTransformer
-import android.transition.TransitionManager
 import android.view.View
 import heartzert.lib.unAbs
-import kotlin.Float.Companion
 
 /**
  * Created by heartzert on 2019/4/3.
