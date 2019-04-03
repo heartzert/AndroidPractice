@@ -1,42 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="heartzert.test.all">
+	xmlns:tools="http://schemas.android.com/tools"
+	package="heartzert.test.all">
 
-  <application
-      android:allowBackup="true"
-      android:icon="@mipmap/ic_launcher"
-      android:label="@string/app_name"
-      android:roundIcon="@mipmap/ic_launcher_round"
-      android:supportsRtl="true"
-      android:theme="@style/NoActionBarTheme"
-      tools:ignore="GoogleAppIndexingWarning">
-    <activity android:name=".leftswipe.LeftSwipeAct"></activity>
-    <activity android:name=".customview.ViewTestAct" />
-    <activity android:name=".uitest.UITestAct" />
-    <activity android:name=".constraintlayout.ConstraintLayoutChangeAct" />
-    <activity android:name=".asynctask.AsyncTaskTestAct" />
-    <activity android:name=".coordinatelayout.CoordinateLayoutAct" />
-    <activity
-        android:name=".setupactivities.TabbedSpinnerActivity"
-        android:label="@string/title_activity_tabbed_spinner"
-        android:theme="@style/AppTheme.NoActionBar" />
-    <activity
-        android:name=".setupactivities.TabbedSwipeActivity"
-        android:label="@string/title_activity_tabbed_swipe"
-        android:theme="@style/AppTheme.NoActionBar" />
-    <activity
-        android:name=".setupactivities.TabbedActionBarActivity"
-        android:label="@string/title_activity_tabbed_action_bar"
-        android:theme="@style/AppTheme.NoActionBar" />
-    <activity android:name=".nestedscrollview.NestedScrollViewAct" />
-    <activity android:name=".MainActivity">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
+	<application
+		android:allowBackup="true"
+		android:icon="@mipmap/ic_launcher"
+		android:label="@string/app_name"
+		android:roundIcon="@mipmap/ic_launcher_round"
+		android:supportsRtl="true"
+		android:theme="@style/NoActionBarTheme"
+		tools:ignore="GoogleAppIndexingWarning">
+		<activity android:name=".leftswipecard.TestLSCVAct"></activity>
+		<activity android:name=".leftswipe.LeftSwipeAct" />
+		<activity android:name=".customview.ViewTestAct" />
+		<activity android:name=".uitest.UITestAct" />
+		<activity android:name=".constraintlayout.ConstraintLayoutChangeAct" />
+		<activity android:name=".asynctask.AsyncTaskTestAct" />
+		<activity android:name=".coordinatelayout.CoordinateLayoutAct" />
+		<activity
+			android:name=".setupactivities.TabbedSpinnerActivity"
+			android:label="@string/title_activity_tabbed_spinner"
+			android:theme="@style/AppTheme.NoActionBar" />
+		<activity
+			android:name=".setupactivities.TabbedSwipeActivity"
+			android:label="@string/title_activity_tabbed_swipe"
+			android:theme="@style/AppTheme.NoActionBar" />
+		<activity
+			android:name=".setupactivities.TabbedActionBarActivity"
+			android:label="@string/title_activity_tabbed_action_bar"
+			android:theme="@style/AppTheme.NoActionBar" />
+		<activity android:name=".nestedscrollview.NestedScrollViewAct" />
+		<activity android:name=".MainActivity">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
 
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
-    </activity>
-  </application>
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+	</application>
 
 </manifest>
