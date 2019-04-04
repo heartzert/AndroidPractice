@@ -22,28 +22,28 @@ class LeftSwipeCardViewTransformer : ITransformer {
                     translationX = 0f
                     translationY = 0f
                     alpha = (1f + position) * 1.25f
-                    isClickable = false
+//                    isClickable = false
                 }
                 position <= 0f -> {
                     translationX = 0f
                     translationY = 0f
                     alpha = 1f
                     if (position == 0f) {
-                        isClickable = true
+//                        isClickable = true
                     }
                 }
                 position <= 0.8f -> {
                     translationX = (unAbs(width) + TRANS_XY) * position
                     translationY = (0 - TRANS_XY) * position
                     alpha = 1f
-                    isClickable = false
+//                    isClickable = false
 //                    pivotX = width / 2f
 //                    pivotY = height / 2f
 //                    scaleX = Math.pow(0.9, position.toDouble()).toFloat()
 //                    scaleY = Math.pow(0.9, position.toDouble()).toFloat()
                 }
                 else -> {
-                    isClickable = false
+//                    isClickable = false
                     translationX = (unAbs(width) + TRANS_XY) * position
                     translationY = (0 - TRANS_XY) * position
                     alpha = 1f - ALPHA_ITEM * position

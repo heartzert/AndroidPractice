@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil
 import android.databinding.ObservableField
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,19 +18,31 @@ import heartzert.test.all.databinding.CardFragmentViewBinding
  */
 class CardFragment : Fragment() {
 
+    private var viewBinding: CardFragmentViewBinding? = null
+
     val text = ObservableField<String>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val v = DataBindingUtil.inflate<CardFragmentViewBinding>(inflater, R.layout.fragment_card, container, false)
-        v.viewModel = this
-        return v.root
+        viewBinding =
+            DataBindingUtil.inflate<CardFragmentViewBinding>(inflater, R.layout.fragment_card, container, false)
+        viewBinding?.viewModel = this
+        return viewBinding?.root
     }
 
     fun setText(string: String) {
         text.set(string)
     }
 
-    fun click(){
-        Toast.makeText(this.context, "点了${text.get()}", Toast.LENGTH_SHORT).show()
+    fun click() {
+        text.set((text.get()?.toInt() ?: 0 + 1).toString())
+        Log.d("======", "click click ${text.get()}")
+    }
+
+    fun cancel() {
+        Toast.makeText(context, "click cancel ${text.get()}", Toast.LENGTH_LONG).show()
+    }
+
+    fun textClick() {
+        Toast.makeText(context, "click text ${text.get()}", Toast.LENGTH_LONG).show()
     }
 }

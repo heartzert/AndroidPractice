@@ -1,6 +1,5 @@
 package heartzert.test.all.viewpageranim.transformers
 
-import android.support.v4.view.ViewPager.PageTransformer
 import android.view.View
 import heartzert.lib.unAbs
 import kotlin.math.abs
@@ -20,6 +19,9 @@ class ScaleOutTransformer : ITransformer {
             pivotX = width / 2f
             pivotY = height / 2f
             when {
+                position <= -1f -> {
+
+                }
 
                 position <= 0f -> {
                     translationX = unAbs(width) * position
