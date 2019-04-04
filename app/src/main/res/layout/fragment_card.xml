@@ -25,6 +25,7 @@
 			android:layout_marginTop="50dp"
 			android:backgroundTint="@color/orange"
 			app:cardCornerRadius="10dp"
+			android:onClick="@{() -> viewModel.click()}"
 			app:layout_constraintBottom_toBottomOf="parent"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintStart_toStartOf="parent"

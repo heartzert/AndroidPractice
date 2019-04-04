@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import heartzert.test.all.R
 import heartzert.test.all.databinding.CardFragmentViewBinding
 
@@ -26,5 +27,9 @@ class CardFragment : Fragment() {
 
     fun setText(string: String) {
         text.set(string)
+    }
+
+    fun click(){
+        Toast.makeText(this.context, "点了${text.get()}", Toast.LENGTH_SHORT).show()
     }
 }
