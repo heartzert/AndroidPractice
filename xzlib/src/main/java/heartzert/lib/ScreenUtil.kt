@@ -113,9 +113,9 @@ fun snapShotWithoutStatusBar(activity: Activity): Bitmap? {
  * @param dpVal
  * @return
  */
-fun dp2px(context: Context, dpVal: Float): Int {
+fun dp2px(dpVal: Float): Int {
     return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-        dpVal, context.resources.displayMetrics).toInt()
+        dpVal, IApplication.appContext?.resources?.displayMetrics).toInt()
 }
 
 /**

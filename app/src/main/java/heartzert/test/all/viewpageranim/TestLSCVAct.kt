@@ -9,6 +9,7 @@ import heartzert.test.all.R
 import heartzert.test.all.viewpageranim.item.CardFragment
 import heartzert.test.all.viewpageranim.transformers.ITransformer
 import heartzert.test.all.viewpageranim.transformers.LeftSwipeCardViewTransformer
+import heartzert.test.all.viewpageranim.transformers.TransTet
 
 class TestLSCVAct : AppCompatActivity() {
 
@@ -16,7 +17,8 @@ class TestLSCVAct : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_lscv)
 
-        val transformer : ITransformer = LeftSwipeCardViewTransformer()
+//        val transformer : ITransformer = LeftSwipeCardViewTransformer()
+        val transformer : ITransformer = TransTet()
 
         val fragments = arrayListOf<CardFragment>()
         for (x in 1..10) {
@@ -25,7 +27,7 @@ class TestLSCVAct : AppCompatActivity() {
 
         val viewPager = findViewById<ViewPager>(R.id.view_pager)
             .apply {
-                offscreenPageLimit = 4
+                offscreenPageLimit = 2
                 setPageTransformer(true, transformer)
             }
         viewPager.adapter = object : FragmentStatePagerAdapter(supportFragmentManager) {
