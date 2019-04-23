@@ -2,7 +2,11 @@ package heartzert.test.all.customview.views
 
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.Paint.Style.STROKE
+import android.graphics.Rect
+import android.graphics.RectF
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
@@ -15,6 +19,7 @@ import heartzert.lib.unAbs
 class CanvasTestView(context: Context) : View(context) {
 
     private lateinit var canvas: Canvas
+    private lateinit var paint: Paint
     private var mWidth: Int? = null
     private var mHeight: Int? = null
 
@@ -28,13 +33,16 @@ class CanvasTestView(context: Context) : View(context) {
     override fun onDraw(canvas: Canvas?) {
         canvas ?: return
         this.canvas = canvas
-        val paint = Paint()
-        val i = 5
-        for (x in 0..100) {
-            Log.d("123123123", unAbs(x).toString())
+        paint = Paint().apply {
+            strokeWidth = 10f
+            color = Color.BLUE
+            this.style = STROKE
         }
-//        testTranslate(paint)
+        canvas.translate(mWidth!! / 2f, mHeight!! / 2f)
 
+//        testTranslate()
+//        testScale()
+        testRotate()
     }
 
     private fun drawXY(paint: Paint) {
@@ -42,12 +50,42 @@ class CanvasTestView(context: Context) : View(context) {
             paint)
     }
 
-    private fun testTranslate(paint: Paint) {
+    private fun testTranslate() {
         canvas.translate(100f, 100f)
         canvas.drawCircle(100f, 100f, 50f, paint)
         canvas.translate(100f, 100f)
         canvas.drawCircle(100f, 100f, 50f, paint)
         canvas.translate(100f, 100f)
         canvas.drawCircle(100f, 100f, 50f, paint)
+    }
+
+    private fun testScale() {
+        paint.color = Color.RED
+        val rec = RectF(0f, 0f, 200f, 200f)
+        canvas.drawRect(rec, paint)
+
+        paint.color = Color.YELLOW
+        canvas.scale(-0.2f, -0.3f)
+        canvas.drawRect(rec, paint)
+
+        paint.color = Color.GREEN
+        canvas.scale(-2f, -2f)
+        canvas.drawRect(rec, paint)
+
+        paint.color = Color.BLUE
+        canvas.scale(0.5f, 0.5f, 100f, 100f)
+        canvas.drawRect(rec, paint)
+    }
+
+    private fun testRotate() {
+        paint.color = Color.RED
+        val rec = RectF(0f, 0f, 200f, 200f)
+        canvas.drawRect(rec, paint)
+
+
+        for (i in 1..360 step 20) {
+            canvas.rotate(20f)
+            canvas.drawRect(rec, paint)
+        }
     }
 }
