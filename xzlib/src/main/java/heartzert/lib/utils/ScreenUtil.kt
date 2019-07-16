@@ -1,4 +1,4 @@
-package heartzert.lib
+package heartzert.lib.utils
 
 import android.app.Activity
 import android.content.Context
@@ -8,6 +8,7 @@ import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.WindowManager
 import android.widget.ImageView
+import heartzert.lib.base.IApplication
 
 /**
  * Created by heartzert on 2019/4/3.

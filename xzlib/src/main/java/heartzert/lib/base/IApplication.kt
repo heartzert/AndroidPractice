@@ -1,4 +1,4 @@
-package heartzert.lib
+package heartzert.lib.base
 
 import android.app.Application
 import android.content.Context

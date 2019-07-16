@@ -1,4 +1,4 @@
-package heartzert.lib
+package heartzert.lib.utils
 
 import kotlin.math.abs
 
