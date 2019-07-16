@@ -1,11 +1,11 @@
 package heartzert.test.all.constraintlayout
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.constraint.ConstraintSet
-import android.support.transition.TransitionManager
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintSet
+import androidx.transition.TransitionManager
 import heartzert.test.all.R
 import kotlinx.android.synthetic.main.activity_constraint_layout_change.button1
 import kotlinx.android.synthetic.main.activity_constraint_layout_change.button2

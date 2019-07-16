@@ -1,14 +1,13 @@
 package heartzert.test.all.leftswipe
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.RecyclerView.OnItemTouchListener
-import android.transition.TransitionManager
 import android.view.GestureDetector
 import android.view.GestureDetector.SimpleOnGestureListener
 import android.view.MotionEvent
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.OnItemTouchListener
 import heartzert.test.all.R
 
 class LeftSwipeAct : AppCompatActivity() {

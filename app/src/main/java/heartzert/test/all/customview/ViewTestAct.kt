@@ -1,7 +1,7 @@
 package heartzert.test.all.customview
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import heartzert.test.all.R
 
 class ViewTestAct : AppCompatActivity() {

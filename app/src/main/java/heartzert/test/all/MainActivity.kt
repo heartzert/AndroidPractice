@@ -2,11 +2,10 @@ package heartzert.test.all
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import heartzert.test.all.coordinatelayout.CoordinateLayoutAct
 import heartzert.test.all.customview.ViewTestAct
-import heartzert.test.all.viewpageranim.TestLSCVAct
 import heartzert.test.all.nestedscrollview.NestedScrollViewAct
 
 class MainActivity : AppCompatActivity() {

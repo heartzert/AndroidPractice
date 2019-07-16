@@ -1,7 +1,7 @@
 package heartzert.test.all.nestedscrollview
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import heartzert.test.all.R
 
 class NestedScrollViewAct : AppCompatActivity() {

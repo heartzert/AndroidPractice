@@ -1,22 +1,17 @@
 package heartzert.test.all.setupactivities
 
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
-
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentPagerAdapter
-import android.support.v4.view.ViewPager
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
-
+import android.view.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter
+import com.google.android.material.snackbar.Snackbar
 import heartzert.test.all.R
-import kotlinx.android.synthetic.main.activity_tabbed_swipe.*
-import kotlinx.android.synthetic.main.fragment_tabbed_swipe.view.*
+import kotlinx.android.synthetic.main.activity_tabbed_swipe.container
+import kotlinx.android.synthetic.main.activity_tabbed_swipe.fab
+import kotlinx.android.synthetic.main.activity_tabbed_swipe.toolbar
+import kotlinx.android.synthetic.main.fragment_tabbed_swipe.view.section_label
 
 class TabbedSwipeActivity : AppCompatActivity() {
 
