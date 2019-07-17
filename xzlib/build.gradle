@@ -1,8 +1,9 @@
 apply plugin: 'com.android.library'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+
+//在activity中直接使用id获取控件而不用findviewbyid获取需要使用这个插件
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -24,6 +25,7 @@ android {
         }
     }
 
+    //打开dataBinding
     dataBinding {
         enabled = true
     }
@@ -31,13 +33,20 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    //引入 kotlin
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //constraintLayout
+    api 'androidx.constraintlayout:constraintlayout:1.1.3'
+    //cardView等等material design相关组件
+    api 'com.google.android.material:material:1.0.0'
 
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    //androidx
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.2'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }
 repositories {
     mavenCentral()

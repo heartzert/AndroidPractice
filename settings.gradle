@@ -1,1 +1,1 @@
-include ':app', ':xzlib'
+include ':app', ':xzlib', ':eventbustest'
