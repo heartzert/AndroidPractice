@@ -12,8 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-
-        <activity android:name=".viewpageranim.TestLSCVAct"></activity>
+        <activity
+            android:name=".uitest.TextSizeTestActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".viewpageranim.TestLSCVAct" />
         <activity android:name=".leftswipe.LeftSwipeAct" />
         <activity android:name=".customview.ViewTestAct" />
         <activity android:name=".uitest.UITestAct" />

@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-//在activity中直接使用id获取控件而不用findviewbyid获取需要使用这个插件
+//在activity中直接使用id获取控件而不用findviewbyid获取需要使用这个插件;不加这个插件有可能导致BR文件不能正常生成
 apply plugin: 'kotlin-kapt'
 
 android {
