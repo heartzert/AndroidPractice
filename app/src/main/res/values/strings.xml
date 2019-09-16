@@ -8,4 +8,5 @@
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="title_activity_tabbed_swipe">TabbedSwipeActivity</string>
     <string name="title_activity_tabbed_spinner">TabbedSpinnerActivity</string>
+    <string name="title_activity_viewpager">ViewpagerActivity</string>
 </resources>

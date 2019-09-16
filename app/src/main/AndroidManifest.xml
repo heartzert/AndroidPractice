@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".uitest.ScrollRecyclerActivity"></activity>
+        <activity
+            android:name=".viewpager_fragment.ViewpagerActivity"
+            android:label="@string/title_activity_viewpager"/>
+        <activity android:name=".uitest.ScrollRecyclerActivity" />
         <activity
             android:name=".uitest.TextSizeTestActivity"
             android:screenOrientation="portrait" />

@@ -10,6 +10,7 @@ import heartzert.test.all.nestedscrollview.NestedScrollViewAct
 import heartzert.test.all.uitest.ScrollRecyclerActivity
 import heartzert.test.all.uitest.TextSizeTestActivity
 import heartzert.test.all.uitest.UITestAct
+import heartzert.test.all.viewpager_fragment.ViewpagerActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 //        startActivity(Intent(this, ViewTestAct::class.java))
 //        startActivity(Intent(this, UITestAct::class.java))
 //        startActivity(Intent(this, TextSizeTestActivity::class.java))
-        startActivity(Intent(this, ScrollRecyclerActivity::class.java))
+        startActivity(Intent(this, ViewpagerActivity::class.java))
 //        startActivity(Intent(this, TestLSCVAct::class.java))
 //        startActivity(Intent(this, UITestAct::class.java))
 //        startActivity(Intent(this, AsyncTaskTestAct::class.java))
