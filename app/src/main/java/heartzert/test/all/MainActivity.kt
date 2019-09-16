@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import heartzert.test.all.coordinatelayout.CoordinateLayoutAct
+import heartzert.test.all.coordinatelayout.CoordinateTest2Activity
 import heartzert.test.all.customview.ViewTestAct
 import heartzert.test.all.nestedscrollview.NestedScrollViewAct
 import heartzert.test.all.uitest.ScrollRecyclerActivity
@@ -20,7 +21,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun nestedScrollView(view: View) {
-        startActivity(Intent(this, NestedScrollViewAct::class.java))
+//        startActivity(Intent(this, NestedScrollViewAct::class.java))
+        startActivity(Intent(this, CoordinateTest2Activity::class.java))
+
     }
 
     fun coordinateLayout(view: View) {
