@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".coordinatelayout.CoordinateTest2Activity"></activity>
+        <activity android:name=".ShadowActActivity"></activity>
+        <activity android:name=".coordinatelayout.CoordinateTest2Activity" />
         <activity
             android:name=".viewpager_fragment.ViewpagerActivity"
             android:label="@string/title_activity_viewpager" />

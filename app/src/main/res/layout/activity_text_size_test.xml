@@ -25,6 +25,7 @@
             android:layout_marginStart="20dp"
             android:fontFamily="sans-serif-thin"
             android:singleLine="true"
+            android:lineSpacingExtra=""
             android:text="啊啊啊AAAaaa111sans-serif-thin"
             android:textColor="@color/black"
             android:textSize="20sp"
