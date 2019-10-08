@@ -6,36 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button2"
-        android:background="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:text="2123123123"
-        app:layout_constraintVertical_chainStyle="packed"
-        tools:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/button2"
-        android:background="@color/black"
-        android:layout_width="wrap_content"
-        android:text="2123123123"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/button1" />
-
     <Button
         android:id="@+id/b1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#000000"
         android:onClick="nestedScrollView"
-        android:text="NestedScrollView"
+        android:text="test1"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@id/b2"
@@ -49,7 +26,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#000000"
         android:onClick="coordinateLayout"
-        android:text="CoordinateLayout"
+        android:text="test2"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@id/b3"
@@ -63,7 +40,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#000000"
         android:onClick="test"
-        android:text="test"
+        android:text="test3"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"

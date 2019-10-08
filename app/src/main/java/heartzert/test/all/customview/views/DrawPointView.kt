@@ -15,6 +15,10 @@ import android.view.View
 
 class DrawPointView(context: Context) : View(context) {
 
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
+    }
+
     constructor(context: Context, attributeSet: AttributeSet) : this(context)
 
     override fun onDraw(canvas: Canvas?) {

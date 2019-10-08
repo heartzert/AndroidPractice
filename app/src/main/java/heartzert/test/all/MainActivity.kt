@@ -18,12 +18,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        startActivity(Intent(this, ViewTestAct::class.java))
     }
 
     fun nestedScrollView(view: View) {
 //        startActivity(Intent(this, NestedScrollViewAct::class.java))
-        startActivity(Intent(this, CoordinateTest2Activity::class.java))
-
+//        startActivity(Intent(this, CoordinateTest2Activity::class.java))
+        startActivity(Intent(this, ViewTestAct::class.java))
     }
 
     fun coordinateLayout(view: View) {
@@ -32,7 +33,6 @@ class MainActivity : AppCompatActivity() {
 
     fun test(view: View) {
 //        startActivity(Intent(this, ConstraintLayoutChangeAct::class.java))
-//        startActivity(Intent(this, ViewTestAct::class.java))
 //        startActivity(Intent(this, UITestAct::class.java))
 //        startActivity(Intent(this, TextSizeTestActivity::class.java))
 //        startActivity(Intent(this, ViewpagerActivity::class.java))
