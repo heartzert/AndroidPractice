@@ -13,6 +13,12 @@ class ExampleUnitTest {
 
     @Test
     fun addition_isCorrect() {
-        assertEquals(4, 2 + 2)
+
+        null.testNull()
+        "".testNull()
+    }
+
+    fun String?.testNull(): Boolean {
+        return this == null
     }
 }

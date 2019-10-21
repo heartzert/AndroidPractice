@@ -48,4 +48,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/b2" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="123"
+            android:textSize="63sp"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/text2"
+            android:layout_height="wrap_content"
+            app:layout_constraintBaseline_toBaselineOf="@id/text"
+            app:layout_constraintStart_toEndOf="@id/text"
+            android:text="666"
+            android:textSize="12sp"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_marginBottom="72dp"
+            android:layout_width="12dp"
+            android:background="@color/black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/text2"
+            app:layout_constraintStart_toEndOf="@id/text"
+            android:layout_height="12dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
