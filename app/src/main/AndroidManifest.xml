@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="heartzert.test.all"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="heartzert.test.all">
 
     <application
         android:name="heartzert.lib.base.IApplication"
@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ShadowActActivity"></activity>
+        <activity android:name=".recyclertest.RecyclerViewTestActivity"></activity>
+        <activity android:name=".ShadowActActivity" />
         <activity android:name=".coordinatelayout.CoordinateTest2Activity" />
         <activity
             android:name=".viewpager_fragment.ViewpagerActivity"

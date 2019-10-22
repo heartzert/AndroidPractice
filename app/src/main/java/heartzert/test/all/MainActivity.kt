@@ -8,6 +8,7 @@ import heartzert.test.all.coordinatelayout.CoordinateLayoutAct
 import heartzert.test.all.coordinatelayout.CoordinateTest2Activity
 import heartzert.test.all.customview.ViewTestAct
 import heartzert.test.all.nestedscrollview.NestedScrollViewAct
+import heartzert.test.all.recyclertest.RecyclerViewTestActivity
 import heartzert.test.all.uitest.ScrollRecyclerActivity
 import heartzert.test.all.uitest.TextSizeTestActivity
 import heartzert.test.all.uitest.UITestAct
@@ -18,17 +19,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        startActivity(Intent(this, ViewTestAct::class.java))
     }
 
     fun nestedScrollView(view: View) {
 //        startActivity(Intent(this, NestedScrollViewAct::class.java))
 //        startActivity(Intent(this, CoordinateTest2Activity::class.java))
-        startActivity(Intent(this, ViewTestAct::class.java))
+        startActivity(Intent(this, RecyclerViewTestActivity::class.java))
     }
 
     fun coordinateLayout(view: View) {
-        startActivity(Intent(this, CoordinateLayoutAct::class.java))
+        startActivity(Intent(this, ViewTestAct::class.java))
     }
 
     fun test(view: View) {
