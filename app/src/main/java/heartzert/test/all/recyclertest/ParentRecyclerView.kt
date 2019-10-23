@@ -7,6 +7,7 @@ package heartzert.test.all.recyclertest
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,7 +41,7 @@ class ParentRecyclerView @JvmOverloads constructor(context: Context, attrs: Attr
         addOnScrollListener(object :OnScrollListener(){
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
-                //如果父RecyclerView fling过程中已经到底部，需要让子RecyclerView滑动神域的fling
+                //如果父RecyclerView fling过程中已经到底部，需要让子RecyclerView滑动剩余的fling
                 if(newState == RecyclerView.SCROLL_STATE_IDLE) {
                     dispatchChildFling()
                 }
@@ -54,6 +55,7 @@ class ParentRecyclerView @JvmOverloads constructor(context: Context, attrs: Attr
                 }
                 //在RecyclerView fling情况下，记录当前RecyclerView在y轴的便宜
                 totalDy += dy
+                Log.d("========", "totalDy = $totalDy")
             }
         })
     }

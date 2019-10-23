@@ -9,6 +9,7 @@ import heartzert.test.all.coordinatelayout.CoordinateTest2Activity
 import heartzert.test.all.customview.ViewTestAct
 import heartzert.test.all.nestedscrollview.NestedScrollViewAct
 import heartzert.test.all.recyclertest.RecyclerViewTestActivity
+import heartzert.test.all.recyclertest.recyclerviewWithFragment.RecyclerViewWithFragmentActivity
 import heartzert.test.all.uitest.ScrollRecyclerActivity
 import heartzert.test.all.uitest.TextSizeTestActivity
 import heartzert.test.all.uitest.UITestAct
@@ -24,7 +25,8 @@ class MainActivity : AppCompatActivity() {
     fun nestedScrollView(view: View) {
 //        startActivity(Intent(this, NestedScrollViewAct::class.java))
 //        startActivity(Intent(this, CoordinateTest2Activity::class.java))
-        startActivity(Intent(this, RecyclerViewTestActivity::class.java))
+//        startActivity(Intent(this, RecyclerViewTestActivity::class.java))
+        startActivity(Intent(this, RecyclerViewWithFragmentActivity::class.java))
     }
 
     fun coordinateLayout(view: View) {

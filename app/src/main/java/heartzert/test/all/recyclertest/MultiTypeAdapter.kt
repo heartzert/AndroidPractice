@@ -33,6 +33,7 @@ class MultiTypeAdapter(private val dataSet:ArrayList<Any>) : RecyclerView.Adapte
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        Log.d("========", "onCreateViewHolder")
         return if(viewType == TYPE_TEXT) {
             SimpleTextViewHolder(LayoutInflater.from(viewGroup.context).inflate(R.layout.layout_item_text,viewGroup,false))
         } else {
@@ -45,6 +46,7 @@ class MultiTypeAdapter(private val dataSet:ArrayList<Any>) : RecyclerView.Adapte
     override fun getItemCount(): Int = dataSet.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, pos: Int) {
+        Log.d("========", "onBindViewHolder")
         if(holder is SimpleTextViewHolder) {
             holder.mTv.text = dataSet[pos] as String
         } else if(holder is SimpleCategoryViewHolder){
@@ -95,7 +97,7 @@ class SimpleCategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemVie
         (obj as? CategoryBean)?.apply {
             viewList.clear()
             tabTitleList.forEach{ _ ->
-                val categoryView = ChildRecyclerView(itemView.context)
+                val categoryView = CategoryView(itemView.context)
                 viewList.add(categoryView)
             }
             mCurrentRecyclerView = viewList[mViewPager.currentItem]

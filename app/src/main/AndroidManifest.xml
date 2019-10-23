@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".recyclertest.RecyclerViewTestActivity"></activity>
+        <activity android:name=".recyclertest.recyclerviewWithFragment.RecyclerViewWithFragmentActivity"></activity>
+        <activity android:name=".recyclertest.RecyclerViewTestActivity" />
         <activity android:name=".ShadowActActivity" />
         <activity android:name=".coordinatelayout.CoordinateTest2Activity" />
         <activity
