@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="heartzert.test.all">
 
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:name="heartzert.lib.base.IApplication"
         android:allowBackup="true"
@@ -12,6 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
+
         <activity android:name=".recyclertest.recyclerviewWithFragment.RecyclerViewWithFragmentActivity"></activity>
         <activity android:name=".recyclertest.RecyclerViewTestActivity" />
         <activity android:name=".ShadowActActivity" />
