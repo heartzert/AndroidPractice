@@ -42,13 +42,13 @@ dependencies {
     api 'com.google.android.material:material:1.0.0'
 
     //androidx
-    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
 
     //data binding adapter
-    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:3.0.0'
-    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:3.0.0'
-    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-paging:3.0.0'
-    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-ktx:3.0.0'
+    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:3.1.1'
+    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:3.1.1'
+    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-paging:3.1.1'
+    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-ktx:3.1.1'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
