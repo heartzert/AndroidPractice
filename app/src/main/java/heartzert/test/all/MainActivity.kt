@@ -7,7 +7,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat.requestPermissions
-import heartzert.test.all.customview.ViewTestAct
+import heartzert.test.all.nestedscrollview.custom.MyNestedScrollAct
 import heartzert.test.all.recyclertest.recyclerviewWithFragment.RecyclerViewWithFragmentActivity
 import java.io.File
 import java.io.FileOutputStream
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun coordinateLayout(view: View) {
-        startActivity(Intent(this, ViewTestAct::class.java))
+        startActivity(Intent(this, MyNestedScrollAct::class.java))
     }
 
     fun test(view: View) {
