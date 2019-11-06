@@ -12,16 +12,4 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_height="wrap_content"/>
 
-<!--    <heartzert.test.all.nestedscrollview.custom.NestedView-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="100dp"-->
-<!--        android:background="@color/black" />-->
-<!---->
-<!--    <heartzert.test.all.nestedscrollview.custom.NestedView-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="100dp"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:background="@color/black" />-->
-
-
 </heartzert.test.all.nestedscrollview.custom.NestedFrameLayout>
