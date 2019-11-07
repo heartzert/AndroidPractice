@@ -1,6 +1,6 @@
 package heartzert.test.all.android_conponents
 
-import androidx.lifecycle.LiveData
+import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
@@ -8,19 +8,27 @@ import androidx.lifecycle.ViewModel
  * Created by heartzert on 2019/11/6.
  * Email: heartzert@163.com
  */
-class ViewModelActivityVM: ViewModel() {
+class ViewModelActivityVM(savedInstance: Bundle?) : ViewModel() {
 
-    private val _text = MutableLiveData<String>("你好")
+    companion object {
+        private const val SAVE_INFO_NUMBER = "InfoNumber"
+    }
 
-    val text: LiveData<String>
-        get() = _text
+    val text = MutableLiveData<String>("你好")
 
-    private val _num = MutableLiveData<Int>(0)
+    val num = MutableLiveData<Int>(0)
 
-    val num : LiveData<Int>
-        get() = _num
+    init {
+        if (savedInstance != null) {
+            num.value = savedInstance.getInt(SAVE_INFO_NUMBER)
+        }
+    }
+
+    fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt(SAVE_INFO_NUMBER, num.value!!)
+    }
 
     fun onButtonClick() {
-        _num.value =  _num.value?.plus(1)
+        num.value = num.value?.plus(1)
     }
 }

@@ -9,14 +9,21 @@ import heartzert.test.all.databinding.ActivityViewModelViewBinding
 
 class ViewModelActivity : AppCompatActivity() {
 
+    var viewModel: ViewModelActivityVM? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val viewModel = ViewModelProviders.of(this).get(ViewModelActivityVM::class.java)
+        viewModel = ViewModelProviders.of(this, ViewModelActivityVMFactory(savedInstanceState)).get(ViewModelActivityVM::class.java)
         val binding =
             DataBindingUtil.setContentView<ActivityViewModelViewBinding>(this, R.layout.activity_view_model)
-
         binding.lifecycleOwner = this
 
         binding.viewModel = viewModel
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        viewModel?.onSaveInstanceState(outState)
+        super.onSaveInstanceState(outState)
+    }
+
 }
