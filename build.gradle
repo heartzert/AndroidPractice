@@ -2,6 +2,7 @@
 
 buildscript {
     ext.kotlin_version = '1.3.50'
+
     ext {
         buildTool = '28.0.3'
         minSdk = 17
@@ -14,14 +15,6 @@ buildscript {
         verionName = '1.0.0'
     }
 
-    repositories {
-        google()
-        jcenter()
-
-        maven { url "http://repo.maven.apache.org/maven2/" }
-        maven { url 'http://maven.google.com' }
-        maven { url "http://jcenter.bintray.com/" }
-    }
     dependencies {
 
         classpath 'com.android.tools.build:gradle:3.5.2'
@@ -29,12 +22,21 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
+
+    repositories {
+//        google()
+//        jcenter()
+
+        maven { url "http://repo.maven.apache.org/maven2/" }
+        maven { url 'http://maven.google.com' }
+        maven { url "http://jcenter.bintray.com/" }
+    }
 }
 
 allprojects {
     repositories {
-        google()
-        jcenter()
+//        google()
+//        jcenter()
 
         maven { url "http://repo.maven.apache.org/maven2/" }
         maven { url 'http://maven.google.com' }

@@ -4,6 +4,7 @@
     package="heartzert.test.all">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name="heartzert.lib.base.IApplication"
@@ -14,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".android_conponents.ViewModelActivity"></activity>
+        <activity android:name=".android_conponents_paging.ui.ViewModelActivity"></activity>
         <activity android:name=".nestedscrollview.custom.MyNestedScrollAct" />
         <activity android:name=".recyclertest.recyclerviewWithFragment.RecyclerViewWithFragmentActivity" />
         <activity android:name=".recyclertest.RecyclerViewTestActivity" />

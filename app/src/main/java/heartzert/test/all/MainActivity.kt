@@ -7,7 +7,8 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat.requestPermissions
-import heartzert.test.all.android_conponents.ViewModelActivity
+import heartzert.test.all.android_conponents_paging.ui.ViewModelActivity
+import heartzert.test.all.customview.ViewTestAct
 import heartzert.test.all.nestedscrollview.custom.MyNestedScrollAct
 import java.io.File
 import java.io.FileOutputStream
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun thirdTest(view: View) {
-        startActivity(Intent(this, ShadowActActivity::class.java))
+        startActivity(Intent(this, ViewTestAct::class.java))
     }
 
     fun writeFile() {

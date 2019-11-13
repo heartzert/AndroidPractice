@@ -3,6 +3,7 @@ package heartzert.test.all
 import org.junit.Test
 
 import org.junit.Assert.*
+import java.lang.Exception
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -20,5 +21,10 @@ class ExampleUnitTest {
 
     fun String?.testNull(): Boolean {
         return this == null
+    }
+
+    @Throws
+    fun testThrow() {
+
     }
 }
