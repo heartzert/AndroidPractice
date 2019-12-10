@@ -7,7 +7,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat.requestPermissions
-import heartzert.test.all.android_conponents_paging.ui.ViewModelActivity
+import com.google.gson.Gson
 import heartzert.test.all.customview.ViewTestAct
 import heartzert.test.all.nestedscrollview.custom.MyNestedScrollAct
 import java.io.File
@@ -21,7 +21,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun firstTest(view: View) {
-        startActivity(Intent(this, ViewModelActivity::class.java))
+        val t2 = Test2("p1", 2, "p3")
+        val t = Test1("p1", 2, "p3", t2)
+        val log = Gson().toJson(t)
+        val tt = Gson().fromJson<Test1>(log, Test1::class.java)
+        Log.d("========", "$log")
+        Log.d("========", "$tt")
     }
 
     fun secondTest(view: View) {
@@ -42,4 +47,17 @@ class MainActivity : AppCompatActivity() {
         stream.write("I know that.".toByteArray())
         stream.close()
     }
+
+    data class Test1(
+        val t1: String,
+        val t2: Int,
+        val t3: String,
+        val t4: Test2
+    )
+
+    data class Test2(
+        val tt1: String,
+        val tt2: Int,
+        val tt3: String
+    )
 }

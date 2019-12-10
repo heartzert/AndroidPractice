@@ -26,15 +26,9 @@ class NetworkStateItemViewHolder(val binding: NetworkStateItemBinding,
     }
 
     fun bindTo(networkState: NetworkState?) {
-        binding.progressBar.visibility =
-            toVisibility(
-                networkState?.status == RUNNING)
-        binding.retryButton.visibility =
-            toVisibility(
-                networkState?.status == FAILED)
-        binding.errorMsg.visibility =
-            toVisibility(
-                networkState?.msg != null)
+        binding.progressBar.visibility = toVisibility(networkState?.status == RUNNING)
+        binding.retryButton.visibility = toVisibility(networkState?.status == FAILED)
+        binding.errorMsg.visibility = toVisibility(networkState?.msg != null)
         binding.errorMsg.text = networkState?.msg
     }
 

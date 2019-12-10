@@ -36,7 +36,7 @@ class ParentRecyclerView @JvmOverloads constructor(context: Context, attrs: Attr
     private var velocityY: Int = 0
 
     init {
-        mMaxDistance = mFlingHelper.getVelocityByDistance((getScreenHeight(context) * 4).toDouble())
+        mMaxDistance = mFlingHelper.getVelocityByDistance((getScreenHeight() * 4).toDouble())
 
         addOnScrollListener(object :OnScrollListener(){
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {

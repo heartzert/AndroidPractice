@@ -26,7 +26,7 @@ open class ChildRecyclerView @JvmOverloads constructor(context: Context, attrs: 
     var mParentRecyclerView:ParentRecyclerView? = null
 
     init {
-        mMaxDistance = mFlingHelper.getVelocityByDistance((getScreenHeight(context) * 4).toDouble())
+        mMaxDistance = mFlingHelper.getVelocityByDistance((getScreenHeight() * 4).toDouble())
         overScrollMode = RecyclerView.OVER_SCROLL_NEVER
         initScrollListener()
     }

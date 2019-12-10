@@ -2,13 +2,14 @@ package heartzert.lib.utils
 
 import android.app.Activity
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.Rect
 import android.util.DisplayMetrics
 import android.util.TypedValue
+import android.view.View
 import android.view.WindowManager
 import android.widget.ImageView
-import heartzert.lib.base.IApplication
 
 /**
  * Created by heartzert on 2019/4/3.
@@ -18,46 +19,34 @@ import heartzert.lib.base.IApplication
 /**
  * 获得屏幕高度
  *
- * @param context
  * @return
  */
-fun getScreenWidth(context: Context): Int {
-    val wm = context
-        .getSystemService(Context.WINDOW_SERVICE) as WindowManager
-    val outMetrics = DisplayMetrics()
-    wm.defaultDisplay.getMetrics(outMetrics)
-    return outMetrics.widthPixels
+fun getScreenWidth(): Int {
+    return Resources.getSystem().displayMetrics.widthPixels
 }
 
 /**
  * 获得屏幕宽度
  *
- * @param context
  * @return
  */
-fun getScreenHeight(context: Context): Int {
-    val wm = context
-        .getSystemService(Context.WINDOW_SERVICE) as WindowManager
-    val outMetrics = DisplayMetrics()
-    wm.defaultDisplay.getMetrics(outMetrics)
-    return outMetrics.heightPixels
+fun getScreenHeight(): Int {
+    return Resources.getSystem().displayMetrics.heightPixels
 }
 
 /**
  * 获得状态栏的高度
  *
- * @param context
  * @return
  */
-fun getStatusHeight(context: Context): Int {
+fun getStatusHeight(): Int {
 
     var statusHeight = -1
     try {
         val clazz = Class.forName("com.android.internal.R\$dimen")
         val `object` = clazz.newInstance()
-        val height = Integer.parseInt(clazz.getField("status_bar_height")
-            .get(`object`).toString())
-        statusHeight = context.resources.getDimensionPixelSize(height)
+        val height = Integer.parseInt(clazz.getField("status_bar_height").get(`object`).toString())
+        statusHeight = Resources.getSystem().getDimensionPixelSize(height)
     } catch (e: Exception) {
         e.printStackTrace()
     }
@@ -76,8 +65,8 @@ fun snapShotWithStatusBar(activity: Activity): Bitmap? {
     view.isDrawingCacheEnabled = true
     view.buildDrawingCache()
     val bmp = view.drawingCache
-    val width = getScreenWidth(activity)
-    val height = getScreenHeight(activity)
+    val width = getScreenWidth()
+    val height = getScreenHeight()
     var bp: Bitmap? = null
     bp = Bitmap.createBitmap(bmp, 0, 0, width, height)
     view.destroyDrawingCache()
@@ -99,8 +88,8 @@ fun snapShotWithoutStatusBar(activity: Activity): Bitmap? {
     val frame = Rect()
     activity.window.decorView.getWindowVisibleDisplayFrame(frame)
     val statusBarHeight = frame.top
-    val width = getScreenWidth(activity)
-    val height = getScreenHeight(activity)
+    val width = getScreenWidth()
+    val height = getScreenHeight()
     var bp: Bitmap? = null
     bp = Bitmap.createBitmap(bmp, 0, statusBarHeight, width, height - statusBarHeight)
     view.destroyDrawingCache()
@@ -116,42 +105,40 @@ fun snapShotWithoutStatusBar(activity: Activity): Bitmap? {
  */
 fun dp2px(dpVal: Float): Int {
     return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-        dpVal, IApplication.appContext?.resources?.displayMetrics).toInt()
+        dpVal, Resources.getSystem().displayMetrics).toInt()
 }
 
 /**
  * sp转px
  *
- * @param context
  * @param spVal
  * @return
  */
-fun sp2px(context: Context, spVal: Float): Int {
+fun sp2px(spVal: Float): Int {
     return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
-        spVal, context.resources.displayMetrics).toInt()
+        spVal, Resources.getSystem().displayMetrics).toInt()
 }
 
 /**
  * px转dp
  *
- * @param context
  * @param pxVal
  * @return
  */
-fun px2dp(context: Context, pxVal: Float): Float {
-    val scale = context.resources.displayMetrics.density
+fun px2dp(pxVal: Float): Float {
+    val scale = Resources.getSystem().displayMetrics.density
     return pxVal / scale
 }
 
 /**
  * px转sp
  *
- * @param context
  * @param pxVal
  * @return
  */
-fun px2sp(context: Context, pxVal: Float): Float {
-    return pxVal / context.resources.displayMetrics.scaledDensity
+fun px2sp(pxVal: Float): Float {
+    val scale = Resources.getSystem().displayMetrics.scaledDensity
+    return pxVal / scale
 }
 
 /**
@@ -161,7 +148,7 @@ fun px2sp(context: Context, pxVal: Float): Float {
  * 动态设置图片宽高
  */
 fun getBitmapConfiguration(bitmap: Bitmap?, imageView: ImageView, screenRadio: Float): FloatArray {
-    val screenWidth = getScreenWidth(imageView.context)
+    val screenWidth = getScreenWidth()
     var rawWidth = 0f
     var rawHeight = 0f
     var width = 0f
@@ -183,4 +170,16 @@ fun getBitmapConfiguration(bitmap: Bitmap?, imageView: ImageView, screenRadio: F
         height = radio * width
     }
     return floatArrayOf(width, height)
+}
+
+/**
+ *
+ */
+fun View.SetVisible(visible: Boolean) {
+
+    this.visibility = if (visible) {
+        View.VISIBLE
+    } else {
+        View.GONE
+    }
 }
