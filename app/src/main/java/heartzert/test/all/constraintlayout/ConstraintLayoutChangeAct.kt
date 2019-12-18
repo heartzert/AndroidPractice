@@ -1,7 +1,6 @@
 package heartzert.test.all.constraintlayout
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintSet
@@ -28,7 +27,6 @@ class ConstraintLayoutChangeAct : AppCompatActivity() {
         if (storeConstraintSet == null) {
             storeConstraintSet = ConstraintSet().apply { clone(full_layout) }
         }
-        Log.d("======", "dianle test")
         TransitionManager.beginDelayedTransition(full_layout)
         when (times) {
             0 -> {
@@ -47,7 +45,6 @@ class ConstraintLayoutChangeAct : AppCompatActivity() {
     }
 
     fun reset(view: View) {
-        Log.d("======", "dianle reset")
         TransitionManager.beginDelayedTransition(full_layout)
         storeConstraintSet?.applyTo(full_layout)
     }
@@ -81,22 +78,24 @@ class ConstraintLayoutChangeAct : AppCompatActivity() {
 
     private fun test3() {
         ConstraintSet()
-            .apply { clone(full_layout) }
-            .apply { clearConstraint(this, button1) }
-            .apply { clearConstraint(this, button2) }
-            .apply { clearConstraint(this, button3) }
-            .apply { setMargin0(this, button1.id) }
-            .apply { setMargin0(this, button2.id) }
-            .apply { setMargin0(this, button3.id) }
-            .apply { connect(button1.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP) }
-            .apply { connect(button1.id, ConstraintSet.START, ConstraintSet.PARENT_ID, ConstraintSet.START) }
-            .apply { connect(button1.id, ConstraintSet.END, button2.id, ConstraintSet.START) }
-            .apply { connect(button2.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP) }
-            .apply { connect(button2.id, ConstraintSet.START, button1.id, ConstraintSet.END) }
-            .apply { connect(button2.id, ConstraintSet.END, button3.id, ConstraintSet.START) }
-            .apply { connect(button3.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP) }
-            .apply { connect(button3.id, ConstraintSet.START, button2.id, ConstraintSet.END) }
-            .apply { connect(button3.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END) }
+            .apply {
+                clone(full_layout)
+                clearConstraint(this, button1)
+                clearConstraint(this, button2)
+                clearConstraint(this, button3)
+                setMargin0(this, button1.id)
+                setMargin0(this, button2.id)
+                setMargin0(this, button3.id)
+                connect(button1.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
+                connect(button1.id, ConstraintSet.START, ConstraintSet.PARENT_ID, ConstraintSet.START)
+                connect(button1.id, ConstraintSet.END, button2.id, ConstraintSet.START)
+                connect(button2.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
+                connect(button2.id, ConstraintSet.START, button1.id, ConstraintSet.END)
+                connect(button2.id, ConstraintSet.END, button3.id, ConstraintSet.START)
+                connect(button3.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
+                connect(button3.id, ConstraintSet.START, button2.id, ConstraintSet.END)
+                connect(button3.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END)
+            }
             .applyTo(full_layout)
     }
 }

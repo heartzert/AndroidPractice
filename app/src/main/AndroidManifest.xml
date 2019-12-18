@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".android_conponents_paging.ui.ViewModelActivity"></activity>
+        <activity android:name=".motionLayout.MotionLayoutActivity"></activity>
+        <activity android:name=".android_conponents_paging.ui.ViewModelActivity" />
         <activity android:name=".nestedscrollview.custom.MyNestedScrollAct" />
         <activity android:name=".recyclertest.recyclerviewWithFragment.RecyclerViewWithFragmentActivity" />
         <activity android:name=".recyclertest.RecyclerViewTestActivity" />

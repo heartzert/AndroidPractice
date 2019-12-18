@@ -23,8 +23,12 @@ class ExampleUnitTest {
         return this == null
     }
 
-    @Throws
+    @Test
     fun testThrow() {
+        for (x in 0 until 120) {
+            val s = "%3S".format(x).replace(" ", "0")
+            println("<item android:drawable=\"@drawable/image_loading$s\" android:duration=\"100\"/>")
+        }
 
     }
 }

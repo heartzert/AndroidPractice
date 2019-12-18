@@ -8,8 +8,8 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat.requestPermissions
 import com.google.gson.Gson
-import heartzert.test.all.customview.ViewTestAct
-import heartzert.test.all.nestedscrollview.custom.MyNestedScrollAct
+import heartzert.test.all.constraintlayout.ConstraintLayoutChangeAct
+import heartzert.test.all.motionLayout.MotionLayoutActivity
 import java.io.File
 import java.io.FileOutputStream
 
@@ -30,11 +30,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun secondTest(view: View) {
-        startActivity(Intent(this, MyNestedScrollAct::class.java))
+        startActivity(Intent(this, ConstraintLayoutChangeAct::class.java))
     }
 
     fun thirdTest(view: View) {
-        startActivity(Intent(this, ViewTestAct::class.java))
+        startActivity(Intent(this, MotionLayoutActivity::class.java))
     }
 
     fun writeFile() {
