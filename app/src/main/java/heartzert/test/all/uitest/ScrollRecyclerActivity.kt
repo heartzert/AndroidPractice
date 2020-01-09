@@ -6,8 +6,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ObservableArrayList
 import heartzert.test.all.BR
 import heartzert.test.all.R
+import heartzert.test.all.common.RecyclerviewAdapter
 import heartzert.test.all.databinding.ScrollRecyclerBinding
-import kotlinx.android.synthetic.main.activity_scroll_recycler.recyclerView
 import me.tatarka.bindingcollectionadapter2.itemBindingOf
 
 class ScrollRecyclerActivity : AppCompatActivity() {
@@ -36,5 +36,6 @@ class ScrollRecyclerActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = DataBindingUtil.setContentView<ScrollRecyclerBinding>(this, R.layout.activity_scroll_recycler)
         binding.setVariable(BR.viewModel, this)
+        binding.recyclerView.adapter = RecyclerviewAdapter()
     }
 }

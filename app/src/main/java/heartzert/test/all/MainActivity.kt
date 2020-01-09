@@ -10,6 +10,7 @@ import androidx.core.app.ActivityCompat.requestPermissions
 import com.google.gson.Gson
 import heartzert.test.all.constraintlayout.ConstraintLayoutChangeAct
 import heartzert.test.all.motionLayout.MotionLayoutActivity
+import heartzert.test.all.recyclertest.myRecyclerView.NestedTestActivity
 import java.io.File
 import java.io.FileOutputStream
 
@@ -21,12 +22,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun firstTest(view: View) {
-        val t2 = Test2("p1", 2, "p3")
-        val t = Test1("p1", 2, "p3", t2)
-        val log = Gson().toJson(t)
-        val tt = Gson().fromJson<Test1>(log, Test1::class.java)
-        Log.d("========", "$log")
-        Log.d("========", "$tt")
+        startActivity(Intent(this, NestedTestActivity::class.java))
     }
 
     fun secondTest(view: View) {
@@ -35,6 +31,15 @@ class MainActivity : AppCompatActivity() {
 
     fun thirdTest(view: View) {
         startActivity(Intent(this, MotionLayoutActivity::class.java))
+    }
+
+    fun testJson(view: View) {
+        val t2 = Test2("p1", 2, "p3")
+        val t = Test1("p1", 2, "p3", t2)
+        val log = Gson().toJson(t)
+        val tt = Gson().fromJson<Test1>(log, Test1::class.java)
+        Log.d("========", "$log")
+        Log.d("========", "$tt")
     }
 
     fun writeFile() {
