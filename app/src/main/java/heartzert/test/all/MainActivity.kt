@@ -8,6 +8,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat.requestPermissions
 import com.google.gson.Gson
+import heartzert.test.all.ScaleableImageView.ScaleableImageTestActivity
 import heartzert.test.all.constraintlayout.ConstraintLayoutChangeAct
 import heartzert.test.all.motionLayout.MotionLayoutActivity
 import heartzert.test.all.recyclertest.myRecyclerView.NestedTestActivity
@@ -26,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun secondTest(view: View) {
-        startActivity(Intent(this, ConstraintLayoutChangeAct::class.java))
+        startActivity(Intent(this, ScaleableImageTestActivity::class.java))
     }
 
     fun thirdTest(view: View) {
