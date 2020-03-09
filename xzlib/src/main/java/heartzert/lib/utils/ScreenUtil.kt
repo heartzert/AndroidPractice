@@ -2,6 +2,7 @@ package heartzert.lib.utils
 
 import android.app.Activity
 import android.content.Context
+import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.graphics.Bitmap
 import android.graphics.Rect
@@ -9,7 +10,12 @@ import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.View
 import android.view.WindowManager
+import android.view.animation.Animation
+import android.view.animation.TranslateAnimation
 import android.widget.ImageView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.widget.ImageViewCompat
+import androidx.databinding.BindingAdapter
 
 /**
  * Created by heartzert on 2019/4/3.
@@ -144,9 +150,6 @@ fun px2sp(pxVal: Float): Float {
 /**
  * 动态设置图片宽高
  */
-/**
- * 动态设置图片宽高
- */
 fun getBitmapConfiguration(bitmap: Bitmap?, imageView: ImageView, screenRadio: Float): FloatArray {
     val screenWidth = getScreenWidth()
     var rawWidth = 0f
@@ -173,10 +176,9 @@ fun getBitmapConfiguration(bitmap: Bitmap?, imageView: ImageView, screenRadio: F
 }
 
 /**
- *
+ * 设置view是否可见
  */
 fun View.SetVisible(visible: Boolean) {
-
     this.visibility = if (visible) {
         View.VISIBLE
     } else {

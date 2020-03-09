@@ -1,6 +1,6 @@
 package heartzert.test.all
 
-import androidx.test.InstrumentationRegistry
+import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4
 import org.junit.Assert.*
 import org.junit.Test
@@ -17,7 +17,7 @@ class ExampleInstrumentedTest {
     @Test
     fun useAppContext() {
         // Context of the app under test.
-        val appContext = InstrumentationRegistry.getTargetContext()
+        val appContext = InstrumentationRegistry.getInstrumentation().context
         assertEquals("heartzert.test.all", appContext.packageName)
     }
 }

@@ -10,7 +10,7 @@ import kotlin.math.abs
 /**
  * 将参数转为负绝对值
  */
-fun unAbs(int: Int) = 0 - abs(int)
-fun unAbs(float: Float) = 0f - abs(float)
-fun unAbs(double: Double) = 0.0 - abs(double)
-fun unAbs(long: Long) = 0 - abs(long)
+fun unAbs(int: Int) = -abs(int)
+fun unAbs(long: Long) = -abs(long)
+fun unAbs(float: Float) = -abs(float)
+fun unAbs(double: Double) = -abs(double)
