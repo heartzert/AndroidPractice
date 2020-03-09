@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".constraintlayout.UIPracticeActivity">
+
+    <!--    企图把一个链约束在一个view上, 长宽度示例-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View
+            android:id="@+id/top_view"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@color/gray"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hahhhahhhahhhahhhahh"
+            android:background="@color/pink"
+            app:layout_constraintTop_toBottomOf="@id/top_view"
+            app:layout_constraintStart_toStartOf="@id/top_view"
+            app:layout_constraintEnd_toStartOf="@id/text2"
+            app:layout_constraintHorizontal_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hahhahhhahhhahhhahh"
+            android:background="@color/pink"
+            app:layout_constraintTop_toBottomOf="@id/top_view"
+            app:layout_constraintStart_toEndOf="@id/text1"
+            app:layout_constraintEnd_toEndOf="@id/top_view" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    企图把一个链约束在一个view上, 短宽度示例-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View
+            android:id="@+id/top_view_0"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@color/gray"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/text1_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hahh"
+            android:background="@color/pink"
+            app:layout_constraintTop_toBottomOf="@id/top_view_0"
+            app:layout_constraintStart_toStartOf="@id/top_view_0"
+            app:layout_constraintEnd_toStartOf="@id/text2_0"
+            app:layout_constraintHorizontal_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/text2_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hah"
+            android:background="@color/pink"
+            app:layout_constraintTop_toBottomOf="@id/top_view_0"
+            app:layout_constraintStart_toEndOf="@id/text1_0"
+            app:layout_constraintEnd_toEndOf="@id/top_view_0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    用barrier试试-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/end_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="top_view_2" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/start_barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="start"
+            app:constraint_referenced_ids="top_view_2" />
+
+        <View
+            android:id="@+id/top_view_2"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@color/gray"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/text1_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hahhhahahhahahah"
+            android:background="@color/pink"
+            app:layout_constraintTop_toBottomOf="@id/top_view_2"
+            app:layout_constraintStart_toStartOf="@id/start_barrier"
+            app:layout_constraintEnd_toStartOf="@id/text2_2"
+            app:layout_constrainedWidth="true" />
+
+        <TextView
+            android:id="@+id/text2_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hahhhahahhahahah"
+            android:background="@color/pink"
+            app:layout_constraintTop_toBottomOf="@id/top_view_2"
+            app:layout_constraintStart_toEndOf="@id/text1_2"
+            app:layout_constraintEnd_toEndOf="@id/end_barrier"
+            app:layout_constrainedWidth="true" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--用flow试试-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View
+            android:id="@+id/top_view_3"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@color/gray"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/top_view_3"
+            app:layout_constraintStart_toStartOf="@id/top_view_3"
+            app:layout_constraintEnd_toEndOf="@id/top_view_3"
+            app:constraint_referenced_ids="text1_3,text2_3"
+            app:flow_wrapMode="none"
+            app:layout_constrainedWidth="true" />
+
+        <TextView
+            android:id="@+id/text1_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hahhhahahhahahah"
+            android:background="@color/pink"
+            app:layout_constrainedWidth="true" />
+
+        <TextView
+            android:id="@+id/text2_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hahhhahahhahahah"
+            android:background="@color/pink"
+            app:layout_constrainedWidth="true" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--用0dp宽度试试（短宽度时不符合要求，长宽度时可以）-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View
+            android:id="@+id/top_view_4"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@color/gray"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/text1_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="hahhh"
+            android:background="@color/pink"
+            app:layout_constraintTop_toBottomOf="@id/top_view_4"
+            app:layout_constraintStart_toStartOf="@id/top_view_4"
+            app:layout_constraintEnd_toStartOf="@id/text2_4"
+            app:layout_constrainedWidth="true" />
+
+        <TextView
+            android:id="@+id/text2_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="hahhha"
+            android:background="@color/pink"
+            app:layout_constraintTop_toBottomOf="@id/top_view_4"
+            app:layout_constraintStart_toEndOf="@id/text1_4"
+            app:layout_constraintEnd_toEndOf="@id/top_view_4"
+            app:layout_constrainedWidth="true" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--用flow试试-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View
+            android:id="@+id/top_view_5"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:background="@color/gray"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.constraintlayout.helper.widget.Layer
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/top_view_5"
+            app:layout_constraintStart_toStartOf="@id/top_view_5"
+            app:layout_constraintEnd_toEndOf="@id/top_view_5"
+            app:constraint_referenced_ids="text1_5,text2_5"
+            app:flow_wrapMode="none"
+            app:layout_constrainedWidth="true" />
+
+        <TextView
+            android:id="@+id/text1_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hahhhahahhahahah"
+            android:background="@color/pink"
+            app:layout_constrainedWidth="true" />
+
+        <TextView
+            android:id="@+id/text2_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hahhhahahhahahah"
+            android:background="@color/pink"
+            app:layout_constrainedWidth="true" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
