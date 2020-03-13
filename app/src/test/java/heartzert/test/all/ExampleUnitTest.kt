@@ -72,6 +72,7 @@ class ExampleUnitTest : TestRule  {
 
 }
 
+//多参数验证
 @RunWith(Parameterized::class)
 class ParameterizedTest(var i: Int) {
 
