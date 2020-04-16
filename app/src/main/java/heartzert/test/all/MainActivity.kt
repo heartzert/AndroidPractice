@@ -9,10 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat.requestPermissions
 import com.google.gson.Gson
 import heartzert.test.all.ScaleableImageView.ScaleableImageTestActivity
-import heartzert.test.all.constraintlayout.ConstraintLayoutChangeAct
-import heartzert.test.all.constraintlayout.UIPracticeActivity
 import heartzert.test.all.motionLayout.MotionLayoutActivity
-import heartzert.test.all.recyclertest.myRecyclerView.NestedTestActivity
+import heartzert.test.all.recyclertest.recyclerviewWithFragment.RecyclerViewWithFragmentActivity
+import heartzert.test.all.uitest.UITestAct
 import java.io.File
 import java.io.FileOutputStream
 
@@ -24,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun firstTest(view: View) {
-        startActivity(Intent(this, UIPracticeActivity::class.java))
+        startActivity(Intent(this, UITestAct::class.java))
     }
 
     fun secondTest(view: View) {

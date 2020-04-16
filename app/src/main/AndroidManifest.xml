@@ -15,10 +15,12 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".constraintlayout.UIPracticeActivity"></activity>
+        <activity android:name=".uitest.MiniProgramActivity"
+            android:taskAffinity="com.test"
+            android:launchMode="singleTask"/>
+        <activity android:name=".constraintlayout.UIPracticeActivity" />
         <activity android:name=".recyclertest.myRecyclerView.NestedTestActivity" />
-        <activity android:name=".ScaleableImageView.ScaleableImageTestActivity"></activity>
-        <activity android:name=".recyclertest.myRecyclerView.NestedTestActivity" />
+        <activity android:name=".ScaleableImageView.ScaleableImageTestActivity" />
         <activity android:name=".motionLayout.MotionLayoutActivity" />
         <activity android:name=".android_conponents_paging.ui.ViewModelActivity" />
         <activity android:name=".nestedscrollview.custom.MyNestedScrollAct" />

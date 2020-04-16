@@ -43,8 +43,9 @@
         android:id="@+id/text4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="海豚钱包"
+        android:text="打开一个小程序"
         android:textSize="30sp"
+        android:onClick="startNewAct"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/text3" />
