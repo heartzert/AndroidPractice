@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="heartzert.test.all">
+    package="heartzert.test.all"
+    tools:ignore="LockedOrientationActivity">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <permission android:name="heartzert.test.permission" />
 
     <application
         android:name="heartzert.lib.base.IApplication"
@@ -15,10 +18,17 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".constraintlayout.UIPracticeActivity"></activity>
+        <activity android:name=".contentprovider.TestProviderActivity"></activity>
+        <!-- 测试provider -->
+        <provider
+            android:name=".contentprovider.TestProvider"
+            android:authorities="heartzert.test.all.contentprovider.TestProvider"
+            android:permission="heartzert.test.permission"
+            android:process=":testProvider" />
+
+        <activity android:name=".constraintlayout.UIPracticeActivity" />
         <activity android:name=".recyclertest.myRecyclerView.NestedTestActivity" />
-        <activity android:name=".ScaleableImageView.ScaleableImageTestActivity"></activity>
-        <activity android:name=".recyclertest.myRecyclerView.NestedTestActivity" />
+        <activity android:name=".ScaleableImageView.ScaleableImageTestActivity" />
         <activity android:name=".motionLayout.MotionLayoutActivity" />
         <activity android:name=".android_conponents_paging.ui.ViewModelActivity" />
         <activity android:name=".nestedscrollview.custom.MyNestedScrollAct" />
