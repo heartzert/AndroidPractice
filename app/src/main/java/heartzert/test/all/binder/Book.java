@@ -8,7 +8,9 @@ import android.os.Parcelable;
  * Email: heartzert@163.com
  */
 public class Book implements Parcelable {
-    String name;
+    public String name;
+
+    public Book() {}
 
     protected Book(Parcel in) {
         name = in.readString();
