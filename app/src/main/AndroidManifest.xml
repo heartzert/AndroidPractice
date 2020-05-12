@@ -18,8 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".contentprovider.TestProviderActivity"></activity>
-        <!-- 测试provider -->
+        <activity android:name=".coroutines.CoroutinesActivity"></activity>
+        <activity android:name=".contentprovider.TestProviderActivity" /> <!-- 测试provider -->
         <provider
             android:name=".contentprovider.TestProvider"
             android:authorities="heartzert.test.all.contentprovider.TestProvider"
@@ -27,9 +27,10 @@
             android:process=":testProvider" />
 
         <activity android:name=".constraintlayout.UIPracticeActivity" />
-        <activity android:name=".uitest.MiniProgramActivity"
-            android:taskAffinity="com.test"
-            android:launchMode="singleTask"/>
+        <activity
+            android:name=".uitest.MiniProgramActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.test" />
         <activity android:name=".constraintlayout.UIPracticeActivity" />
         <activity android:name=".recyclertest.myRecyclerView.NestedTestActivity" />
         <activity android:name=".ScaleableImageView.ScaleableImageTestActivity" />

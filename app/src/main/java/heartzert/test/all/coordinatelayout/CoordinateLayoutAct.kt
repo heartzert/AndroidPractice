@@ -23,8 +23,7 @@ class CoordinateLayoutAct : AppCompatActivity() {
         val image = findViewById<ImageView>(R.id.image)
         val appbar = findViewById<AppBarLayout>(R.id.appbar)
 
-        image.setBackgroundColor(
-            ContextCompat.getColor(this@CoordinateLayoutAct, R.color.red))
+        image.setBackgroundColor(ContextCompat.getColor(this@CoordinateLayoutAct, R.color.red))
 
         appbar.addOnOffsetChangedListener(
             object : OnOffsetChangedListener {
