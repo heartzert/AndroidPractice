@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShadowActActivity">
+    tools:context=".custom_views.draw_shadow.ShadowActActivity">
 
-    <heartzert.test.all.shadow.ShadowView
+    <heartzert.test.all.custom_views.draw_shadow.shadow.ShadowView
         android:layout_width="250px"
         android:layout_height="250px"/>
 

@@ -7,14 +7,14 @@
 
         <variable
             name="viewModel"
-            type="heartzert.test.all.recyclertest.recyclerviewWithFragment.RecyclerViewWithFragmentActivity" />
+            type="heartzert.test.all.custom_views.recyclertest.recyclerviewWithFragment.RecyclerViewWithFragmentActivity" />
 
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".recyclertest.recyclerviewWithFragment.RecyclerViewWithFragmentActivity">
+        tools:context=".custom_views.recyclertest.recyclerviewWithFragment.RecyclerViewWithFragmentActivity">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"

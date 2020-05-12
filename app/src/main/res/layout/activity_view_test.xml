@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".customview.ViewTestAct">
+    tools:context=".custom_views.customview.ViewTestAct">
 
-    <heartzert.test.all.customview.views.DashView
+    <heartzert.test.all.custom_views.customview.views.DashView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

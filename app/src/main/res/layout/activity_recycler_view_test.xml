@@ -7,16 +7,16 @@
 
         <variable
             name="viewModel"
-            type="heartzert.test.all.recyclertest.RecyclerViewTestActivity" />
+            type="heartzert.test.all.custom_views.recyclertest.RecyclerViewTestActivity" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".recyclertest.RecyclerViewTestActivity">
+        tools:context=".custom_views.recyclertest.RecyclerViewTestActivity">
 
-        <heartzert.test.all.recyclertest.ParentRecyclerView
+        <heartzert.test.all.custom_views.recyclertest.ParentRecyclerView
             android:layout_width="match_parent"
             android:id="@+id/parentRecyclerView"
             android:layout_height="match_parent"

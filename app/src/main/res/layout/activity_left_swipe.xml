@@ -4,6 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".leftswipe.LeftSwipeAct">
+    tools:context=".custom_views.leftswipe.LeftSwipeAct">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

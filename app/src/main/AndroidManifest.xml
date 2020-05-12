@@ -18,43 +18,46 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".coroutines.CoroutinesActivity"></activity>
-        <activity android:name=".contentprovider.TestProviderActivity" /> <!-- 测试provider -->
+        <service android:name=".templates.intentservice.IntentServiceActivity$MyIntentService"/>
+        <activity android:name=".templates.intentservice.IntentServiceActivity"/>
+        <activity android:name=".templates.handlerthread.HandlerThreadActivity" />
+        <activity android:name=".templates.coroutines.CoroutinesActivity" />
+        <activity android:name=".templates.contentprovider.TestProviderActivity" /> <!-- 测试provider -->
         <provider
-            android:name=".contentprovider.TestProvider"
-            android:authorities="heartzert.test.all.contentprovider.TestProvider"
+            android:name=".templates.contentprovider.TestProvider"
+            android:authorities="heartzert.test.all.templates.contentprovider.TestProvider"
             android:permission="heartzert.test.permission"
             android:process=":testProvider" />
 
-        <activity android:name=".constraintlayout.UIPracticeActivity" />
+        <activity android:name=".templates.constraintlayout.UIPracticeActivity" />
         <activity
             android:name=".uitest.MiniProgramActivity"
             android:launchMode="singleTask"
             android:taskAffinity="com.test" />
-        <activity android:name=".constraintlayout.UIPracticeActivity" />
-        <activity android:name=".recyclertest.myRecyclerView.NestedTestActivity" />
-        <activity android:name=".ScaleableImageView.ScaleableImageTestActivity" />
-        <activity android:name=".motionLayout.MotionLayoutActivity" />
+        <activity android:name=".templates.constraintlayout.UIPracticeActivity" />
+        <activity android:name=".custom_views.recyclertest.myRecyclerView.NestedTestActivity" />
+        <activity android:name=".custom_views.ScaleableImageView.ScaleableImageTestActivity" />
+        <activity android:name=".templates.motionLayout.MotionLayoutActivity" />
         <activity android:name=".android_conponents_paging.ui.ViewModelActivity" />
-        <activity android:name=".nestedscrollview.custom.MyNestedScrollAct" />
-        <activity android:name=".recyclertest.recyclerviewWithFragment.RecyclerViewWithFragmentActivity" />
-        <activity android:name=".recyclertest.RecyclerViewTestActivity" />
-        <activity android:name=".ShadowActActivity" />
-        <activity android:name=".coordinatelayout.CoordinateTest2Activity" />
+        <activity android:name=".templates.nestedscrollview.custom.MyNestedScrollAct" />
+        <activity android:name=".custom_views.recyclertest.recyclerviewWithFragment.RecyclerViewWithFragmentActivity" />
+        <activity android:name=".custom_views.recyclertest.RecyclerViewTestActivity" />
+        <activity android:name=".custom_views.draw_shadow.ShadowActActivity" />
+        <activity android:name=".templates.coordinatelayout.CoordinateTest2Activity" />
         <activity
-            android:name=".viewpager_fragment.ViewpagerActivity"
+            android:name=".templates.viewpager_fragment.ViewpagerActivity"
             android:label="@string/title_activity_viewpager" />
         <activity android:name=".uitest.ScrollRecyclerActivity" />
         <activity
             android:name=".uitest.TextSizeTestActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".viewpageranim.TestLSCVAct" />
-        <activity android:name=".leftswipe.LeftSwipeAct" />
-        <activity android:name=".customview.ViewTestAct" />
+        <activity android:name=".templates.viewpageranim.TestLSCVAct" />
+        <activity android:name=".custom_views.leftswipe.LeftSwipeAct" />
+        <activity android:name=".custom_views.customview.ViewTestAct" />
         <activity android:name=".uitest.UITestAct" />
-        <activity android:name=".constraintlayout.ConstraintLayoutChangeAct" />
-        <activity android:name=".asynctask.AsyncTaskTestAct" />
-        <activity android:name=".coordinatelayout.CoordinateLayoutAct" />
+        <activity android:name=".templates.constraintlayout.ConstraintLayoutChangeAct" />
+        <activity android:name=".templates.asynctask.AsyncTaskTestAct" />
+        <activity android:name=".templates.coordinatelayout.CoordinateLayoutAct" />
         <activity
             android:name=".setupactivities.TabbedSpinnerActivity"
             android:label="@string/title_activity_tabbed_spinner"
@@ -67,7 +70,7 @@
             android:name=".setupactivities.TabbedActionBarActivity"
             android:label="@string/title_activity_tabbed_action_bar"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".nestedscrollview.NestedScrollViewAct" />
+        <activity android:name=".templates.nestedscrollview.NestedScrollViewAct" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

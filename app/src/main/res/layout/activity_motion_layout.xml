@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     app:layoutDescription="@xml/constraint_scene_1"
     tools:showPaths="true"
-    tools:context=".motionLayout.MotionLayoutActivity">
+    tools:context=".templates.motionLayout.MotionLayoutActivity">
 
     <TextView
         android:layout_width="wrap_content"

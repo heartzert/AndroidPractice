@@ -9,7 +9,7 @@
         android:id="@+id/fragment"
         android:tag="fragment_in_recycler"
         android:layout_width="match_parent"
-        android:name="heartzert.test.all.recyclertest.recyclerviewWithFragment.MyFragment"
+        android:name="heartzert.test.all.custom_views.recyclertest.recyclerviewWithFragment.MyFragment"
         android:layout_height="wrap_content"
         tools:layout="@layout/fragment_in_recycler" />
 
