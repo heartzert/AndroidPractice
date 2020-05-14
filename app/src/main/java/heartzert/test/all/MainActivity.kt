@@ -8,6 +8,8 @@ import heartzert.test.all.custom_views.ScaleableImageView.ScaleableImageTestActi
 import heartzert.test.all.templates.handlerthread.HandlerThreadActivity
 import heartzert.test.all.templates.intentservice.IntentServiceActivity
 import heartzert.test.all.templates.motionLayout.MotionLayoutActivity
+import heartzert.test.all.templates.reflaction.ReflactionActivity
+import heartzert.test.all.templates.retrofit.RetrofitActivity
 import heartzert.test.all.uitest.UITestAct
 
 class MainActivity : AppCompatActivity() {
@@ -18,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun firstTest(view: View) {
-        startActivity(Intent(this, HandlerThreadActivity::class.java))
+        startActivity(Intent(this, RetrofitActivity::class.java))
     }
 
     fun secondTest(view: View) {
@@ -26,7 +28,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun thirdTest(view: View) {
-        startActivity(Intent(this, MotionLayoutActivity::class.java))
+        startActivity(Intent(this, ReflactionActivity::class.java))
     }
 
 }

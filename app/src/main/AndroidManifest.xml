@@ -18,8 +18,12 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <service android:name=".templates.intentservice.IntentServiceActivity$MyIntentService"/>
-        <activity android:name=".templates.intentservice.IntentServiceActivity"/>
+        <activity android:name=".templates.retrofit.RetrofitActivity"></activity>
+        <activity android:name=".templates.reflaction.ReflactionActivity" />
+
+        <service android:name=".templates.intentservice.IntentServiceActivity$MyIntentService" />
+
+        <activity android:name=".templates.intentservice.IntentServiceActivity" />
         <activity android:name=".templates.handlerthread.HandlerThreadActivity" />
         <activity android:name=".templates.coroutines.CoroutinesActivity" />
         <activity android:name=".templates.contentprovider.TestProviderActivity" /> <!-- 测试provider -->
