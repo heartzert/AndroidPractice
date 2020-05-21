@@ -51,12 +51,12 @@ public class _003 {
         Set set = new HashSet<Integer>();
         //循环外部创建对象，避免频繁创建。
         int value = -1;
-        for (int i : nums) {
+        for (int a : nums) {
             //利用add的返回值，减少contains判断
             //当成功插入时，返回true
             //当插入失败，即已经存在时，返回false
             if (!set.add(value)) {
-                value = nums[i];
+                value = a;
                 break;
             }
         }
