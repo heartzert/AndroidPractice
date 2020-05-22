@@ -35,7 +35,10 @@ public class _004 {
     public static void main(String[] args) {
         int[][] a = new int[][]{{1,4,7,11,15},{2,5,8,12,19},{3,6,9,16,22},{10,13,14,17,24},{18,21,23,26,30}};
         int[][] b = new int[][]{{1,4,7,11,15}};
+        int[][] c = new int[][]{};
+        System.out.println(execute2(a, 6));
         System.out.println(execute2(b, 6));
+        System.out.println(execute2(c, 6));
     }
 
     //无思路 菜批
@@ -54,20 +57,28 @@ public class _004 {
     因此往左查找不可能找到目标值，往下查找可能找到目标值。
 
     思考：仔细分析题目给的条件，判断数据规律。我只想到了左上和右下开始，并没有想到右上开始的情况。
+    要严格注意边界条件！！
      */
     static boolean execute2(int[][] matrix, int target) {
+        //输入校验
+        if (matrix.length <= 0) return false;
         int n = matrix.length - 1;
-        int i = matrix[0].length - 1;
-        int j = 0;
+        int x = matrix[0].length - 1;//m..0
+        int y = 0;//0..n
         while (true) {
-            if (i < 0 || j > n) return false;
-            int value = matrix[i][j];
+            //边界校验
+            if (x < 0 || y > n) return false;
+            //注意二维数组的取值方式，前列后行。
+            int value = matrix[y][x];
+            //循环退出条件
             if (value == target) return true;
+            //递进条件，如果目标值小于当前值，则一定小于当前值下面的所有值，左移一列判断
             if (target < value) {
-                i--;
+                x--;
                 continue;
             }
-            j++;
+            //如果目标值大于当前值，则一定大于当前值左侧所有值，下移一行判断
+            y++;
         }
     }
 }
