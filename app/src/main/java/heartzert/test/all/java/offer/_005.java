@@ -32,6 +32,16 @@ public class _005 {
 
     //其实就是要求自己实现replace函数
     static private String execute2(String s) {
-        return s;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == ' ') {
+                sb.append('%');
+                sb.append('2');
+                sb.append('0');
+            } else {
+                sb.append(s.charAt(i));
+            }
+        }
+        return sb.toString();
     }
 }
