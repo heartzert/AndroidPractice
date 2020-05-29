@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="heartzert.test.all.templates.constraintlayout.ConstraintLayoutChangeAct" />
+            type="heartzert.test.all.samples.constraintlayout.ConstraintLayoutChangeAct" />
 
     </data>
 
@@ -15,7 +15,7 @@
         android:id="@+id/full_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".templates.constraintlayout.ConstraintLayoutChangeAct">
+        tools:context=".samples.constraintlayout.ConstraintLayoutChangeAct">
 
         <Button
             android:id="@+id/button1"

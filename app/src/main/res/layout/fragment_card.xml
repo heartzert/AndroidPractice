@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="heartzert.test.all.templates.viewpageranim.item.CardFragment" />
+            type="heartzert.test.all.samples.viewpageranim.item.CardFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

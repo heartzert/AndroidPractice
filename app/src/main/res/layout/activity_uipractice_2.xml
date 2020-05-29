@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".templates.constraintlayout.UIPracticeActivity">
+    tools:context=".samples.constraintlayout.UIPracticeActivity">
 
     <View
         android:id="@+id/line_left"

@@ -4,13 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import heartzert.test.all.custom_views.ScaleableImageView.ScaleableImageTestActivity
-import heartzert.test.all.templates.handlerthread.HandlerThreadActivity
-import heartzert.test.all.templates.intentservice.IntentServiceActivity
-import heartzert.test.all.templates.motionLayout.MotionLayoutActivity
-import heartzert.test.all.templates.reflaction.ReflactionActivity
-import heartzert.test.all.templates.retrofit.RetrofitActivity
-import heartzert.test.all.uitest.UITestAct
+import heartzert.test.all.samples.intentservice.IntentServiceActivity
+import heartzert.test.all.samples.reflaction.ReflactionActivity
+import heartzert.test.all.samples.retrofit.RetrofitActivity
 
 class MainActivity : AppCompatActivity() {
 

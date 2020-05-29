@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<heartzert.test.all.templates.nestedscrollview.custom.NestedFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<heartzert.test.all.samples.nestedscrollview.custom.NestedFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".templates.nestedscrollview.custom.MyNestedScrollAct">
+    tools:context=".samples.nestedscrollview.custom.MyNestedScrollAct">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -12,4 +12,4 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:layout_height="wrap_content"/>
 
-</heartzert.test.all.templates.nestedscrollview.custom.NestedFrameLayout>
+</heartzert.test.all.samples.nestedscrollview.custom.NestedFrameLayout>

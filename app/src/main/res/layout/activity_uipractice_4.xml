@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".templates.constraintlayout.UIPracticeActivity">
+    tools:context=".samples.constraintlayout.UIPracticeActivity">
 
     <!--    企图把一个链约束在一个view上, 长宽度示例-->
     <androidx.constraintlayout.widget.ConstraintLayout
