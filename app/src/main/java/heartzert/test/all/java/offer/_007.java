@@ -116,6 +116,7 @@ public class _007 {
         TreeNode root;
         int rootvalue = preList[midStart];
         int i = preStart;
+        //官方答案的思路是先用一个map将preList预处理，就不用每次循环来找了
         for (; i <= preEnd; i++) {
             if (midList[i] == rootvalue) {
                 break;
