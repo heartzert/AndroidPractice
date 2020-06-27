@@ -1,5 +1,7 @@
 package heartzert.test.all.java;
 
+import java.util.LinkedList;
+
 /**
  * Created by heartzert on 2020/5/19.
  * Email: heartzert@163.com
