@@ -28,4 +28,18 @@ package heartzert.test.all.java.offer;
  */
 class _014 {
 
+    /*
+    一开始理解成m也要手动输入了。。。为什么不仔细看题啊。。。浮躁的一批！！
+
+
+    算法！的魅力！
+    https://leetcode-cn.com/problems/jian-sheng-zi-lcof/solution/mian-shi-ti-14-i-jian-sheng-zi-tan-xin-si-xiang-by/
+     */
+    public int cuttingRope(int n) {
+        if(n <= 3) return n - 1;
+        int a = n / 3, b = n % 3;
+        if(b == 0) return (int)Math.pow(3, a);
+        if(b == 1) return (int)Math.pow(3, a - 1) * 4;
+        return (int)Math.pow(3, a) * 2;
+    }
 }
