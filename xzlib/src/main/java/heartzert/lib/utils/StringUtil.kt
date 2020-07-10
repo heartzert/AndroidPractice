@@ -1,5 +1,7 @@
 package heartzert.lib.utils
 
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import java.math.RoundingMode.HALF_EVEN
 
 /**
@@ -28,4 +30,12 @@ fun transformToW(string: String?, digital: Int): String {
         return if (result.isNullOrEmpty()) "" else result + "万"
     }
     return ""
+}
+
+/**
+ *  json 转化成 Map
+ */
+fun jsonToMap(jsonStr: String): Map<String, Any>? {
+    val map = Gson().fromJson<Map<String, String>>(jsonStr, object : TypeToken<Map<String, String>>() {}.type)
+    return map?.toSortedMap()
 }

@@ -69,6 +69,7 @@ class _018 {
     6.删除不存在的值
 
     注意：题目保证链表中节点的值互不相同，所以查到一个就可以直接返回了。
+
      */
     public ListNode deleteNode(ListNode head, int val) {
         if (head == null) {
@@ -80,17 +81,19 @@ class _018 {
         }
         ListNode p = null;
         ListNode mid = head;
-        ListNode aft = mid.next;
+//        只需两个指针即可，aft可以用mid.next代替
+//        ListNode aft = mid.next;
         while (true) {
             if (mid.val == val) {
+                p.next = mid.next;
                 mid.next = null;
-                p.next = aft;
                 break;
             }
-            if (aft == null) break;
+            if (mid.next == null) {
+                break;
+            }
             p = mid;
-            mid = aft;
-            aft = mid.next;
+            mid = mid.next;
         }
         return head;
     }
