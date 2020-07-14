@@ -29,6 +29,10 @@ class ParentRecyclerviewAdapter : RecyclerView.Adapter<ViewHolder>() {
         }
     }
 
+    override fun setHasStableIds(hasStableIds: Boolean) {
+        super.setHasStableIds(hasStableIds)
+    }
+
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
 
     }

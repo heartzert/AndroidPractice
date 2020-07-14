@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import heartzert.test.all.samples.intentservice.IntentServiceActivity
-import heartzert.test.all.samples.reflaction.ReflactionActivity
 import heartzert.test.all.samples.retrofit.RetrofitActivity
+import heartzert.test.all.uitest.ScrollRecyclerActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun thirdTest(view: View) {
-        startActivity(Intent(this, ReflactionActivity::class.java))
+        startActivity(Intent(this, ScrollRecyclerActivity::class.java))
     }
 
 }

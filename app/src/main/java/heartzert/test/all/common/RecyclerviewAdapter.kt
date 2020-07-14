@@ -28,7 +28,7 @@ class RecyclerviewAdapter(val itemNumber: Int = 20) : RecyclerView.Adapter<ViewH
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         Log.d("========", "onBindViewHolder => holder=$holder, position=$position")
         val textView = holder.itemView?.findViewById<TextView>(R.id.textView)
-        textView.text = "aahahahhehieheihei" + position
+        textView.text = "hahahhehieheihei$position"
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
