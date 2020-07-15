@@ -13,9 +13,7 @@ import heartzert.test.all.android_conponents_paging.adaptor.MyAdaptor
 import heartzert.test.all.android_conponents_paging.http.RedditApi
 import heartzert.test.all.android_conponents_paging.http.RedditApi.RedditPost
 import heartzert.test.all.android_conponents_paging.repository.InMemoryByPageKeyRepository
-import heartzert.test.all.android_conponents_paging.repository.NetworkState
 import heartzert.test.all.databinding.ActivityViewModelViewBinding
-import kotlinx.android.synthetic.main.activity_view_model.recyclerView
 import java.util.concurrent.Executors
 
 class ViewModelActivity : AppCompatActivity() {
@@ -53,7 +51,6 @@ class ViewModelActivity : AppCompatActivity() {
 
     private fun initRecyclerView() {
         val adapter = MyAdaptor { viewModel?.retry() }
-        recyclerView?.adapter = adapter
         viewModel?.posts?.observe(this, Observer<PagedList<RedditPost>> {
             adapter.submitList(it)
         })
@@ -63,11 +60,6 @@ class ViewModelActivity : AppCompatActivity() {
     }
 
     private fun initSwipeToRefresh() {
-        viewModel?.refreshState?.observe(this, Observer {
-            binding?.refreshLayout?.isRefreshing = it == NetworkState.LOADING
-        })
-        binding?.refreshLayout?.setOnRefreshListener {
-            viewModel?.refresh()
-        }
+
     }
 }

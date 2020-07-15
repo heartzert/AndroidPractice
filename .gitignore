@@ -34,7 +34,7 @@ proguard/
 *.ipr
 *.iws
 *.log
-.idea/
+.idea
 
 # Mac
 .DS_Store

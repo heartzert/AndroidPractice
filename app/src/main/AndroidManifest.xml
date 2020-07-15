@@ -18,7 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".samples.retrofit.RetrofitActivity"></activity>
+        <activity
+            android:name=".setupactivities.BottomNavigationActivity"
+            android:label="@string/title_activity_bottom_navigation"/>
+        <activity android:name=".samples.retrofit.RetrofitActivity" />
         <activity android:name=".samples.reflaction.ReflactionActivity" />
 
         <service android:name=".samples.intentservice.IntentServiceActivity$MyIntentService" />

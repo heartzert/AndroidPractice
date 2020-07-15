@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import heartzert.test.all.samples.intentservice.IntentServiceActivity
 import heartzert.test.all.samples.retrofit.RetrofitActivity
+import heartzert.test.all.setupactivities.BottomNavigationActivity
 import heartzert.test.all.uitest.ScrollRecyclerActivity
 
 class MainActivity : AppCompatActivity() {
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun secondTest(view: View) {
-        startActivity(Intent(this, IntentServiceActivity::class.java))
+        startActivity(Intent(this, BottomNavigationActivity::class.java))
     }
 
     fun thirdTest(view: View) {

@@ -9,4 +9,8 @@
     <string name="title_activity_tabbed_swipe">TabbedSwipeActivity</string>
     <string name="title_activity_tabbed_spinner">TabbedSpinnerActivity</string>
     <string name="title_activity_viewpager">ViewpagerActivity</string>
+    <string name="title_activity_bottom_navigation">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
