@@ -31,20 +31,6 @@ package heartzert.test.all.java.offer;
  */
 class _018 {
 
-    /**
-     * Definition for singly-linked list.
-     */
-    public static class ListNode {
-
-        int val;
-
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
-
     public static void main(String[] args) {
         _018 a = new _018();
         ListNode head = new ListNode(4);

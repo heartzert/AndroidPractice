@@ -14,28 +14,10 @@ import java.util.LinkedList;
 输入：head = [1,3,2]
 输出：[2,3,1]
 
-Definition for singly-linked list.
-public class ListNode {
-    int val;
-    ListNode next;
-    ListNode(int x) { val = x; }
-}
-
 限制：
 0 <= 链表长度 <= 10000
  */
 public class _006 {
-
-    public class ListNode {
-
-        int val;
-
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-    }
 
     public static void main(String[] args) {
         _006 instance = new _006();

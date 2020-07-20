@@ -13,7 +13,7 @@
 # generated files
 bin/
 gen/
-build/
+build
 captures/
 
 # Local configuration file (sdk path, etc)
@@ -34,7 +34,7 @@ proguard/
 *.ipr
 *.iws
 *.log
-.idea/
+.idea
 
 # Mac
 .DS_Store
