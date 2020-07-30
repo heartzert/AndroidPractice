@@ -35,6 +35,7 @@ public class _020 {
 
     public static void main(String[] args) {
         _020 a = new _020();
+        System.out.println("a".split("\\.")[0]);
         System.out.println("+100" + a.isNumber("+100"));
         System.out.println("-123" + a.isNumber("-123"));
         System.out.println("3.1416" + a.isNumber("3.1416"));
@@ -48,7 +49,11 @@ public class _020 {
         System.out.println("12e+5.4" + a.isNumber("12e+5.4"));
     }
 
+    /*
+    全部都忘记判空了，憨批
+     */
     public boolean isNumber(String s) {
+        if (s == null || s.isEmpty()) return false;
         String[] s1 = s.split("e");
         if (s1.length > 2) return false;
         if (s1.length == 1) {
