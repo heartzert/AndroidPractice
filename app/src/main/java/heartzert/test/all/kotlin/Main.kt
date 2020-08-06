@@ -1,7 +1,6 @@
 package heartzert.test.all.kotlin
 
-import heartzert.lib.utils.jsonToMap
-import org.json.JSONObject
+import java.math.BigDecimal
 
 /**
  * Created by heartzert on 2020/5/19.
@@ -9,5 +8,10 @@ import org.json.JSONObject
  */
 
 fun main() {
-    println("0.3".toDoubleOrNull() ?: 0.0 - 10.0 < 0.00001)
+    val list = arrayOf("123.4","123.45", null)
+    var total = BigDecimal.ZERO
+    for (x in list) {
+        total = total.add(x?.toBigDecimalOrNull() ?: BigDecimal.ZERO).multiply(1.toBigDecimal())
+    }
+    println(total)
 }
