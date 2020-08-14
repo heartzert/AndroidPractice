@@ -1,9 +1,7 @@
 package heartzert.lib.utils
 
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.Matrix
-import android.graphics.PixelFormat
+import android.content.res.Resources
+import android.graphics.*
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.BitmapDrawable
 
@@ -13,6 +11,9 @@ import android.graphics.drawable.BitmapDrawable
  */
 object ImageUtil {
 
+    /**
+     * 缩放Drawable
+     */
     fun zoomDrawable(drawable: Drawable, w: Int, h: Int): Drawable {
         val width = drawable.intrinsicWidth
         val height = drawable.intrinsicHeight
@@ -25,6 +26,9 @@ object ImageUtil {
         return BitmapDrawable(null, newbmp)
     }
 
+    /**
+     * 缩放BitmapDrawable
+     */
     fun zoomBitmapDrawable(drawable: BitmapDrawable, w:Int, h: Int): BitmapDrawable {
         val width = drawable.intrinsicWidth
         val height = drawable.intrinsicHeight
@@ -52,5 +56,20 @@ object ImageUtil {
         drawable.setBounds(0, 0, width, height)
         drawable.draw(canvas)
         return bitmap
+    }
+
+    /**
+     * 获取src图片的Bitmap
+     */
+    fun getImage(resources: Resources?, srcId: Int, width: Int, height : Int): Bitmap? {
+        resources ?: return null
+        val density = if (width > height) height else width
+        val options = BitmapFactory.Options()
+        options.inJustDecodeBounds = true
+        BitmapFactory.decodeResource(resources, srcId, options)
+        options.inJustDecodeBounds = false
+        options.inDensity = options.outWidth
+        options.inTargetDensity = density
+        return BitmapFactory.decodeResource(resources, srcId, options)
     }
 }

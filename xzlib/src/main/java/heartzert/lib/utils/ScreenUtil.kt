@@ -23,6 +23,24 @@ import androidx.databinding.BindingAdapter
  */
 
 /**
+ * 获取statusBar高度
+ */
+fun getStatusBarHeight(): Int {
+    val resources = Resources.getSystem()
+    val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
+    return resources.getDimensionPixelSize(resourceId)
+}
+
+/**
+ * 获取navigationBar高度
+ */
+private fun getNavigationBarHeight(): Int {
+    val resources = Resources.getSystem()
+    val resourceId = resources.getIdentifier("navigation_bar_height", "dimen", "android")
+    return resources.getDimensionPixelSize(resourceId)
+}
+
+/**
  * 获得屏幕高度
  *
  * @return
@@ -38,26 +56,6 @@ fun getScreenWidth(): Int {
  */
 fun getScreenHeight(): Int {
     return Resources.getSystem().displayMetrics.heightPixels
-}
-
-/**
- * 获得状态栏的高度
- *
- * @return
- */
-fun getStatusHeight(): Int {
-
-    var statusHeight = -1
-    try {
-        val clazz = Class.forName("com.android.internal.R\$dimen")
-        val `object` = clazz.newInstance()
-        val height = Integer.parseInt(clazz.getField("status_bar_height").get(`object`).toString())
-        statusHeight = Resources.getSystem().getDimensionPixelSize(height)
-    } catch (e: Exception) {
-        e.printStackTrace()
-    }
-
-    return statusHeight
 }
 
 /**
@@ -77,7 +75,6 @@ fun snapShotWithStatusBar(activity: Activity): Bitmap? {
     bp = Bitmap.createBitmap(bmp, 0, 0, width, height)
     view.destroyDrawingCache()
     return bp
-
 }
 
 /**
@@ -175,13 +172,3 @@ fun getBitmapConfiguration(bitmap: Bitmap?, imageView: ImageView, screenRadio: F
     return floatArrayOf(width, height)
 }
 
-/**
- * 设置view是否可见
- */
-fun View.SetVisible(visible: Boolean) {
-    this.visibility = if (visible) {
-        View.VISIBLE
-    } else {
-        View.GONE
-    }
-}

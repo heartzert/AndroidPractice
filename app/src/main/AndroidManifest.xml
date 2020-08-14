@@ -18,6 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".hilt.HiltMainActivity"></activity>
         <activity
             android:name=".setupactivities.BottomNavigationActivity"
             android:label="@string/title_activity_bottom_navigation" />

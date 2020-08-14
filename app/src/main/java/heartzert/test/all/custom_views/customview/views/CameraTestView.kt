@@ -7,7 +7,6 @@ import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
 import heartzert.test.all.R
-import heartzert.test.all.utils.ImageUtil
 
 /**
  * Created by heartzert on 2019/9/30.

@@ -16,7 +16,7 @@ import androidx.databinding.BindingAdapter
  */
 
 /**
- * 控制是否显示view
+ * 控制是否显示view，以及消失时是否执行fade动画
  *
  * @param v
  * @param visible 是否显示view，true为VISIBLE，false为GONE，没有考虑INVISIBLE的情况
