@@ -1,6 +1,8 @@
 package heartzert.lib.utils
 
+import android.net.Uri
 import java.net.URI
+import java.util.Locale
 
 /**
  * Created by heartzert on 2019/6/12.
@@ -39,4 +41,8 @@ fun URI.getFirstPath(): String {
         e.printStackTrace()
         ""
     }
+}
+
+fun URI.isGif(): Boolean {
+    return this.path?.toLowerCase(Locale.getDefault())?.endsWith(".gif") == true
 }

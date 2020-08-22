@@ -1,4 +1,4 @@
-package heartzert.lib.utils.textSpan
+package heartzert.lib.utils.textview
 
 import android.content.Context
 import android.graphics.Canvas
