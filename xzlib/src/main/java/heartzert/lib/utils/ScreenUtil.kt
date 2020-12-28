@@ -100,51 +100,6 @@ fun snapShotWithoutStatusBar(activity: Activity): Bitmap? {
 }
 
 /**
- * dp转px
- *
- * @param context
- * @param dpVal
- * @return
- */
-fun dp2px(dpVal: Float): Int {
-    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-        dpVal, Resources.getSystem().displayMetrics).toInt()
-}
-
-/**
- * sp转px
- *
- * @param spVal
- * @return
- */
-fun sp2px(spVal: Float): Int {
-    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
-        spVal, Resources.getSystem().displayMetrics).toInt()
-}
-
-/**
- * px转dp
- *
- * @param pxVal
- * @return
- */
-fun px2dp(pxVal: Float): Float {
-    val scale = Resources.getSystem().displayMetrics.density
-    return pxVal / scale
-}
-
-/**
- * px转sp
- *
- * @param pxVal
- * @return
- */
-fun px2sp(pxVal: Float): Float {
-    val scale = Resources.getSystem().displayMetrics.scaledDensity
-    return pxVal / scale
-}
-
-/**
  * 动态设置图片宽高
  */
 fun getBitmapConfiguration(bitmap: Bitmap?, imageView: ImageView, screenRadio: Float): FloatArray {

@@ -2,6 +2,7 @@ package heartzert.test.all.samples.coroutines
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.lifecycle.lifecycleScope
 import heartzert.test.all.R
 import kotlinx.coroutines.*
 
@@ -38,6 +39,12 @@ class CoroutinesActivity : AppCompatActivity() {
 
     suspend fun getBirth() {
         withContext(Dispatchers.Unconfined) {
+
+        }
+    }
+
+    suspend fun getBb() {
+        lifecycleScope.launchWhenResumed {
 
         }
     }

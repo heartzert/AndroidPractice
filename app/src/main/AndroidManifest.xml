@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="heartzert.test.all"
-    tools:ignore="LockedOrientationActivity">
+<manifest package="heartzert.test.all"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  tools:ignore="LockedOrientationActivity">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -10,18 +10,18 @@
     <permission android:name="heartzert.test.permission" />
 
     <application
-        android:name="heartzert.lib.oldbase.IApplication"
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/NoActionBarTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".hilt.HiltMainActivity"></activity>
+      android:name="heartzert.lib.oldbase.IApplication"
+      android:allowBackup="true"
+      android:icon="@mipmap/ic_launcher"
+      android:label="@string/app_name"
+      android:roundIcon="@mipmap/ic_launcher_round"
+      android:supportsRtl="true"
+      android:theme="@style/NoActionBarTheme"
+      tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".uitest.ButtonActivity"/>
         <activity
-            android:name=".setupactivities.BottomNavigationActivity"
-            android:label="@string/title_activity_bottom_navigation" />
+          android:name=".setupactivities.BottomNavigationActivity"
+          android:label="@string/title_activity_bottom_navigation" />
         <activity android:name=".samples.retrofit.RetrofitActivity" />
         <activity android:name=".samples.reflaction.ReflactionActivity" />
 
@@ -32,16 +32,16 @@
         <activity android:name=".samples.coroutines.CoroutinesActivity" />
         <activity android:name=".samples.contentprovider.TestProviderActivity" /> <!-- 测试provider -->
         <provider
-            android:name=".samples.contentprovider.TestProvider"
-            android:authorities="heartzert.test.all.samples.contentprovider.TestProvider"
-            android:permission="heartzert.test.permission"
-            android:process=":testProvider" />
+          android:name=".samples.contentprovider.TestProvider"
+          android:authorities="heartzert.test.all.samples.contentprovider.TestProvider"
+          android:permission="heartzert.test.permission"
+          android:process=":testProvider" />
 
         <activity android:name=".samples.constraintlayout.UIPracticeActivity" />
         <activity
-            android:name=".uitest.MiniProgramActivity"
-            android:launchMode="singleTask"
-            android:taskAffinity="com.test" />
+          android:name=".uitest.MiniProgramActivity"
+          android:launchMode="singleTask"
+          android:taskAffinity="com.test" />
         <activity android:name=".custom_views.recyclertest.myRecyclerView.NestedTestActivity" />
         <activity android:name=".custom_views.ScaleableImageView.ScaleableImageTestActivity" />
         <activity android:name=".samples.motionLayout.MotionLayoutActivity" />
@@ -52,12 +52,14 @@
         <activity android:name=".custom_views.draw_shadow.ShadowActActivity" />
         <activity android:name=".samples.coordinatelayout.CoordinateTest2Activity" />
         <activity
-            android:name=".samples.viewpager_fragment.ViewpagerActivity"
-            android:label="@string/title_activity_viewpager" />
-        <activity android:name=".uitest.ScrollRecyclerActivity" />
+          android:name=".samples.viewpager_fragment.ViewpagerActivity"
+          android:label="@string/title_activity_viewpager" />
         <activity
-            android:name=".uitest.TextSizeTestActivity"
-            android:screenOrientation="portrait" />
+          android:name=".uitest.ScrollRecyclerActivity"
+          android:exported="true" />
+        <activity
+          android:name=".uitest.TextSizeTestActivity"
+          android:screenOrientation="portrait" />
         <activity android:name=".samples.viewpageranim.TestLSCVAct" />
         <activity android:name=".custom_views.leftswipe.LeftSwipeAct" />
         <activity android:name=".custom_views.customview.ViewTestAct" />
@@ -66,23 +68,33 @@
         <activity android:name=".samples.asynctask.AsyncTaskTestAct" />
         <activity android:name=".samples.coordinatelayout.CoordinateLayoutAct" />
         <activity
-            android:name=".setupactivities.TabbedSpinnerActivity"
-            android:label="@string/title_activity_tabbed_spinner"
-            android:theme="@style/AppTheme.NoActionBar" />
+          android:name=".setupactivities.TabbedSpinnerActivity"
+          android:label="@string/title_activity_tabbed_spinner"
+          android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".setupactivities.TabbedSwipeActivity"
-            android:label="@string/title_activity_tabbed_swipe"
-            android:theme="@style/AppTheme.NoActionBar" />
+          android:name=".setupactivities.TabbedSwipeActivity"
+          android:label="@string/title_activity_tabbed_swipe"
+          android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".setupactivities.TabbedActionBarActivity"
-            android:label="@string/title_activity_tabbed_action_bar"
-            android:theme="@style/AppTheme.NoActionBar" />
+          android:name=".setupactivities.TabbedActionBarActivity"
+          android:label="@string/title_activity_tabbed_action_bar"
+          android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".samples.nestedscrollview.NestedScrollViewAct" />
-        <activity android:name=".MainActivity">
+        <activity
+          android:name=".MainActivity"
+          android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <!-- 测试监听隐式intent -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="*/*" />
             </intent-filter>
         </activity>
     </application>
