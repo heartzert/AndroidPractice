@@ -10,14 +10,15 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import heartzert.test.all.R
 import heartzert.test.all.databinding.ActivityRecyclerViewWithFragmentBinding
-import kotlinx.android.synthetic.main.activity_scroll_recycler.recyclerView
 
 class RecyclerViewWithFragmentActivity : AppCompatActivity() {
 
+    private lateinit var binding : ActivityRecyclerViewWithFragmentBinding
+
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
-        DataBindingUtil.setContentView<ActivityRecyclerViewWithFragmentBinding>(this, R.layout.activity_recycler_view_with_fragment)
-        recyclerView.adapter = MyAdapter()
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_recycler_view_with_fragment)
+        binding.recyclerView.adapter = MyAdapter()
     }
 
     class MyAdapter: RecyclerView.Adapter<MyViewHolder>() {

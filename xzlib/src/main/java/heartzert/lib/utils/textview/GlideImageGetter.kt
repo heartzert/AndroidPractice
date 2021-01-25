@@ -109,8 +109,8 @@ class GlideImageGetter(private val mTextView: TextView) : ImageGetter {
 
         var drawable: Drawable? = null
 
-        override fun draw(canvas: Canvas?) {
-            drawable?.draw(canvas ?: return)
+        override fun draw(canvas: Canvas) {
+            drawable?.draw(canvas)
         }
 
         override fun scheduleDrawable(who: Drawable, what: Runnable, `when`: Long) {

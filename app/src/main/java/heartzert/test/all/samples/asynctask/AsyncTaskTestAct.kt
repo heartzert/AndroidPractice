@@ -4,17 +4,20 @@ import android.annotation.SuppressLint
 import android.os.AsyncTask
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import heartzert.test.all.R
-import kotlinx.android.synthetic.main.activity_async_task_test.text
 
 class AsyncTaskTestAct : AppCompatActivity() {
     private var task: AsyncTask<String, Double, Boolean>? = null
 
+    private var text: TextView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_async_task_test)
+        text = findViewById(R.id.text)
     }
 
     fun button(view: View) {
@@ -30,17 +33,17 @@ class AsyncTaskTestAct : AppCompatActivity() {
 
             override fun onProgressUpdate(vararg values: Double?) {
                 super.onProgressUpdate(*values)
-                text.text = "${values[0]}"
+                text?.text = "${values[0]}"
             }
 
             override fun onPostExecute(result: Boolean?) {
                 super.onPostExecute(result)
-                text.text = "done"
+                text?.text = "done"
                 task = null
             }
 
             override fun onCancelled(result: Boolean?) {
-                text.text = "canceled"
+                text?.text = "canceled"
                 task = null
             }
 

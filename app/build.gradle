@@ -1,19 +1,23 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+ext.android = rootProject.ext.android
+ext.jetPackVersion = rootProject.ext.jetPackVersion
+ext.dependVersion = rootProject.ext.dependVersion
+
 android {
-    compileSdkVersion compileSdk
+    compileSdkVersion android.compileSdkVersion
 
     defaultConfig {
-        applicationId "heartzert.test.all"
-        minSdkVersion minSdk
-        targetSdkVersion targetSdk
-        versionCode versionCode
-        versionName versionName
+        applicationId android.applicationId
+        minSdkVersion android.minSdk
+        targetSdkVersion android.targetSdk
+        versionCode android.versionCode
+        versionName android.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -24,10 +28,12 @@ android {
     dataBinding {
         enabled = true
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -39,31 +45,19 @@ dependencies {
     //自己的library
     implementation project(':xzlib')
 
-    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation 'androidx.paging:paging-runtime-ktx:2.1.2'
-    implementation 'androidx.activity:activity-ktx:1.1.0'
+    implementation "androidx.activity:activity-ktx:$jetPackVersion.activity_ktx"
+    implementation "androidx.paging:paging-runtime-ktx:$jetPackVersion.paging_runtime_ktx"
+    implementation "androidx.navigation:navigation-fragment-ktx:$jetPackVersion.navigation_fragment_ktx"
+    implementation "androidx.navigation:navigation-ui-ktx:$jetPackVersion.navigation_ui_ktx"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$jetPackVersion.lifecycle_livedata_ktx"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$jetPackVersion.lifecycle_viewmodel_ktx"
+    implementation "androidx.fragment:fragment-ktx:$jetPackVersion.fragment_ktx"
 
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    annotationProcessor "com.github.bumptech.glide:compiler:$dependVersion.glide"
 
-    implementation 'com.github.bumptech.glide:glide:4.10.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'com.google.android.material:material:1.1.0'
-    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.0'
-    implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
-    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
-    implementation 'androidx.fragment:fragment-ktx:1.2.5'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
-
-    implementation 'com.squareup.retrofit2:retrofit:2.8.1'
-
-    testImplementation "org.mockito:mockito-core:2.11.0"
+    //mockito
+    testImplementation "org.mockito:mockito-core:2.23.0"
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
-
+    //robolectric
     testImplementation "org.robolectric:robolectric:4.2.1"
-
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

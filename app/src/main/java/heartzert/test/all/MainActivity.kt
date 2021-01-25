@@ -9,6 +9,7 @@ import android.provider.MediaStore
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.google.gson.Gson
 import heartzert.test.all.setupactivities.BottomNavigationActivity
 import heartzert.test.all.uitest.ButtonActivity
 import heartzert.test.all.uitest.ScrollRecyclerActivity
@@ -22,10 +23,25 @@ class MainActivity : AppCompatActivity() {
         ).get(MainViewModel::class.java)
     }
 
+    class A {
+        val B = B()
+    }
+
+    class B {
+        val string: String? = null
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 //        Log.d("==========", "intent=: $intent")
+
+
+        println("test start:")
+        println(Gson().fromJson(Gson().toJson(A()), A::class.java).toString())
+
+//        val uri = Uri.parse("https://media4.giphy.com/media/3oEjHGr1Fhz0kyv8Ig/giphy-preview.gif?cid=9f0f6425b7fd2eb0c1c8a3c89ae84af6efd11ff4183c110c&rid=giphy-preview.gif")
+//        println("${uri.scheme}://${uri.host}${uri.path}")
     }
 
     fun firstTest(view: View) {

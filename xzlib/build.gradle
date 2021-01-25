@@ -1,21 +1,16 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
-
 //在activity中直接使用id获取控件而不用findviewbyid获取需要使用这个插件;不加这个插件有可能导致BR文件不能正常生成
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.android.minSdk
+        targetSdkVersion rootProject.ext.android.targetSdk
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -38,37 +33,35 @@ dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
     //constraintLayout
-    api 'androidx.constraintlayout:constraintlayout:1.1.3'
-    api 'androidx.constraintlayout:constraintlayout:2.0.0-beta7'
+    api "androidx.constraintlayout:constraintlayout:$jetPackVersion.constraintlayout"
 
     //cardView等等material design相关组件
-    api 'com.google.android.material:material:1.1.0'
+    api "com.google.android.material:material:$jetPackVersion.material"
 
     //retrofit
-    api 'com.squareup.retrofit2:retrofit:2.4.0'
-    api 'com.squareup.retrofit2:converter-gson:2.4.0'
+    api "com.squareup.retrofit2:retrofit:$dependVersion.retrofit"
+    api "com.squareup.retrofit2:converter-gson:$dependVersion.retrofit"
 
     //okHttp3
-    api 'com.squareup.okhttp3:okhttp:3.11.0'
-    api 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    api "com.squareup.okhttp3:okhttp:$dependVersion.okhttp"
+    api "com.squareup.okhttp3:logging-interceptor:$dependVersion.logging_interceptor"
 
     //androidx
-    api 'androidx.appcompat:appcompat:1.1.0'
-    api 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    api "androidx.appcompat:appcompat:$jetPackVersion.appcompat"
+    api "androidx.lifecycle:lifecycle-extensions:$jetPackVersion.lifecycle_extensions"
+    api "androidx.core:core-ktx:$jetPackVersion.core_ktx"
 
     //glide
-    api 'com.github.bumptech.glide:glide:4.9.0'
+    api "com.github.bumptech.glide:glide:$dependVersion.glide"
 
     //data binding adapter
-    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:3.1.1'
-    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:3.1.1'
-    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-paging:3.1.1'
-    api 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-ktx:3.1.1'
+    api "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:$dependVersion.bindingcollectionadapter"
+    api "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:$dependVersion.bindingcollectionadapter"
+    api "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-paging:$dependVersion.bindingcollectionadapter"
+    api "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-ktx:$dependVersion.bindingcollectionadapter"
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.2.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-}
-repositories {
-    mavenCentral()
+    //junit
+    testApi "junit:junit:$dependVersion.junit"
+    androidTestApi "androidx.test:runner:$jetPackVersion.runner"
+    androidTestApi "androidx.test.espresso:$jetPackVersion.espresso_core"
 }

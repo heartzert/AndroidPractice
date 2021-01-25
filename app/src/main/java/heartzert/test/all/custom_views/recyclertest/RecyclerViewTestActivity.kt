@@ -7,7 +7,6 @@ import androidx.databinding.ObservableArrayList
 import heartzert.test.all.BR
 import heartzert.test.all.R
 import heartzert.test.all.databinding.ActivityRecyclerViewTestBinding
-import kotlinx.android.synthetic.main.activity_recycler_view_test.parentRecyclerView
 import me.tatarka.bindingcollectionadapter2.ItemBinding
 import me.tatarka.bindingcollectionadapter2.collections.MergeObservableList
 import me.tatarka.bindingcollectionadapter2.itembindings.OnItemBindClass
@@ -21,19 +20,21 @@ class RecyclerViewTestActivity : AppCompatActivity() {
             itemBinding.set(BR.string, R.layout.item_recyclerview)
         }
 
+    private lateinit var binding: ActivityRecyclerViewTestBinding
+
     private val mDataList = ArrayList<Any>()
     private val strArray = arrayOf("关注", "推荐", "视频", "直播", "图片", "段子", "精华", "热门")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = DataBindingUtil.setContentView<ActivityRecyclerViewTestBinding>(this, R.layout.activity_recycler_view_test)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_recycler_view_test)
         binding.viewModel = this
 
         for (x in 1..100) {
             itemList.add("1")
         }
 
-        parentRecyclerView.initLayoutManager()
+        binding.parentRecyclerView.initLayoutManager()
         initData()
     }
 
@@ -46,7 +47,7 @@ class RecyclerViewTestActivity : AppCompatActivity() {
         categoryBean.tabTitleList.clear()
         categoryBean.tabTitleList.addAll(strArray.asList())
         mDataList.add(categoryBean)
-        parentRecyclerView.adapter = multiTypeAdapter
+        binding.parentRecyclerView.adapter = multiTypeAdapter
         multiTypeAdapter.notifyDataSetChanged()
     }
 

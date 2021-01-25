@@ -22,7 +22,7 @@ import androidx.databinding.BindingAdapter
  * @param visible 是否显示view，true为VISIBLE，false为GONE，没有考虑INVISIBLE的情况
  */
 @BindingAdapter(value = ["app:visible", "app:withAnim"], requireAll = false)
-fun setVisible(v: View?, visible: Boolean, withAnim: Boolean = false) {
+fun setVisible(v: View, visible: Boolean, withAnim: Boolean = false) {
     if (withAnim) {
         val anim: Animation?
         if (visible) {
@@ -36,9 +36,9 @@ fun setVisible(v: View?, visible: Boolean, withAnim: Boolean = false) {
                 Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF, -1.0f)
             anim.duration = 500
         }
-        v?.startAnimation(anim)
+        v.startAnimation(anim)
     }
-    v?.visibility = if (visible) View.VISIBLE else View.GONE
+    v.visibility = if (visible) View.VISIBLE else View.GONE
 }
 
 /**
@@ -49,14 +49,14 @@ fun setVisible(v: View?, visible: Boolean, withAnim: Boolean = false) {
  * @param animDuration 动画时间，默认200ms
  */
 @BindingAdapter(value = ["app:visible", "app:withAnim", "app:animDuration"], requireAll = false)
-fun setVisible(v: View?, visible: Boolean, withAnim: Boolean = false, animDuration: Long = 0) {
+fun setVisible(v: View, visible: Boolean, withAnim: Boolean = false, animDuration: Long = 0) {
     val defaultDuration = 200L
     if (withAnim) {
         val mAnimDuration = if (animDuration <= 0L) defaultDuration else animDuration
         if (visible) {
-            v?.visibility = View.VISIBLE
-            v?.alpha = 0f
-            v?.animate()
+            v.visibility = View.VISIBLE
+            v.alpha = 0f
+            v.animate()
                 ?.alpha(1f)
                 ?.setDuration(mAnimDuration)
                 ?.withEndAction {
@@ -64,9 +64,9 @@ fun setVisible(v: View?, visible: Boolean, withAnim: Boolean = false, animDurati
                 }
                 ?.start()
         } else {
-            v?.visibility = View.VISIBLE
-            v?.alpha = 1f
-            v?.animate()
+            v.visibility = View.VISIBLE
+            v.alpha = 1f
+            v.animate()
                 ?.alpha(0f)
                 ?.setDuration(mAnimDuration)
                 ?.withEndAction {
@@ -75,7 +75,7 @@ fun setVisible(v: View?, visible: Boolean, withAnim: Boolean = false, animDurati
                 ?.start()
         }
     } else {
-        v?.visibility = if (visible) View.VISIBLE else View.GONE
+        v.visibility = if (visible) View.VISIBLE else View.GONE
     }
 }
 
@@ -86,8 +86,8 @@ fun setVisible(v: View?, visible: Boolean, withAnim: Boolean = false, animDurati
  * @param visible 是否显示view，true为VISIBLE，false为INVISIBLE
  */
 @BindingAdapter("app:hide")
-fun setHide(v: View?, visible: Boolean) {
-    v?.visibility = if (visible) View.VISIBLE else View.INVISIBLE
+fun setHide(v: View, visible: Boolean) {
+    v.visibility = if (visible) View.VISIBLE else View.INVISIBLE
 }
 
 /**
@@ -107,11 +107,11 @@ fun setConstraintHorizontalBias(view: View, float: Float) {
  * 设置图片tint
  */
 @BindingAdapter("app:tint")
-fun setTint(imageView: ImageView?, int: Int) {
+fun setTint(imageView: ImageView, int: Int) {
     if (int == 0 || int == -1) {
-        ImageViewCompat.setImageTintList(imageView ?: return, null)
+        ImageViewCompat.setImageTintList(imageView, null)
     } else {
-        ImageViewCompat.setImageTintList(imageView ?: return, ColorStateList.valueOf(int))
+        ImageViewCompat.setImageTintList(imageView, ColorStateList.valueOf(int))
     }
 }
 

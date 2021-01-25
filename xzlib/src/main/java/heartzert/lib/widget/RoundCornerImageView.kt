@@ -23,16 +23,14 @@ class RoundCornerImageView: AppCompatImageView {
     private var rect: RectF? = RectF()
 
 
-    constructor(context: Context?) : super(context)
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
-        context ?: return
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
 //        cornerRadius =
 //            getCornerRadius(context.obtainStyledAttributes(attrs, R.styleable.RoundCornerImageView))
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs,
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs,
         defStyleAttr) {
-        context ?: return
 //        cornerRadius =
 //            getCornerRadius(context.obtainStyledAttributes(attrs, R.styleable.RoundCornerImageView))
     }

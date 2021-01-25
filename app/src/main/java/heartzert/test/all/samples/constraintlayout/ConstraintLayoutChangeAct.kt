@@ -4,15 +4,15 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintSet
+import androidx.databinding.DataBindingUtil
 import androidx.transition.TransitionManager
 import heartzert.test.all.R
-import kotlinx.android.synthetic.main.activity_constraint_layout_change.button1
-import kotlinx.android.synthetic.main.activity_constraint_layout_change.button2
-import kotlinx.android.synthetic.main.activity_constraint_layout_change.button3
-import kotlinx.android.synthetic.main.activity_constraint_layout_change.full_layout
+import heartzert.test.all.databinding.ActivityConstraintLayoutChangeBinding
 
 class ConstraintLayoutChangeAct : AppCompatActivity() {
     private var storeConstraintSet: ConstraintSet? = null
+
+    private lateinit var binding : ActivityConstraintLayoutChangeBinding
 
     companion object {
         var times = 0
@@ -20,14 +20,14 @@ class ConstraintLayoutChangeAct : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_constraint_layout_change)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_constraint_layout_change)
     }
 
     fun test(view: View) {
         if (storeConstraintSet == null) {
-            storeConstraintSet = ConstraintSet().apply { clone(full_layout) }
+            storeConstraintSet = ConstraintSet().apply { clone(binding.fullLayout) }
         }
-        TransitionManager.beginDelayedTransition(full_layout)
+        TransitionManager.beginDelayedTransition(binding.fullLayout)
         when (times) {
             0 -> {
                 test1();times++
@@ -45,58 +45,58 @@ class ConstraintLayoutChangeAct : AppCompatActivity() {
     }
 
     fun reset(view: View) {
-        TransitionManager.beginDelayedTransition(full_layout)
-        storeConstraintSet?.applyTo(full_layout)
+        TransitionManager.beginDelayedTransition(binding.fullLayout)
+        storeConstraintSet?.applyTo(binding.fullLayout)
     }
 
     private fun test1() {
         ConstraintSet()
-            .apply { clone(full_layout) }
-            .apply { setMargin(button1.id, ConstraintSet.START, 100) }
-            .apply { connect(button1.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, 1000) }
-            .applyTo(full_layout)
+            .apply { clone(binding.fullLayout) }
+            .apply { setMargin(binding.button1.id, ConstraintSet.START, 100) }
+            .apply { connect(binding.button1.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP, 1000) }
+            .applyTo(binding.fullLayout)
     }
 
     private fun test2() {
         ConstraintSet()
-            .apply { clone(full_layout) }
-            .apply { clearConstraint(this, button1, true) }
-            .apply { clearConstraint(this, button2, true) }
-            .apply { clearConstraint(this, button3, true) }
+            .apply { clone(binding.fullLayout) }
+            .apply { clearConstraint(this, binding.button1, true) }
+            .apply { clearConstraint(this, binding.button2, true) }
+            .apply { clearConstraint(this, binding.button3, true) }
             .apply {
                 //这里的参数不能为Constraint.Start/ConstraintSet.End否则会报错
                 createHorizontalChain(
                     ConstraintSet.PARENT_ID, ConstraintSet.LEFT,
                     ConstraintSet.PARENT_ID, ConstraintSet.RIGHT,
-                    intArrayOf(button1.id, button2.id, button3.id),
+                    intArrayOf(binding.button1.id, binding.button2.id, binding.button3.id),
                     null,
                     ConstraintSet.CHAIN_PACKED
                 )
             }
-            .applyTo(full_layout)
+            .applyTo(binding.fullLayout)
     }
 
     private fun test3() {
         ConstraintSet()
             .apply {
-                clone(full_layout)
-                clearConstraint(this, button1)
-                clearConstraint(this, button2)
-                clearConstraint(this, button3)
-                setMargin0(this, button1.id)
-                setMargin0(this, button2.id)
-                setMargin0(this, button3.id)
-                connect(button1.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
-                connect(button1.id, ConstraintSet.START, ConstraintSet.PARENT_ID, ConstraintSet.START)
-                connect(button1.id, ConstraintSet.END, button2.id, ConstraintSet.START)
-                connect(button2.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
-                connect(button2.id, ConstraintSet.START, button1.id, ConstraintSet.END)
-                connect(button2.id, ConstraintSet.END, button3.id, ConstraintSet.START)
-                connect(button3.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
-                connect(button3.id, ConstraintSet.START, button2.id, ConstraintSet.END)
-                connect(button3.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END)
+                clone(binding.fullLayout)
+                clearConstraint(this, binding.button1)
+                clearConstraint(this, binding.button2)
+                clearConstraint(this, binding.button3)
+                setMargin0(this, binding.button1.id)
+                setMargin0(this, binding.button2.id)
+                setMargin0(this, binding.button3.id)
+                connect(binding.button1.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
+                connect(binding.button1.id, ConstraintSet.START, ConstraintSet.PARENT_ID, ConstraintSet.START)
+                connect(binding.button1.id, ConstraintSet.END, binding.button2.id, ConstraintSet.START)
+                connect(binding.button2.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
+                connect(binding.button2.id, ConstraintSet.START, binding.button1.id, ConstraintSet.END)
+                connect(binding.button2.id, ConstraintSet.END, binding.button3.id, ConstraintSet.START)
+                connect(binding.button3.id, ConstraintSet.TOP, ConstraintSet.PARENT_ID, ConstraintSet.TOP)
+                connect(binding.button3.id, ConstraintSet.START, binding.button2.id, ConstraintSet.END)
+                connect(binding.button3.id, ConstraintSet.END, ConstraintSet.PARENT_ID, ConstraintSet.END)
             }
-            .applyTo(full_layout)
+            .applyTo(binding.fullLayout)
     }
 }
 

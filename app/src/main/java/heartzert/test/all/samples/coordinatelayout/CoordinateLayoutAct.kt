@@ -3,6 +3,7 @@ package heartzert.test.all.samples.coordinatelayout
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +12,6 @@ import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import com.google.android.material.snackbar.Snackbar
 import heartzert.test.all.R
-import kotlinx.android.synthetic.main.activity_coordinate_layout.layout
 import kotlin.math.abs
 
 class CoordinateLayoutAct : AppCompatActivity() {
@@ -22,6 +22,7 @@ class CoordinateLayoutAct : AppCompatActivity() {
 
         val image = findViewById<ImageView>(R.id.image)
         val appbar = findViewById<AppBarLayout>(R.id.appbar)
+        val layout = findViewById<ViewGroup?>(R.id.layout)
 
         image.setBackgroundColor(ContextCompat.getColor(this@CoordinateLayoutAct, R.color.red))
 
@@ -48,7 +49,7 @@ class CoordinateLayoutAct : AppCompatActivity() {
                         image.layoutParams = layout
                     }
                     Log.d("========", "persent=$percent")
-                    layout.translationY = abs(p1.toFloat()) - min_image_height / 2 * (1 - percent)
+                    layout?.translationY = abs(p1.toFloat()) - min_image_height / 2 * (1 - percent)
 
                 }
             }

@@ -1,5 +1,6 @@
 package heartzert.test.all
 
+import android.net.Uri
 import org.junit.Test
 import kotlin.math.roundToInt
 
@@ -29,5 +30,11 @@ class Test {
             println("<item android:drawable=\"@drawable/$fileCommonName$s\" android:duration=\"$eachDuration\"/>")
         }
 
+    }
+
+    @Test
+    fun testUri() {
+        val uri = Uri.parse("https://media4.giphy.com/media/3oEjHGr1Fhz0kyv8Ig/giphy-preview.gif?cid=9f0f6425b7fd2eb0c1c8a3c89ae84af6efd11ff4183c110c&rid=giphy-preview.gif")
+        print(uri.path)
     }
 }

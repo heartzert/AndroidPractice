@@ -61,8 +61,7 @@ object ImageUtil {
     /**
      * 获取src图片的Bitmap
      */
-    fun getImage(resources: Resources?, srcId: Int, width: Int, height : Int): Bitmap? {
-        resources ?: return null
+    fun getImage(resources: Resources, srcId: Int, width: Int, height : Int): Bitmap {
         val density = if (width > height) height else width
         val options = BitmapFactory.Options()
         options.inJustDecodeBounds = true

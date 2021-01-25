@@ -27,7 +27,7 @@ class TestProviderActivity : AppCompatActivity() {
             put("sex", 1)
         }
         contentResolver.insert(bookUri, bookValue)
-        val bookcursor = contentResolver.query(bookUri, null, null, null, null)
+        val bookcursor = contentResolver.query(bookUri, null, null, null, null) ?: return
         while (bookcursor.moveToNext()) {
             val book = Book()
             book.name = bookcursor.getString(1)
