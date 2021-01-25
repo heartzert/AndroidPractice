@@ -18,6 +18,29 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+
+        Properties properties = new Properties()
+        properties.load(project.rootProject.file('local.properties').newDataInputStream())
+        def keyStorePassword = properties.getProperty('KEY_STORE_PASSWORD')
+        def keyName = properties.getProperty('KEY_NAME')
+        def keyPassWord = properties.getProperty('KEY_PASSWORD')
+
+        release {
+            storeFile file("../keystore")
+            storePassword keyStorePassword
+            keyAlias keyName
+            keyPassword keyPassWord
+        }
+
+        debug {
+            storeFile file("../keystore")
+            storePassword keyStorePassword
+            keyAlias keyName
+            keyPassword keyPassWord
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -25,8 +48,8 @@ android {
         }
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding true
     }
 
     compileOptions {
