@@ -1,20 +1,17 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
-
-ext.android = rootProject.ext.android
-ext.jetPackVersion = rootProject.ext.jetPackVersion
-ext.dependVersion = rootProject.ext.dependVersion
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
-    compileSdkVersion android.compileSdkVersion
+    compileSdkVersion androids.compileSdkVersion
 
     defaultConfig {
-        applicationId android.applicationId
-        minSdkVersion android.minSdk
-        targetSdkVersion android.targetSdk
-        versionCode android.versionCode
-        versionName android.versionName
+        applicationId androids.applicationId
+        minSdkVersion androids.minSdk
+        targetSdkVersion androids.targetSdk
+        versionCode androids.versionCode
+        versionName androids.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -76,10 +73,15 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$jetPackVersion.lifecycle_viewmodel_ktx"
     implementation "androidx.fragment:fragment-ktx:$jetPackVersion.fragment_ktx"
 
+    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$dependVersion.hilt_compiler"
+    kapt "androidx.hilt:hilt-compiler:$dependVersion.hilt_compiler"
+    implementation "com.google.dagger:hilt-android:$dependVersion.hilt"
+    kapt "com.google.dagger:hilt-android-compiler:$dependVersion.hilt"
+
     annotationProcessor "com.github.bumptech.glide:compiler:$dependVersion.glide"
 
     //mockito
-    testImplementation "org.mockito:mockito-core:2.23.0"
+    testImplementation "org.mockito:mockito-core:3.3.1"
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
     //robolectric
     testImplementation "org.robolectric:robolectric:4.2.1"

@@ -7,13 +7,13 @@ import android.content.Context
  * Created by heartzert on 2019/4/16.
  * Email: heartzert@163.com
  */
-class IApplication: Application() {
+open class IApplication: Application() {
     companion object {
-        var appContext: Context? = null
-        var application: Application? = null
+        lateinit var appContext: Context
+        lateinit var application: Application
 
         fun init(application: Application) {
-            appContext = application
+            appContext = application.applicationContext
             Companion.application = application
         }
     }

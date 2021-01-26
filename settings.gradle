@@ -1,5 +1,2 @@
 include ':Algrithom'
-include ':KoinSample'
-include ':DaggerSample'
-include ':HiltSample'
 include ':app', ':xzlib', ':eventbustest'

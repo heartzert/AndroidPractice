@@ -1,6 +1,5 @@
 ext {
-
-    android = [
+    androids = [
             applicationId    : "heartzert.test.all",
             buildTool        : "29.0.3",
             minSdk           : 24,
@@ -42,6 +41,8 @@ ext {
             okhttp                  : "3.14.7",
             logging_interceptor     : "3.11.0",
             bindingcollectionadapter: "3.1.1",
+            hilt_compiler           : "1.0.0-alpha02",
+            hilt                    : "2.28-alpha",
     ]
 
 }

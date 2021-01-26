@@ -1,14 +1,12 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply plugin: 'koin'
-apply from: 'version.gradle'
 
 buildscript {
+    apply from: "version.gradle"
 
-    ext {
-        ext.kotlin_version = '1.4.21'
-        ext.koin_version = '2.1.6'
-    }
-    
+    ext.kotlin_version = '1.4.21'
+    ext.koin_version = '2.1.6'
+
     dependencies {
 
         classpath 'com.android.tools.build:gradle:4.1.2'
@@ -17,6 +15,8 @@ buildscript {
         // in the individual module build.gradle files
 
         classpath "org.koin:koin-gradle-plugin:$koin_version"
+
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.28-alpha'
     }
 
     repositories {
