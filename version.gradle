@@ -43,6 +43,7 @@ ext {
             bindingcollectionadapter: "3.1.1",
             hilt_compiler           : "1.0.0-alpha02",
             hilt                    : "2.28-alpha",
+            rx_java2                : "2.2.20",
     ]
 
 }
