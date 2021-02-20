@@ -19,6 +19,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.gson.Gson
 import heartzert.test.all.setupactivities.BottomNavigationActivity
 import heartzert.test.all.uitest.ButtonActivity
+import heartzert.test.all.uitest.CommonUITestActivity
 import heartzert.test.all.uitest.ScrollRecyclerActivity
 import heartzert.test.all.uitest.bubbles.BubblesTestActivity
 import io.reactivex.Scheduler
@@ -59,7 +60,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun secondTest(view: View) {
-        startActivity(Intent(this, BottomNavigationActivity::class.java))
+        startActivity(Intent(this, CommonUITestActivity::class.java))
     }
 
     fun thirdTest(view: View) {

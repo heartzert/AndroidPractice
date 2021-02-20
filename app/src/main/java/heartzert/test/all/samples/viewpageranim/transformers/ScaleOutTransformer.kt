@@ -24,14 +24,14 @@ class ScaleOutTransformer : ITransformer {
                 }
 
                 position <= 0f -> {
-                    translationX = unAbs(width) * position
+                    translationX = width.unAbs() * position
                     alpha = 1f + position
                     scaleX = abs(position) + 1
                     scaleY = abs(position) + 1
                 }
 
                 else -> {
-                    translationX = unAbs(width) * position
+                    translationX = width.unAbs() * position
                 }
             }
         }

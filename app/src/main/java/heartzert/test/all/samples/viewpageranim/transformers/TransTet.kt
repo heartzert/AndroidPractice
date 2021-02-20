@@ -34,7 +34,7 @@ class TransTet : ITransformer {
                     alpha = 1f
                 }
                 else -> {
-                    translationX = (unAbs(width) + TRANS_X) * position
+                    translationX = (width.unAbs() + TRANS_X) * position
                     translationY = (0 - TRANS_Y) * position
                     alpha = ((1f - ALPHA_ITEM * position) * 1.5).toFloat()
                 }

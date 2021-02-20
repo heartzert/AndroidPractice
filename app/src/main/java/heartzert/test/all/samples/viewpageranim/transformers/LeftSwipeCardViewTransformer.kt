@@ -33,7 +33,7 @@ class LeftSwipeCardViewTransformer : ITransformer {
                     }
                 }
                 position <= 0.8f -> {
-                    translationX = (unAbs(width) + TRANS_XY) * position
+                    translationX = (width.unAbs() + TRANS_XY) * position
                     translationY = (0 - TRANS_XY) * position
                     alpha = 1f
 //                    isClickable = false
@@ -44,7 +44,7 @@ class LeftSwipeCardViewTransformer : ITransformer {
                 }
                 else -> {
 //                    isClickable = false
-                    translationX = (unAbs(width) + TRANS_XY) * position
+                    translationX = (width.unAbs() + TRANS_XY) * position
                     translationY = (0 - TRANS_XY) * position
                     alpha = 1f - ALPHA_ITEM * position
                 }

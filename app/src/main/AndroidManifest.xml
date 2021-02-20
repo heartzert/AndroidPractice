@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".uitest.bubbles.BubblesTestActivity"></activity>
+        <activity android:name=".uitest.CommonUITestActivity"></activity>
+        <activity android:name=".uitest.bubbles.BubblesTestActivity" />
         <activity android:name=".architecture.ArchitectureActivity" />
         <activity android:name=".uitest.ButtonActivity" />
         <activity
