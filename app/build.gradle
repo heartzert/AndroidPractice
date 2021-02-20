@@ -74,6 +74,9 @@ dependencies {
     implementation "androidx.fragment:fragment-ktx:$jetPackVersion.fragment_ktx"
 
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$dependVersion.hilt_compiler"
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     kapt "androidx.hilt:hilt-compiler:$dependVersion.hilt_compiler"
     implementation "com.google.dagger:hilt-android:$dependVersion.hilt"
     kapt "com.google.dagger:hilt-android-compiler:$dependVersion.hilt"
@@ -82,9 +85,17 @@ dependencies {
 
     annotationProcessor "com.github.bumptech.glide:compiler:$dependVersion.glide"
 
+    // Kotlin + coroutines
+    implementation "androidx.work:work-runtime-ktx:2.5.0"
+
     //mockito
     testImplementation "org.mockito:mockito-core:3.3.1"
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
     //robolectric
     testImplementation "org.robolectric:robolectric:4.2.1"
+
+    //junit
+    testApi "junit:junit:$dependVersion.junit"
+    androidTestApi "androidx.test:runner:$jetPackVersion.runner"
+//    androidTestApi "androidx.test.espresso:$jetPackVersion.espresso_core"
 }

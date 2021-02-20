@@ -1,24 +1,33 @@
 package heartzert.test.all
 
+import android.app.Application
+import android.content.BroadcastReceiver
+import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.os.SystemClock
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.google.gson.Gson
 import heartzert.test.all.setupactivities.BottomNavigationActivity
 import heartzert.test.all.uitest.ButtonActivity
 import heartzert.test.all.uitest.ScrollRecyclerActivity
+import heartzert.test.all.uitest.bubbles.BubblesTestActivity
 import io.reactivex.Scheduler
 import io.reactivex.Single
 import io.reactivex.SingleObserver
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import java.sql.Timestamp
+import java.util.*
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
@@ -30,13 +39,15 @@ class MainActivity : AppCompatActivity() {
         ).get(MainViewModel::class.java)
     }
 
-    init {
-        lifecycle.addObserver(mViewModel)
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        lifecycle.addObserver(mViewModel)
+        registerReceiver(object : BroadcastReceiver() {
+            override fun onReceive(context: Context?, intent: Intent?) {
+            }
+        }, IntentFilter("$packageName.alarm"))
+
 //        Log.d("==========", "intent=: $intent")
 
 //        val uri = Uri.parse("https://media4.giphy.com/media/3oEjHGr1Fhz0kyv8Ig/giphy-preview.gif?cid=9f0f6425b7fd2eb0c1c8a3c89ae84af6efd11ff4183c110c&rid=giphy-preview.gif")
@@ -44,7 +55,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun firstTest(view: View) {
-        startActivity(Intent(this, ButtonActivity::class.java))
+        startActivity(Intent(this, BubblesTestActivity::class.java))
     }
 
     fun secondTest(view: View) {

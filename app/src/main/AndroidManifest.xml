@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".architecture.ArchitectureActivity"/>
+        <activity android:name=".uitest.bubbles.BubblesTestActivity"></activity>
+        <activity android:name=".architecture.ArchitectureActivity" />
         <activity android:name=".uitest.ButtonActivity" />
         <activity
             android:name=".setupactivities.BottomNavigationActivity"
@@ -45,7 +46,6 @@
         <activity android:name=".custom_views.recyclertest.myRecyclerView.NestedTestActivity" />
         <activity android:name=".custom_views.ScaleableImageView.ScaleableImageTestActivity" />
         <activity android:name=".samples.motionLayout.MotionLayoutActivity" />
-        <activity android:name=".android_conponents_paging.ui.ViewModelActivity" />
         <activity android:name=".samples.nestedscrollview.custom.MyNestedScrollAct" />
         <activity android:name=".custom_views.recyclertest.recyclerviewWithFragment.RecyclerViewWithFragmentActivity" />
         <activity android:name=".custom_views.recyclertest.RecyclerViewTestActivity" />

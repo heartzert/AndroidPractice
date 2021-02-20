@@ -62,5 +62,5 @@ dependencies {
     //junit
     testApi "junit:junit:$dependVersion.junit"
     androidTestApi "androidx.test:runner:$jetPackVersion.runner"
-    androidTestApi "androidx.test.espresso:$jetPackVersion.espresso_core"
+//    androidTestApi "androidx.test.espresso:$jetPackVersion.espresso_core"
 }
