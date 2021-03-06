@@ -36,32 +36,34 @@ class BezierView : View {
     private var moved = false
 
     //触摸范围
-    private val touchArea = 2.dp()
+    private val touchArea = 10.dp()
     private val pointPaint = Paint().apply {
         color = Color.BLACK
-        strokeWidth = 10.dp().toFloat()
+        strokeWidth = 5.dp().toFloat()
     }
 
     private val pathPaint = Paint().apply {
-        color = Color.CYAN
+        color = Color.RED
         style = Paint.Style.STROKE
-        strokeWidth = 1.dp().toFloat()
+        strokeWidth = 2.dp().toFloat()
     }
 
     private val path = Path()
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
-        val positionX = MeasureSpec.getSize(widthMeasureSpec).toFloat() / 2
+        if (pointList.size > 0) return
+        val positionX = MeasureSpec.getSize(widthMeasureSpec).toFloat() / 3
         val positionY = MeasureSpec.getSize(heightMeasureSpec).toFloat() / 2
         addPoint(positionX, positionY)
+        addPoint(positionX * 2, positionY)
     }
 
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         if (pointList.isNullOrEmpty()) return
         pointList.forEach {
-            canvas?.drawPoint(it[0], it[1], pointPaint)
+            canvas?.drawCircle(it[0], it[1], 2.dp().toFloat(), pointPaint)
         }
         if (pointList.size <= 2) return
         path.reset()
@@ -71,9 +73,9 @@ class BezierView : View {
         val point3 = pointList.getOrNull(3)
         path.moveTo(point0[0], point0[1])
         if (point3 == null) {
-            path.quadTo(point1[0], point1[1], point2[0], point2[1])
+            path.quadTo(point2[0], point2[1], point1[0], point1[1])
         } else {
-            path.cubicTo(point1[0], point1[1], point2[0], point2[1], point3[0], point3[1])
+            path.cubicTo(point2[0], point2[1], point3[0], point3[1], point1[0], point1[1])
         }
 
         canvas?.drawPath(path, pathPaint)
@@ -100,7 +102,7 @@ class BezierView : View {
                 if (newDown != -1) {
                     newDown = -1
                 } else if (!moved) {
-                    if (pointList.size < 3) {
+                    if (pointList.size < 4) {
                         addPoint(event.x, event.y)
                     }
                 }
