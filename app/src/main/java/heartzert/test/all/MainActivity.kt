@@ -13,7 +13,9 @@ import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import heartzert.test.all.databinding.ActivityMainBinding
 import heartzert.test.all.samples.softkeyboard.SoftKeyboardActivity
 import heartzert.test.all.uitest.CommonUITestActivity
 import heartzert.test.all.uitest.ScrollRecyclerActivity
@@ -22,12 +24,13 @@ import heartzert.test.all.uitest.bubbles.BubblesTestActivity
 
 class MainActivity : AppCompatActivity() {
 
-    val mViewModel: MainViewModel by viewModels()
+    private val mViewModel: MainViewModel by viewModels()
+
+    private lateinit var binding : ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        setContentView(R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         lifecycle.addObserver(mViewModel)
         registerReceiver(object : BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent?) {

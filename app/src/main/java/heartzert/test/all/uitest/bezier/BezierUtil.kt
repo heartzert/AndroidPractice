@@ -37,12 +37,12 @@ object BezierUtil {
         // 循环递增
         var u = 0f
         while (u <= 1) {
-            pointList.add(
-                PointF(
-                    calculatePointCoordinate(BezierType.X_TYPE, u, order, 0, controlPointList),
-                    calculatePointCoordinate(BezierType.Y_TYPE, u, order, 0, controlPointList)
-                )
-            )
+//            pointList.add(
+//                PointF(
+//                    calculatePointCoordinate(BezierType.X_TYPE, u, order, 0, controlPointList),
+//                    calculatePointCoordinate(BezierType.Y_TYPE, u, order, 0, controlPointList)
+//                )
+//            )
             u += delta
         }
         return pointList
@@ -90,8 +90,8 @@ object BezierUtil {
              * 1阶贝塞尔曲线 则为 真正的贝塞尔曲线存在的点
              */
             val rr = r.clone() as ArrayList<Float>
-            ((1 - u) * calculatePointCoordinate(rr, u, k - 1, p, controlPointList)
-                    + u * calculatePointCoordinate(rr, u, k - 1, p + 1, controlPointList))
+//            ((1 - u) * calculatePointCoordinate(rr, u, k - 1, p, controlPointList)
+//                    + u * calculatePointCoordinate(rr, u, k - 1, p + 1, controlPointList))
         }
     }
 }
