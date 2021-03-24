@@ -11,8 +11,10 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import heartzert.test.all.samples.softkeyboard.SoftKeyboardActivity
 import heartzert.test.all.uitest.CommonUITestActivity
 import heartzert.test.all.uitest.ScrollRecyclerActivity
 import heartzert.test.all.uitest.UITestAct
@@ -20,15 +22,11 @@ import heartzert.test.all.uitest.bubbles.BubblesTestActivity
 
 class MainActivity : AppCompatActivity() {
 
-    val mViewModel: MainViewModel by lazy {
-        ViewModelProvider(
-            viewModelStore,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(application)
-        ).get(MainViewModel::class.java)
-    }
+    val mViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
         lifecycle.addObserver(mViewModel)
         registerReceiver(object : BroadcastReceiver() {
@@ -47,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun thirdTest(view: View) {
-        startActivity(Intent(this, ScrollRecyclerActivity::class.java))
+        startActivity(Intent(this, SoftKeyboardActivity::class.java))
     }
 
     fun test4(view: View) {
