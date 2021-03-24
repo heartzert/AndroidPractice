@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import heartzert.test.all.uitest.CommonUITestActivity
 import heartzert.test.all.uitest.ScrollRecyclerActivity
+import heartzert.test.all.uitest.UITestAct
 import heartzert.test.all.uitest.bubbles.BubblesTestActivity
 
 class MainActivity : AppCompatActivity() {
@@ -47,6 +48,10 @@ class MainActivity : AppCompatActivity() {
 
     fun thirdTest(view: View) {
         startActivity(Intent(this, ScrollRecyclerActivity::class.java))
+    }
+
+    fun test4(view: View) {
+        startActivity(Intent(this, UITestAct::class.java))
     }
 
     //测试打开图片的隐士intent

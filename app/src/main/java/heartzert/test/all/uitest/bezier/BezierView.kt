@@ -35,6 +35,9 @@ class BezierView : View {
     //单词点击是否移动
     private var moved = false
 
+    private val colorList =
+        listOf(Color.BLUE, Color.CYAN, Color.GREEN, Color.RED, Color.YELLOW, Color.MAGENTA, Color.GRAY)
+
     //触摸范围
     private val touchArea = 10.dp()
     private val pointPaint = Paint().apply {
@@ -48,7 +51,14 @@ class BezierView : View {
         strokeWidth = 2.dp().toFloat()
     }
 
+    private val linePaint = Paint().apply {
+        color = Color.CYAN
+        style = Paint.Style.STROKE
+        strokeWidth = 2.dp().toFloat()
+    }
+
     private val path = Path()
+    private val tmpPoint = MutableList(10) { Array(2) { 0f } }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
@@ -74,8 +84,40 @@ class BezierView : View {
         path.moveTo(point0[0], point0[1])
         if (point3 == null) {
             path.quadTo(point2[0], point2[1], point1[0], point1[1])
+            canvas?.drawLine(point2[0], point2[1], point1[0], point1[1], linePaint)
+            canvas?.drawLine(point2[0], point2[1], point0[0], point0[1], linePaint)
+            canvas?.drawLine(
+                (point2[0] - point0[0]) / 2f + point0[0],
+                (point2[1] - point0[1]) / 2f + point0[1],
+                (point2[0] - point1[0]) / 2f + point1[0],
+                (point2[1] - point1[1]) / 2f + point1[1],
+                linePaint
+            )
         } else {
             path.cubicTo(point2[0], point2[1], point3[0], point3[1], point1[0], point1[1])
+            canvas?.drawLine(point0[0], point0[1], point2[0], point2[1], linePaint)
+            canvas?.drawLine(point2[0], point2[1], point3[0], point3[1], linePaint)
+            canvas?.drawLine(point3[0], point3[1], point1[0], point1[1], linePaint)
+
+            tmpPoint[0][0] = (point0[0] - point2[0]) / 2f + point2[0]
+            tmpPoint[0][1] = (point0[1] - point2[1]) / 2f + point2[1]
+
+            tmpPoint[1][0] = (point3[0] - point2[0]) / 2f + point2[0]
+            tmpPoint[1][1] = (point3[1] - point2[1]) / 2f + point2[1]
+
+            tmpPoint[2][0] = (point3[0] - point1[0]) / 2f + point1[0]
+            tmpPoint[2][1] = (point3[1] - point1[1]) / 2f + point1[1]
+
+            canvas?.drawLine(tmpPoint[0][0], tmpPoint[0][1], tmpPoint[1][0], tmpPoint[1][1], linePaint)
+            canvas?.drawLine(tmpPoint[1][0], tmpPoint[1][1], tmpPoint[2][0], tmpPoint[2][1], linePaint)
+
+            tmpPoint[3][0] = (tmpPoint[0][0] - tmpPoint[1][0]) / 2f + tmpPoint[1][0]
+            tmpPoint[3][1] = (tmpPoint[0][1] - tmpPoint[1][1]) / 2f + tmpPoint[1][1]
+
+            tmpPoint[4][0] = (tmpPoint[1][0] - tmpPoint[2][0]) / 2f + tmpPoint[2][0]
+            tmpPoint[4][1] = (tmpPoint[1][1] - tmpPoint[2][1]) / 2f + tmpPoint[2][1]
+
+            canvas?.drawLine(tmpPoint[3][0], tmpPoint[3][1], tmpPoint[4][0], tmpPoint[4][1], linePaint)
         }
 
         canvas?.drawPath(path, pathPaint)
@@ -130,5 +172,12 @@ class BezierView : View {
     private fun around(event: MotionEvent, point: Array<Float>): Boolean {
         return ((event.x - point[0]).square() + (event.y - point[1]).square()).squareRoot() - pointPaint.strokeWidth <= touchArea
     }
+
+}
+
+/**
+ * 搞一个对象池来放临时的point对象
+ */
+class ObjectPoll<T> {
 
 }
