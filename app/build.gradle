@@ -76,11 +76,13 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$jetPackVersion.lifecycle_livedata_ktx"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$jetPackVersion.lifecycle_viewmodel_ktx"
     implementation "androidx.fragment:fragment-ktx:$jetPackVersion.fragment_ktx"
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    // Kotlin + coroutines
+    implementation "androidx.work:work-runtime-ktx:2.5.0"
 
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$dependVersion.hilt_compiler"
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     kapt "androidx.hilt:hilt-compiler:$dependVersion.hilt_compiler"
     implementation "com.google.dagger:hilt-android:$dependVersion.hilt"
     kapt "com.google.dagger:hilt-android-compiler:$dependVersion.hilt"
@@ -89,8 +91,6 @@ dependencies {
 
     annotationProcessor "com.github.bumptech.glide:compiler:$dependVersion.glide"
 
-    // Kotlin + coroutines
-    implementation "androidx.work:work-runtime-ktx:2.5.0"
 
     //mockito
     testImplementation "org.mockito:mockito-core:3.3.1"

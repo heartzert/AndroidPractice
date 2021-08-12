@@ -3,6 +3,7 @@ package heartzert.lib.utils
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.math.RoundingMode.HALF_EVEN
+import java.util.regex.Pattern
 
 /**
  * Created by heartzert on 2019/6/13.
@@ -22,10 +23,10 @@ fun String.isPureNumber(): Boolean {
 /**
  * 把纯数字转换为万为单位,保留digital位小数,小于一万不处理
  */
-fun transformToW(string: String?, digital: Int): String {
+fun String.transformToW(digital: Int): String {
     if (digital >= 0) {
-        val num = string?.toBigDecimalOrNull() ?: return ""
-        if (num < 10000.toBigDecimal()) return string
+        val num = this.toBigDecimalOrNull() ?: return ""
+        if (num < 10000.toBigDecimal()) return this
         val result = num.divide(10000.toBigDecimal())?.setScale(digital, HALF_EVEN)?.toString()
         return if (result.isNullOrEmpty()) "" else result + "万"
     }
@@ -35,7 +36,21 @@ fun transformToW(string: String?, digital: Int): String {
 /**
  *  json 转化成 Map
  */
-fun jsonToMap(jsonStr: String): Map<String, Any>? {
-    val map = Gson().fromJson<Map<String, String>>(jsonStr, object : TypeToken<Map<String, String>>() {}.type)
+fun String.jsonToMap(): Map<String, Any>? {
+    val map = Gson().fromJson<Map<String, String>>(
+        this,
+        object : TypeToken<Map<String, String>>() {}.type
+    )
     return map?.toSortedMap()
+}
+
+/**
+ * 去除数字前的国家符号，只保留数字和小数点
+ */
+fun String.removePriceSymbol(): String? {
+    if (this.isEmpty()) {
+        return null
+    }
+    val REGEX = "[^(0-9).]"
+    return Pattern.compile(REGEX).matcher(this).replaceAll("").trim()
 }

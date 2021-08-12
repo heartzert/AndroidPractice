@@ -14,19 +14,18 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import heartzert.test.all.databinding.ActivityMainBinding
+import heartzert.test.all.flow.TestFlow
 import heartzert.test.all.samples.softkeyboard.SoftKeyboardActivity
 import heartzert.test.all.uitest.CommonUITestActivity
-import heartzert.test.all.uitest.ScrollRecyclerActivity
 import heartzert.test.all.uitest.UITestAct
-import heartzert.test.all.uitest.bubbles.BubblesTestActivity
+import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
 
     private val mViewModel: MainViewModel by viewModels()
 
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun firstTest(view: View) {
-        startActivity(Intent(this, BubblesTestActivity::class.java))
+        startActivity(Intent(this, TestFlow::class.java))
     }
 
     fun secondTest(view: View) {
@@ -102,4 +101,5 @@ class MainActivity : AppCompatActivity() {
             Log.d("==========wxz", "5崩了")
         }
     }
+
 }
