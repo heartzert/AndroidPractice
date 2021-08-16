@@ -1,4 +1,4 @@
-package heartzert.test.all.samples.file
+package heartzert.test.all.kotlinSamples
 
 import android.content.Context
 import android.util.Log
@@ -25,7 +25,14 @@ class FileTest {
         val reader = FileReader(file)
         Log.d("==========wxz", "${reader.readLines()}")
         reader.close()
+    }
 
+    fun readTest2(context: Context) {
+        val file = File(context.externalCacheDir, "test2")
+        if (!file.exists()) return
+        val reader = FileReader(file)
+        reader.use {
 
+        }
     }
 }

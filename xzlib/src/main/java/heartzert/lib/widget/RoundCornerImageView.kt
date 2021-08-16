@@ -57,7 +57,7 @@ class RoundCornerImageView: AppCompatImageView {
         rect!!.top = 0f
         rect!!.right = w.toFloat()
         rect!!.bottom = h.toFloat()
-        mClipPath.addRoundRect(rect, fx, fx, CW)
+        mClipPath.addRoundRect(rect!!, fx, fx, CW)
         canvas.clipPath(mClipPath)
         try {
             super.onDraw(canvas)

@@ -1,7 +1,6 @@
 package heartzert.test.all.kotlinSamples
 
-import kotlinx.coroutines.InternalCoroutinesApi
-import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.*
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 
@@ -57,6 +56,29 @@ class CallBackToSuspendTest {
 
             })
         }
+    }
+
+    private suspend fun ttt(func: suspend (s: String) -> Unit) {
+        testCallback(object : TestCallback {
+            override fun success(s: String) {
+
+            }
+
+            override fun failed() {
+            }
+
+        })
+//        testSomething {
+//            GlobalScope.launch {
+//                withContext(Dispatchers.Default) {
+//                    func.invoke(it)
+//                }
+//            }
+//        }
+    }
+
+    private suspend fun testSomething(func: (s: String) -> Unit) {
+
     }
 
 }

@@ -1,10 +1,10 @@
 ext {
     androids = [
             applicationId    : "heartzert.test.all",
-            buildTool        : "29.0.3",
+            buildTool        : "30.0.3",
             minSdk           : 24,
-            compileSdkVersion: 29,
-            targetSdk        : 29,
+            compileSdkVersion: 30,
+            targetSdk        : 30,
             versionCode      : 1000,
             verionName       : "1.0.0",
     ]

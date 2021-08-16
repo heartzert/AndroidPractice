@@ -11,21 +11,23 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import heartzert.test.all.databinding.ActivityMainBinding
-import heartzert.test.all.flow.TestFlow
 import heartzert.test.all.samples.softkeyboard.SoftKeyboardActivity
+import heartzert.test.all.samples.storage_over_11.Storage11Test
 import heartzert.test.all.uitest.CommonUITestActivity
 import heartzert.test.all.uitest.UITestAct
-import kotlinx.coroutines.*
 
 class MainActivity : AppCompatActivity() {
 
     private val mViewModel: MainViewModel by viewModels()
 
     private lateinit var binding: ActivityMainBinding
+
+    private lateinit var launcher: ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,10 +38,12 @@ class MainActivity : AppCompatActivity() {
             }
         }, IntentFilter("$packageName.alarm"))
 
+
+        launcher = Storage11Test.registerStartSAF(this)
     }
 
     fun firstTest(view: View) {
-        startActivity(Intent(this, TestFlow::class.java))
+        Storage11Test.startSAF(launcher)
     }
 
     fun secondTest(view: View) {

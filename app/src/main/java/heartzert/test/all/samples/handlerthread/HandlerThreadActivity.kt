@@ -24,14 +24,11 @@ class HandlerThreadActivity : AppCompatActivity() {
         }
     }
 
-    class MyHandler: Handler {
+    class MyHandler(looper: Looper) : Handler(looper) {
 
-        constructor() : super()
-        constructor(looper: Looper): super(looper)
-
-        override fun handleMessage(msg: Message?) {
+        override fun handleMessage(msg: Message) {
             super.handleMessage(msg)
-            Log.d("========", "msg.what=${msg?.what}")
+            Log.d("========", "msg.what=${msg.what}")
         }
     }
 }
