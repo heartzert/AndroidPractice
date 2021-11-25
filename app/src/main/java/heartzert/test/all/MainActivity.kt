@@ -8,6 +8,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
@@ -20,6 +21,7 @@ import heartzert.test.all.samples.softkeyboard.SoftKeyboardActivity
 import heartzert.test.all.samples.storage_over_11.Storage11Test
 import heartzert.test.all.uitest.CommonUITestActivity
 import heartzert.test.all.uitest.UITestAct
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,6 +42,8 @@ class MainActivity : AppCompatActivity() {
 
 
         launcher = Storage11Test.registerStartSAF(this)
+        Log.d("==========wxz", "${Environment.getExternalStorageDirectory()}");
+
     }
 
     fun firstTest(view: View) {
