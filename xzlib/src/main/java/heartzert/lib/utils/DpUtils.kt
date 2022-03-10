@@ -8,13 +8,17 @@ import android.util.TypedValue
  * Email: heartzert@163.com
  */
 
-fun Int.dp() = dp2px(this.toFloat())
+val Int.dp
+    get() = dp2px(this.toFloat())
 
-fun Float.dp() = dp2px(this)
+val Float.dp
+    get() = dp2px(this)
 
-fun Int.sp() = sp2px(this.toFloat())
+val Int.sp
+    get() = sp2px(this.toFloat())
 
-fun Float.sp() = sp2px(this)
+val Float.sp
+    get() = sp2px(this)
 
 /**
  * dp转px

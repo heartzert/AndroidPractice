@@ -19,9 +19,9 @@ class BubblesLayout : FrameLayout {
 
         private const val ANIMATION_DURATION = 500L
 
-        private val BUBBLES_ORIGIN_RADIUS = 40.dp()
+        private val BUBBLES_ORIGIN_RADIUS = 40.dp
 
-        private val TRANSLATION_DISTANCE = 150.dp()
+        private val TRANSLATION_DISTANCE = 150.dp
     }
 
     private val colorList =

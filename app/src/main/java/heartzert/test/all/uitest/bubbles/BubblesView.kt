@@ -40,7 +40,7 @@ class BubblesView: View {
 
     fun createBubble() = CircleView(context).apply {
         updateLayoutParams {
-            val radius = (1..BUBBLES_RADIUS_DP).random().dp()
+            val radius = (1..BUBBLES_RADIUS_DP).random().dp
             height = radius
             width = radius
             setColor(colorList[(colorList.indices).random()])

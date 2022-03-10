@@ -39,22 +39,22 @@ class BezierView : View {
         listOf(Color.BLUE, Color.CYAN, Color.GREEN, Color.RED, Color.YELLOW, Color.MAGENTA, Color.GRAY)
 
     //触摸范围
-    private val touchArea = 10.dp()
+    private val touchArea = 10.dp
     private val pointPaint = Paint().apply {
         color = Color.BLACK
-        strokeWidth = 5.dp().toFloat()
+        strokeWidth = 5.dp.toFloat()
     }
 
     private val pathPaint = Paint().apply {
         color = Color.RED
         style = Paint.Style.STROKE
-        strokeWidth = 2.dp().toFloat()
+        strokeWidth = 2.dp.toFloat()
     }
 
     private val linePaint = Paint().apply {
         color = Color.CYAN
         style = Paint.Style.STROKE
-        strokeWidth = 2.dp().toFloat()
+        strokeWidth = 2.dp.toFloat()
     }
 
     private val path = Path()
@@ -73,7 +73,7 @@ class BezierView : View {
         super.onDraw(canvas)
         if (pointList.isNullOrEmpty()) return
         pointList.forEach {
-            canvas?.drawCircle(it[0], it[1], 2.dp().toFloat(), pointPaint)
+            canvas?.drawCircle(it[0], it[1], 2.dp.toFloat(), pointPaint)
         }
         if (pointList.size <= 2) return
         path.reset()
