@@ -3,6 +3,7 @@ package heartzert.test.all.javaSamples;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -133,5 +134,21 @@ class FileSaveAndRead {
         while(cursor.moveToNext()) {
             String imagePath = cursor.getString(cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA));
         }
+    }
+
+    //把bitmap保存到文件
+    public File saveBitmapToFile(String path, String name, Bitmap bitmap) {
+
+        File file = new File(path, name + ".png");
+
+        try {
+            BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file));
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
+            bos.flush();
+            bos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return file;
     }
 }

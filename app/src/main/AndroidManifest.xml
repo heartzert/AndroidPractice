@@ -22,7 +22,10 @@
         android:supportsRtl="true"
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".component.ComponentActivity"></activity>
+        <activity
+            android:name=".uitest.canvas.CanvasActivity"
+            android:exported="false" />
+        <activity android:name=".component.ComponentActivity" />
         <activity android:name=".samples.systemCamera.CameraActivity" />
         <activity android:name=".samples.softkeyboard.SoftKeyboardActivity" />
         <activity android:name=".uitest.CommonUITestActivity" />

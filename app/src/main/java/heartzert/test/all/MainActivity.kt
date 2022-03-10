@@ -21,6 +21,8 @@ import heartzert.test.all.samples.softkeyboard.SoftKeyboardActivity
 import heartzert.test.all.samples.storage_over_11.Storage11Test
 import heartzert.test.all.uitest.CommonUITestActivity
 import heartzert.test.all.uitest.UITestAct
+import heartzert.test.all.uitest.canvas.CanvasActivity
+import heartzert.test.all.uitest.canvas.CanvasView
 import java.io.File
 
 class MainActivity : AppCompatActivity() {
@@ -44,10 +46,11 @@ class MainActivity : AppCompatActivity() {
         launcher = Storage11Test.registerStartSAF(this)
         Log.d("==========wxz", "${Environment.getExternalStorageDirectory()}");
 
+        startActivity(Intent(this, CanvasActivity::class.java))
     }
 
     fun firstTest(view: View) {
-        Storage11Test.startSAF(launcher)
+        startActivity(Intent(this, CanvasActivity::class.java))
     }
 
     fun secondTest(view: View) {

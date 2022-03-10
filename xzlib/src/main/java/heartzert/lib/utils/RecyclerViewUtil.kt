@@ -25,7 +25,6 @@ fun RecyclerView.setItemDecoration(left: Int, top: Int, right: Int, bottom: Int)
             outRect.left = left
             outRect.right = right
             outRect.bottom = bottom
-            super.getItemOffsets(outRect, view, parent, state)
         }
     })
 }
