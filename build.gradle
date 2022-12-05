@@ -24,10 +24,10 @@ buildscript {
         maven { url 'https://maven.aliyun.com/repository/google/' }
 
         google()
-        jcenter()
+//        jcenter()
 
-        maven { url 'http://maven.google.com' }
-        maven { url "http://jcenter.bintray.com/" }
+//        maven { url 'http://maven.google.com' }
+//        maven { url "http://jcenter.bintray.com/" }
     }
 }
 
@@ -37,10 +37,10 @@ allprojects {
         maven { url 'https://maven.aliyun.com/repository/google/' }
 
         google()
-        jcenter()
+//        jcenter()
 
-        maven { url 'http://maven.google.com' }
-        maven { url "http://jcenter.bintray.com/" }
+//        maven { url 'http://maven.google.com' }
+//        maven { url "http://jcenter.bintray.com/" }
     }
 }
 
