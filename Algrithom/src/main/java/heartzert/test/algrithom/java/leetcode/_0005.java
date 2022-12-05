@@ -21,10 +21,10 @@ package heartzert.test.algrithom.java.leetcode;
 链接：https://leetcode-cn.com/problems/longest-palindromic-substring
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-public class _005 {
+public class _0005 {
 
     public static void main(String[] args) {
-        _005 a = new _005();
+        _0005 a = new _0005();
         a.excute("asdasdasdasdasdasdasdasdsa");
     }
 
