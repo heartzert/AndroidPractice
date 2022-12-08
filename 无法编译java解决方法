@@ -1,0 +1,10 @@
+在.idea/gradle.xml文件里
+
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+      ！！！！注意添加这一行！！！！
+        <option name="delegatedBuild" value="false"/>
+
+
