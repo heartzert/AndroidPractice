@@ -1,7 +1,7 @@
 package heartzert.test.algrithom.java.leetcode;
 
 import heartzert.test.algrithom.java.TreeNode;
-import heartzert.test.algrithom.java.utils.ListHelper;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -10,7 +10,7 @@ import java.util.List;
  * Email: heartzert@163.com
  */
 /*
-给你二叉树的根节点 root ，返回其节点值的 层序遍历 。 （即逐层地，从左到右访问所有节点）。
+给你二叉树的根节点 root ，返回其节点值 自底向上的层序遍历 。 （即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历）
 
  
 
@@ -18,7 +18,7 @@ import java.util.List;
 
 
 输入：root = [3,9,20,null,null,15,7]
-输出：[[3],[9,20],[15,7]]
+输出：[[15,7],[9,20],[3]]
 示例 2：
 
 输入：root = [1]
@@ -35,25 +35,12 @@ import java.util.List;
 -1000 <= Node.val <= 1000
 
 来源：力扣（LeetCode）
-链接：https://leetcode.cn/problems/binary-tree-level-order-traversal
+链接：https://leetcode.cn/problems/binary-tree-level-order-traversal-ii
 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
-class _0102 {
+class _0107 {
 
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
-//        root.right = new TreeNode(2);
-//        root.right.left = new TreeNode(5);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
-        root.left.left = new TreeNode(4);
-        root.right.left = new TreeNode(5);
-        root.right.right = new TreeNode(6);
-        List<List<Integer>> list = new _0102().levelOrder(root);
-        ListHelper.printList(list);
-    }
-
-    public List<List<Integer>> levelOrder(TreeNode root) {
+    public List<List<Integer>> levelOrderBottom(TreeNode root) {
         List<List<Integer>> result = new LinkedList<>();
         List<TreeNode> readList = new LinkedList<>();
         List<List<TreeNode>> readMultiList = new LinkedList<>();
@@ -80,6 +67,7 @@ class _0102 {
                 readMultiList.add(tmpList);
             }
         }
+        Collections.reverse(result);
         return result;
     }
 }
