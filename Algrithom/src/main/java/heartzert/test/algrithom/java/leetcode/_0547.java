@@ -55,7 +55,7 @@ class _0547 {
     }
 
     /*
-    深度优先
+    深度优先算法
      */
     public int findCircleNum(int[][] isConnected) {
         boolean[] readed = new boolean[isConnected.length];
