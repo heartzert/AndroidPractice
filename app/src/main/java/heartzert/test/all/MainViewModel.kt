@@ -8,10 +8,8 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.widget.Toast
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.lifecycle.*
+import androidx.lifecycle.Lifecycle.Event
 import androidx.work.*
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -21,7 +19,7 @@ import java.util.concurrent.TimeUnit
  * Email: heartzert@163.com
  */
 class MainViewModel(val mApplication: Application) : AndroidViewModel(mApplication),
-    LifecycleObserver {
+    LifecycleEventObserver {
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     fun onCreate() {
@@ -72,6 +70,10 @@ class MainViewModel(val mApplication: Application) : AndroidViewModel(mApplicati
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     fun onResume() {
 
+    }
+
+    override fun onStateChanged(source: LifecycleOwner, event: Event) {
+        TODO("Not yet implemented")
     }
 }
 

@@ -1,2 +1,2 @@
 include ':Algrithom'
-include ':app', ':xzlib', ':eventbustest'
+include ':app', ':xzlib'

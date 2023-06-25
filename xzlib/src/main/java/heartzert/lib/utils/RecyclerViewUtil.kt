@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 /**
  * 设置RecyclerView的item decoration
  */
-fun RecyclerView.setItemDecoration(left: Int, top: Int, right: Int, bottom: Int) {
+fun RecyclerView.addItemDecoration(left: Int, top: Int, right: Int, bottom: Int) {
     this.addItemDecoration(object : RecyclerView.ItemDecoration() {
         override fun getItemOffsets(
             outRect: Rect,

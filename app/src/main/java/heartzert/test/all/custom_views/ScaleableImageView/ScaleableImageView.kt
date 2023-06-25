@@ -57,14 +57,7 @@ class ScaleableImageView : View {
 
     inner class MySimpleOnGestureListener : GestureDetector.SimpleOnGestureListener() {
 
-        override fun onScroll(
-            e1: MotionEvent?,
-            e2: MotionEvent?,
-            distanceX: Float,
-            distanceY: Float
-        ): Boolean {
-            e1 ?: return false
-            e2 ?: return false
+        override fun onScroll(e1: MotionEvent, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
             translateX = e1.rawX - e2.rawX
             translateY = e1.rawY - e2.rawY
             invalidate()

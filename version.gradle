@@ -1,10 +1,10 @@
 ext {
     androids = [
             applicationId    : "heartzert.test.all",
-            buildTool        : "30.0.3",
+            buildTool        : "33.0.0",
             minSdk           : 24,
-            compileSdkVersion: 30,
-            targetSdk        : 30,
+            compileSdkVersion: 33,
+            targetSdk        : 33,
             versionCode      : 1000,
             verionName       : "1.0.0",
     ]
@@ -16,33 +16,32 @@ ext {
 
     jetPackVersion = [
             lifecycle_extensions   : "2.2.0",
-            activity_ktx           : "1.2.1",
-            paging_runtime_ktx     : "2.1.2",
-            appcompat              : "1.2.0",
-            constraintlayout       : "2.0.4",
-            material               : "1.3.0",
-            navigation_fragment_ktx: "2.3.4",
-            navigation_ui_ktx      : "2.3.4",
-            lifecycle_livedata_ktx : "2.3.1",
-            lifecycle_viewmodel_ktx: "2.3.1",
-            fragment_ktx           : "1.3.3",
+            activity_ktx           : "1.7.2",
+            paging_runtime_ktx     : "3.1.1",
+            appcompat              : "1.6.1",
+            constraintlayout       : "2.1.4",
+            material               : "1.9.0",
+            navigation_fragment_ktx: "2.6.0",
+            navigation_ui_ktx      : "2.6.0",
+            lifecycle_livedata_ktx : "2.6.1",
+            lifecycle_viewmodel_ktx: "2.6.1",
+            fragment_ktx           : "1.6.0",
             //for test
-            runner                 : "1.3.0",
+            runner                 : "1.5.2",
             espresso_core          : "3.3.0",
-            core_ktx               : "1.3.2",
+            core_ktx               : "1.10.1",
     ]
 
     dependVersion = [
-            koin                    : "2.1.6",
-            kotlin                  : "1.4.32",
+            kotlin                  : "1.8.20",
             glide                   : '4.12.0',
             retrofit                : '2.9.0',
             junit                   : '4.13.2',
             okhttp                  : "3.14.7",
             logging_interceptor     : '5.0.0-alpha.2',
             bindingcollectionadapter: "3.1.1",
-            hilt_compiler           : "1.0.0-alpha03",
-            hilt                    : "2.31.2-alpha",
+            hilt_compiler           : "1.0.0",
+            hilt                    : "2.44.2",
             rx_java2                : "2.2.20",
     ]
 

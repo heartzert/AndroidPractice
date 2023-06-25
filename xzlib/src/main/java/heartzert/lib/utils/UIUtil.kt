@@ -22,7 +22,7 @@ fun View.updateLayoutParam() {
 /**
  * 设置view是否可见
  */
-fun View.SetVisible(visible: Boolean) {
+fun View.setVisible(visible: Boolean) {
     this.visibility = if (visible) {
         View.VISIBLE
     } else {

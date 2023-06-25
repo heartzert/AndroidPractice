@@ -43,24 +43,29 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            signingConfig signingConfigs.debug
+        }
     }
 
     buildFeatures {
         dataBinding true
+        aidl true
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 
     dataBinding {
         enabled = true
     }
+    namespace 'heartzert.test.all'
 }
 
 dependencies {
@@ -76,14 +81,12 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$jetPackVersion.lifecycle_livedata_ktx"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$jetPackVersion.lifecycle_viewmodel_ktx"
     implementation "androidx.fragment:fragment-ktx:$jetPackVersion.fragment_ktx"
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     // Kotlin + coroutines
-    implementation "androidx.work:work-runtime-ktx:2.5.0"
+    implementation "androidx.work:work-runtime-ktx:2.8.1"
 
-    implementation "androidx.hilt:hilt-lifecycle-viewmodel:$dependVersion.hilt_compiler"
-    kapt "androidx.hilt:hilt-compiler:$dependVersion.hilt_compiler"
     implementation "com.google.dagger:hilt-android:$dependVersion.hilt"
     kapt "com.google.dagger:hilt-android-compiler:$dependVersion.hilt"
 

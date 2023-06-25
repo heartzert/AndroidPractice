@@ -8,7 +8,7 @@ package heartzert.lib.utils
 /**
  * 若参数a全不为空则执行callback
  */
-fun isNotNull(vararg a : Any?, callBack: () -> Unit) {
+fun isAllNotNull(vararg a : Any?, callBack: () -> Unit) {
     for (x in a) {
         x ?: return
     }
