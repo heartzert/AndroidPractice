@@ -1,7 +1,7 @@
 package heartzert.test.algrithom.java.offer;
 
 
-import heartzert.lib.utils.PrintUtil;
+import heartzert.lib.utils.tools.PrintUtil;
 
 /**
  * Created by heartzert on 2020/6/29.

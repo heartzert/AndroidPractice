@@ -4,6 +4,8 @@ import android.content.res.Resources
 import android.graphics.*
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.BitmapDrawable
+import java.net.URI
+import java.util.Locale
 
 /**
  * Created by heartzert on 2020/1/8.
@@ -71,4 +73,8 @@ object ImageUtil {
         options.inTargetDensity = density
         return BitmapFactory.decodeResource(resources, srcId, options)
     }
+}
+
+fun URI.isGif(): Boolean {
+    return this.path?.toLowerCase(Locale.getDefault())?.endsWith(".gif") == true
 }

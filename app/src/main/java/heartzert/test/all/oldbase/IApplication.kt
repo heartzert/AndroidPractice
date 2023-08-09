@@ -1,4 +1,4 @@
-package heartzert.lib.oldbase
+package heartzert.test.all.oldbase
 
 import android.app.Application
 import android.content.Context
