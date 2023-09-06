@@ -1,4 +1,7 @@
 ext {
+
+    kotlin_version = '1.8.10'
+
     androids = [
             applicationId    : "heartzert.test.all",
             buildTool        : "33.0.0",
@@ -17,15 +20,15 @@ ext {
     jetPackVersion = [
             lifecycle_extensions   : "2.2.0",
             activity_ktx           : "1.7.2",
-            paging_runtime_ktx     : "3.1.1",
+            paging_runtime_ktx     : "3.2.0",
             appcompat              : "1.6.1",
             constraintlayout       : "2.1.4",
             material               : "1.9.0",
-            navigation_fragment_ktx: "2.6.0",
-            navigation_ui_ktx      : "2.6.0",
+            navigation_fragment_ktx: "2.7.0",
+            navigation_ui_ktx      : "2.7.0",
             lifecycle_livedata_ktx : "2.6.1",
             lifecycle_viewmodel_ktx: "2.6.1",
-            fragment_ktx           : "1.6.0",
+            fragment_ktx           : "1.6.1",
             //for test
             runner                 : "1.5.2",
             espresso_core          : "3.3.0",
@@ -33,7 +36,6 @@ ext {
     ]
 
     dependVersion = [
-            kotlin                  : "1.8.20",
             glide                   : '4.12.0',
             retrofit                : '2.9.0',
             junit                   : '4.13.2',
@@ -41,7 +43,7 @@ ext {
             logging_interceptor     : '5.0.0-alpha.2',
             bindingcollectionadapter: "3.1.1",
             hilt_compiler           : "1.0.0",
-            hilt                    : "2.44.2",
+            hilt                    : "2.47",
             rx_java2                : "2.2.20",
     ]
 

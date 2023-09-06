@@ -1,2 +1,4 @@
 include ':Algrithom'
 include ':app', ':xzlib'
+include ':datastore'
+include ':composetranslateapp'
