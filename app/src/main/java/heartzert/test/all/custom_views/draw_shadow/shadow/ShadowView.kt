@@ -18,7 +18,7 @@ class ShadowView : View {
     constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs,
         defStyleAttr)
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
         paint.apply {
@@ -26,7 +26,7 @@ class ShadowView : View {
         }
 
         paint.setShadowLayer(10f,10f,10f, Color.parseColor("#3DFF7070"))
-        canvas?.drawRoundRect(RectF(0f,0f,200f,200f),10f,10f,paint)
+        canvas.drawRoundRect(RectF(0f,0f,200f,200f),10f,10f,paint)
 
 
     }

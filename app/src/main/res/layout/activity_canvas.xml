@@ -6,8 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".uitest.canvas.CanvasActivity">
 
-    <heartzert.test.all.uitest.canvas.CanvasView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+    <!--    <heartzert.test.all.uitest.canvas.CanvasView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"/>-->
+
+    <heartzert.test.all.custom_views.CircularProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

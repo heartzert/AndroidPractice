@@ -27,8 +27,7 @@ class CanvasTestView(context: Context) : View(context) {
         mHeight = h
     }
 
-    override fun onDraw(canvas: Canvas?) {
-        canvas ?: return
+    override fun onDraw(canvas: Canvas) {
         this.canvas = canvas
         paint = Paint().apply {
             strokeWidth = 10f

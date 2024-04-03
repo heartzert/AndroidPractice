@@ -4,18 +4,23 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
+import android.graphics.*
+import android.graphics.Shader.TileMode.CLAMP
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
+import android.text.*
+import android.text.style.*
 import android.util.Log
 import android.view.View
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import heartzert.test.all.R.color
 import heartzert.test.all.databinding.ActivityMainBinding
 import heartzert.test.all.samples.softkeyboard.SoftKeyboardActivity
 import heartzert.test.all.samples.storage_over_11.Storage11Test
@@ -46,7 +51,48 @@ class MainActivity : AppCompatActivity() {
         launcher = Storage11Test.registerStartSAF(this)
         Log.d("==========wxz", "${Environment.getExternalStorageDirectory()}");
 
-        startActivity(Intent(this, CanvasActivity::class.java))
+        text2()
+//        startActivity(Intent(this, CanvasActivity::class.java))
+    }
+
+    private fun text2() {
+        val textView = findViewById<TextView>(R.id.text)
+        // 原始文字
+        val text = textView.text
+
+        val sourceString = "ceshi daima shishi kan."
+        val vipString = "get vip"
+
+        val stringText = sourceString + "  " + vipString
+        val spannableStringBuilder = SpannableStringBuilder(stringText)
+        val goVipStart = stringText.indexOf(vipString)
+        val goVipEnd = goVipStart + vipString.length
+        val clickableSpan = object : ClickableSpan() {
+            override fun onClick(widget: View) {
+                Toast.makeText(this@MainActivity, "click", Toast.LENGTH_SHORT).show()
+            }
+        }
+        spannableStringBuilder.setSpan(
+            clickableSpan,
+            goVipStart,
+            goVipEnd,
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+        )
+        val colorList = intArrayOf(Color.RED, Color.BLUE)
+        val l1 = (sourceString + "  ").length
+        val l2 = vipString.length
+        val l = stringText.length
+//        val x1 = 1f - l2.toFloat() / l.toFloat()
+//        val x2 = 1f - (l2.toFloat() / 2) / l.toFloat()
+//        Log.d("zyl", "x1 = $x1, x2 = $x2, ${l} , ${l1},${l2}")
+        spannableStringBuilder.setSpan(LinearGradientForegroundSpan(colorList, null, l2), goVipStart ,goVipEnd , Spanned.SPAN_INCLUSIVE_EXCLUSIVE)
+        spannableStringBuilder.setSpan(
+            UnderlineSpan(),
+            goVipStart,
+            goVipEnd,
+            Spanned.SPAN_INCLUSIVE_EXCLUSIVE
+        )
+        textView?.text = spannableStringBuilder
     }
 
     fun firstTest(view: View) {

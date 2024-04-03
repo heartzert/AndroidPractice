@@ -31,10 +31,8 @@ class CameraTestView : View {
         camera.rotateX(30f)
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-
-        canvas ?: return
 
         canvas.translate((100f + imgWidth / 2), (100f + imgHeight / 2))
         camera.applyToCanvas(canvas)

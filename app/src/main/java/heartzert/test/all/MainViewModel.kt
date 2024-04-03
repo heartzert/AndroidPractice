@@ -67,7 +67,6 @@ class MainViewModel(val mApplication: Application) : AndroidViewModel(mApplicati
     }
 
     override fun onStateChanged(source: LifecycleOwner, event: Event) {
-        TODO("Not yet implemented")
     }
 }
 

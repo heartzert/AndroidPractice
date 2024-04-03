@@ -72,22 +72,21 @@ class DashView : View {
         super.onLayout(changed, left, top, right, bottom)
     }
 
-    @TargetApi(VERSION_CODES.LOLLIPOP)
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        canvas?.translate(width.toFloat() / 2, height.toFloat() / 2)
+        canvas.translate(width.toFloat() / 2, height.toFloat() / 2)
         //画边框
-        canvas?.drawRect(-RADIUS - paint.strokeWidth / 2, -RADIUS - paint.strokeWidth / 2,
+        canvas.drawRect(-RADIUS - paint.strokeWidth / 2, -RADIUS - paint.strokeWidth / 2,
             +RADIUS + paint.strokeWidth / 2, +RADIUS + paint.strokeWidth / 2, linePaint)
 
         //画圆弧
         paint.shader = shader
-        canvas?.drawPath(arcPath, paint)
+        canvas.drawPath(arcPath, paint)
         paint.shader = null
 
         paint.pathEffect = pathEffect
         //画dash
-        canvas?.drawArc(dashRecf,
+        canvas.drawArc(dashRecf,
             120f,
             360f - 60f,
             false,
@@ -96,7 +95,7 @@ class DashView : View {
         paint.pathEffect = null
 
         paint.style = Paint.Style.FILL
-        canvas?.drawCircle(0f, 0f, dp2px(5f).toFloat(), paint)
+        canvas.drawCircle(0f, 0f, dp2px(5f).toFloat(), paint)
 
     }
 }

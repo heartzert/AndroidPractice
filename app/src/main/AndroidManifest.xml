@@ -96,6 +96,8 @@
                 <data android:mimeType="*/*" />
             </intent-filter>
         </activity>
+        <activity android:name=".samples.contract.ContractFirstActivity"/>
+        <activity android:name=".samples.contract.ContractSecondActivity"/>
 
         <provider
             android:name="androidx.core.content.FileProvider"

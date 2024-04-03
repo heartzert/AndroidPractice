@@ -23,11 +23,12 @@ class LeftSwipeAct : AppCompatActivity() {
             val gestureDetector = GestureDetector(this@LeftSwipeAct, object : SimpleOnGestureListener() {
 
                 override fun onScroll(
-                    e1: MotionEvent,
+                    e1: MotionEvent?,
                     e2: MotionEvent,
                     distanceX: Float,
                     distanceY: Float
                 ): Boolean {
+                    e1 ?: return false
                     val child = mRecyclerView.findChildViewUnder(e1.x, e1.y)
                     child ?: return false
 

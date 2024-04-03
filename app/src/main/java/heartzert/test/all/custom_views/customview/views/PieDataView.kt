@@ -16,8 +16,7 @@ class PieDataView(context: Context): View(context) {
 
     constructor(context: Context, attributeSet: AttributeSet): this(context)
 
-    override fun onDraw(canvas: Canvas?) {
-        canvas ?: return
+    override fun onDraw(canvas: Canvas) {
         val paint = Paint()
         val rect = RectF(500f, 500f, 1000f, 1000f)
         paint.color = Color.BLUE

@@ -73,7 +73,7 @@ class BaseLogView : View {
     }
 
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         Log.d("========", "")
 
         super.onDraw(canvas)
@@ -91,7 +91,7 @@ class BaseLogView : View {
         super.onWindowFocusChanged(hasWindowFocus)
     }
 
-    override fun onDrawForeground(canvas: Canvas?) {
+    override fun onDrawForeground(canvas: Canvas) {
         Log.d("========", "")
 
         super.onDrawForeground(canvas)

@@ -47,17 +47,18 @@ class ScaleableImageView : View {
 
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
-        canvas?.translate(translateX, translateY)
-        canvas?.scale(initScale, initScale, width / 2f, height / 2f)
-        canvas?.drawBitmap(bitmap, (width - bitmap.width) / 2f, (height - bitmap.height) / 2f, paint)
+        canvas.translate(translateX, translateY)
+        canvas.scale(initScale, initScale, width / 2f, height / 2f)
+        canvas.drawBitmap(bitmap, (width - bitmap.width) / 2f, (height - bitmap.height) / 2f, paint)
     }
 
     inner class MySimpleOnGestureListener : GestureDetector.SimpleOnGestureListener() {
 
-        override fun onScroll(e1: MotionEvent, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
+        override fun onScroll(e1: MotionEvent?, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
+            e1 ?: return false
             translateX = e1.rawX - e2.rawX
             translateY = e1.rawY - e2.rawY
             invalidate()

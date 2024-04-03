@@ -25,9 +25,9 @@ class CircleView: View {
         color = Color.BLACK
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        canvas?.drawCircle(width / 2f, height / 2f, width / 2f, paint)
+        canvas.drawCircle(width / 2f, height / 2f, width / 2f, paint)
     }
 
     fun setColor(color: Int) {

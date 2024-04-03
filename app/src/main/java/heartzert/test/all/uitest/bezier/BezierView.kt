@@ -69,11 +69,11 @@ class BezierView : View {
         addPoint(positionX * 2, positionY)
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
         if (pointList.isNullOrEmpty()) return
         pointList.forEach {
-            canvas?.drawCircle(it[0], it[1], 2.dp.toFloat(), pointPaint)
+            canvas.drawCircle(it[0], it[1], 2.dp.toFloat(), pointPaint)
         }
         if (pointList.size <= 2) return
         path.reset()
@@ -84,9 +84,9 @@ class BezierView : View {
         path.moveTo(point0[0], point0[1])
         if (point3 == null) {
             path.quadTo(point2[0], point2[1], point1[0], point1[1])
-            canvas?.drawLine(point2[0], point2[1], point1[0], point1[1], linePaint)
-            canvas?.drawLine(point2[0], point2[1], point0[0], point0[1], linePaint)
-            canvas?.drawLine(
+            canvas.drawLine(point2[0], point2[1], point1[0], point1[1], linePaint)
+            canvas.drawLine(point2[0], point2[1], point0[0], point0[1], linePaint)
+            canvas.drawLine(
                 (point2[0] - point0[0]) / 2f + point0[0],
                 (point2[1] - point0[1]) / 2f + point0[1],
                 (point2[0] - point1[0]) / 2f + point1[0],
@@ -95,9 +95,9 @@ class BezierView : View {
             )
         } else {
             path.cubicTo(point2[0], point2[1], point3[0], point3[1], point1[0], point1[1])
-            canvas?.drawLine(point0[0], point0[1], point2[0], point2[1], linePaint)
-            canvas?.drawLine(point2[0], point2[1], point3[0], point3[1], linePaint)
-            canvas?.drawLine(point3[0], point3[1], point1[0], point1[1], linePaint)
+            canvas.drawLine(point0[0], point0[1], point2[0], point2[1], linePaint)
+            canvas.drawLine(point2[0], point2[1], point3[0], point3[1], linePaint)
+            canvas.drawLine(point3[0], point3[1], point1[0], point1[1], linePaint)
 
             tmpPoint[0][0] = (point0[0] - point2[0]) / 2f + point2[0]
             tmpPoint[0][1] = (point0[1] - point2[1]) / 2f + point2[1]
@@ -108,8 +108,8 @@ class BezierView : View {
             tmpPoint[2][0] = (point3[0] - point1[0]) / 2f + point1[0]
             tmpPoint[2][1] = (point3[1] - point1[1]) / 2f + point1[1]
 
-            canvas?.drawLine(tmpPoint[0][0], tmpPoint[0][1], tmpPoint[1][0], tmpPoint[1][1], linePaint)
-            canvas?.drawLine(tmpPoint[1][0], tmpPoint[1][1], tmpPoint[2][0], tmpPoint[2][1], linePaint)
+            canvas.drawLine(tmpPoint[0][0], tmpPoint[0][1], tmpPoint[1][0], tmpPoint[1][1], linePaint)
+            canvas.drawLine(tmpPoint[1][0], tmpPoint[1][1], tmpPoint[2][0], tmpPoint[2][1], linePaint)
 
             tmpPoint[3][0] = (tmpPoint[0][0] - tmpPoint[1][0]) / 2f + tmpPoint[1][0]
             tmpPoint[3][1] = (tmpPoint[0][1] - tmpPoint[1][1]) / 2f + tmpPoint[1][1]
@@ -117,10 +117,10 @@ class BezierView : View {
             tmpPoint[4][0] = (tmpPoint[1][0] - tmpPoint[2][0]) / 2f + tmpPoint[2][0]
             tmpPoint[4][1] = (tmpPoint[1][1] - tmpPoint[2][1]) / 2f + tmpPoint[2][1]
 
-            canvas?.drawLine(tmpPoint[3][0], tmpPoint[3][1], tmpPoint[4][0], tmpPoint[4][1], linePaint)
+            canvas.drawLine(tmpPoint[3][0], tmpPoint[3][1], tmpPoint[4][0], tmpPoint[4][1], linePaint)
         }
 
-        canvas?.drawPath(path, pathPaint)
+        canvas.drawPath(path, pathPaint)
     }
 
     @SuppressLint("ClickableViewAccessibility")

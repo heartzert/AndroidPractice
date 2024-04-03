@@ -6,8 +6,8 @@ ext {
             applicationId    : "heartzert.test.all",
             buildTool        : "33.0.0",
             minSdk           : 24,
-            compileSdkVersion: 33,
-            targetSdk        : 33,
+            compileSdkVersion: 34,
+            targetSdk        : 34,
             versionCode      : 1000,
             verionName       : "1.0.0",
     ]

@@ -30,9 +30,8 @@ class ClipView : View {
         setLayerType(LAYER_TYPE_SOFTWARE, null)
     }
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        canvas ?: return
         testDraw2(canvas)
     }
 
