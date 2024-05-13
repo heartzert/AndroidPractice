@@ -5,6 +5,7 @@ import android.content.Context;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 
+import android.util.Log;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
@@ -20,6 +21,36 @@ import java.util.List;
  * Email: heartzert@163.com
  */
 public class JavaTest {
+
+    public static void testMAC() {
+        try {
+            Log.d("==========wxzmac1", "${JavaTest.mac1(this)} ");
+        } catch (Exception e) {
+            Log.d("==========wxz", "1崩了");
+        }
+
+        try {
+            Log.d("==========wxzmac2", "${JavaTest.mac2()} ");
+        } catch (Exception e) {
+            Log.d("==========wxz", "2崩了");
+        }
+
+        try {
+            Log.d("==========wxzmac3", "${JavaTest.mac3()} ");
+        } catch (Exception e) {
+            Log.d("==========wxz", "3崩了");
+        }
+        try {
+            Log.d("==========wxzmac4", "${JavaTest.mac4()} ");
+        } catch (Exception e) {
+            Log.d("==========wxz", "4崩了");
+        }
+        try {
+            Log.d("==========wxzmac5", "${JavaTest.mac5()} ");
+        } catch (Exception e) {
+            Log.d("==========wxz", "5崩了");
+        }
+    }
 
     /**
      * 通过WiFiManager获取mac地址

@@ -1,78 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-    <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"
         tools:context=".MainActivity">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:text="nihaoceshiceshiceshiceshihaha.bianse"
-            android:layout_height="wrap_content"/>
+            android:layout_gravity="center"
+            tools:itemCount="100"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            tools:listitem=""
+            android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/b1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#000000"
-            android:onClick="firstTest"
-            android:text="test1"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toTopOf="@id/b2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        </androidx.recyclerview.widget.RecyclerView>
 
-        <Button
-            android:id="@+id/b2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#000000"
-            android:onClick="secondTest"
-            android:text="test2"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toTopOf="@id/b3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/b1" />
-
-        <Button
-            android:id="@+id/b3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#000000"
-            android:onClick="thirdTest"
-            android:text="test3"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/b2" />
-
-        <Button
-            android:id="@+id/b4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#000000"
-            android:onClick="test4"
-            android:text="test4"
-            android:textAllCaps="false"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/b2" />
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </FrameLayout>
 </layout>

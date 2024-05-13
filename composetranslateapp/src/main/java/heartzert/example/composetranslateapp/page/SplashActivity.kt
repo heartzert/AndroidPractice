@@ -25,7 +25,7 @@ class SplashActivity: ComponentActivity() {
     @Composable
     private fun SplashPage() {
         Surface(modifier = Modifier.fillMaxSize()) {
-            Image(painter =, contentDescription =)
+//            Image(painter =, contentDescription =)
         }
     }
 }

@@ -6,7 +6,7 @@ import android.util.Log
  * Created by heartzert on 2023/5/23.
  * Email: heartzert@163.com
  */
-object CostLogHelper {
+object CostTimeLogHelper {
 
     var TAG = "=====wxz====="
 

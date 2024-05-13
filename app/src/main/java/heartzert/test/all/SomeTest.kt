@@ -1,6 +1,12 @@
 package heartzert.test.all
 
 import android.Manifest.permission
+import android.content.Context
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
+import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -46,3 +52,21 @@ data class Test2(
     val tt2: Int,
     val tt3: String
 )
+
+//测试打开图片的隐士intent
+private fun testIntent(context: Context) {
+    val intent = Intent(Intent.ACTION_VIEW) //打开图片得启动ACTION_VIEW意图
+
+    val bitmap: Bitmap = BitmapFactory.decodeResource(context.resources, R.drawable.iamge_square_yellow)
+
+    val uri: Uri = Uri.parse(
+        MediaStore.Images.Media.insertImage(
+            context.contentResolver, bitmap, null,
+            null
+        )
+    ) //将bitmap转换为uri
+
+    intent.setDataAndType(uri, "image/*") //设置intent数据和图片格式
+
+    context.startActivity(intent)
+}

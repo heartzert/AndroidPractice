@@ -1,24 +1,51 @@
 package heartzert.test.all
 
+import android.app.Activity
 import android.app.Application
 import android.content.Context
-import androidx.lifecycle.*
-import androidx.lifecycle.Lifecycle.Event
-import androidx.work.*
-import java.util.*
+import android.content.Intent
+import android.widget.Button
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
+import androidx.recyclerview.widget.RecyclerView
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkManager
+import androidx.work.Worker
+import androidx.work.WorkerParameters
+import heartzert.lib.adapter.CommonAdapter
+import java.util.Calendar
+import java.util.Date
 import java.util.concurrent.TimeUnit
 
 /**
  * Created by heartzert on 2020/12/28.
  * Email: heartzert@163.com
  */
-class MainViewModel(val mApplication: Application) : AndroidViewModel(mApplication),
-    LifecycleEventObserver {
+class MainViewModel(private val mApplication: Application) : AndroidViewModel(mApplication), DefaultLifecycleObserver {
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    fun onCreate() {
+    fun initBtns(activity: MainActivity, recyclerView: RecyclerView, testActivityBtns: List<Class<out Activity>>) {
+        recyclerView.adapter = CommonAdapter.Builder<Class<out Activity>>()
+            .setData(testActivityBtns)
+            .setLayoutId(R.layout.layout_item_main)
+            .bindView { viewHolder, position, data ->
+                viewHolder.itemView.findViewById<Button>(R.id.button)?.apply {
+                    text = data?.simpleName
+                    setOnClickListener {
+                        val intent = Intent(activity, data ?: return@setOnClickListener)
+                        activity.startActivity(intent)
+                    }
+                }
+            }
+            .create()
+    }
 
+    override fun onCreate(owner: LifecycleOwner) {
+        super.onCreate(owner)
+    }
 
+    override fun onResume(owner: LifecycleOwner) {
+        super.onResume(owner)
     }
 
     private fun clearTime(date: Date): Date {
@@ -59,14 +86,6 @@ class MainViewModel(val mApplication: Application) : AndroidViewModel(mApplicati
             .setInitialDelay(15, TimeUnit.SECONDS).build()
 
         WorkManager.getInstance(mApplication).enqueue(request)
-    }
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    fun onResume() {
-
-    }
-
-    override fun onStateChanged(source: LifecycleOwner, event: Event) {
     }
 }
 
