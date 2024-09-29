@@ -12,6 +12,12 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -24,16 +30,10 @@
         <activity
             android:name=".uitest.canvas.CanvasActivity"
             android:exported="false" />
-        <activity android:name=".component.ComponentActivity" />
         <activity android:name=".samples.systemCamera.CameraActivity" />
         <activity android:name=".samples.softkeyboard.SoftKeyboardActivity" />
         <activity android:name=".uitest.CommonUITestActivity" />
         <activity android:name=".uitest.bubbles.BubblesTestActivity" />
-        <activity android:name=".architecture.ArchitectureActivity" />
-        <activity android:name=".uitest.ButtonActivity" />
-        <activity
-            android:name=".setupactivities.BottomNavigationActivity"
-            android:label="@string/title_activity_bottom_navigation" />
         <activity android:name=".samples.retrofit.RetrofitActivity" />
         <activity android:name=".samples.reflaction.ReflactionActivity" />
 
@@ -51,30 +51,13 @@
 
         <activity android:name=".samples.constraintlayout.UIPracticeActivity" />
         <activity
-            android:name=".uitest.MiniProgramActivity"
+            android:name=".samples.mini_program.MiniProgramActivity"
             android:launchMode="singleTask"
             android:taskAffinity="com.test" />
-        <activity android:name=".custom_views.recyclertest.myRecyclerView.NestedTestActivity" />
-        <activity android:name=".custom_views.ScaleableImageView.ScaleableImageTestActivity" />
         <activity android:name=".samples.motionLayout.MotionLayoutActivity" />
         <activity android:name=".samples.nestedscrollview.custom.MyNestedScrollAct" />
-        <activity android:name=".custom_views.recyclertest.recyclerviewWithFragment.RecyclerViewWithFragmentActivity" />
-        <activity android:name=".custom_views.recyclertest.RecyclerViewTestActivity" />
-        <activity android:name=".custom_views.draw_shadow.ShadowActActivity" />
         <activity android:name=".samples.coordinatelayout.CoordinateTest2Activity" />
-        <activity
-            android:name=".samples.viewpager_fragment.ViewpagerActivity"
-            android:label="@string/title_activity_viewpager" />
-        <activity
-            android:name=".uitest.ScrollRecyclerActivity"
-            android:exported="true" />
-        <activity
-            android:name=".uitest.TextSizeTestActivity"
-            android:screenOrientation="portrait" />
         <activity android:name=".samples.viewpageranim.TestLSCVAct" />
-        <activity android:name=".custom_views.leftswipe.LeftSwipeAct" />
-        <activity android:name=".custom_views.customview.ViewTestAct" />
-        <activity android:name=".uitest.UITestAct" />
         <activity android:name=".samples.constraintlayout.ConstraintLayoutChangeAct" />
         <activity android:name=".samples.asynctask.AsyncTaskTestAct" />
         <activity android:name=".samples.coordinatelayout.CoordinateLayoutAct" />
@@ -96,8 +79,9 @@
                 <data android:mimeType="*/*" />
             </intent-filter>
         </activity>
-        <activity android:name=".samples.contract.ContractFirstActivity"/>
-        <activity android:name=".samples.contract.ContractSecondActivity"/>
+        <activity android:name=".samples.contract.ContractFirstActivity" />
+        <activity android:name=".samples.contract.ContractSecondActivity" />
+        <activity android:name=".samples.customCamera.CustomCameraActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

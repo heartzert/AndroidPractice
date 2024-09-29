@@ -19,6 +19,8 @@ import java.util.List;
 /**
  * Created by heartzert on 3/6/21.
  * Email: heartzert@163.com
+ *
+ * java方法测试的主要入口
  */
 public class JavaTest {
 

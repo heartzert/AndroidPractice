@@ -61,6 +61,7 @@ dependencies {
     api "androidx.appcompat:appcompat:$jetPackVersion.appcompat"
     api "androidx.lifecycle:lifecycle-extensions:$jetPackVersion.lifecycle_extensions"
     api "androidx.core:core-ktx:$jetPackVersion.core_ktx"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:$jetPackVersion.lifecycle_viewmodel_ktx"
 
     //glide
     api "com.github.bumptech.glide:glide:$dependVersion.glide"

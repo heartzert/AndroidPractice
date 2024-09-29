@@ -269,7 +269,7 @@
             app:flow_wrapMode="none"
             app:layout_constrainedWidth="true" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text1_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -277,7 +277,7 @@
             android:background="@color/pink"
             app:layout_constrainedWidth="true" />
 
-        <TextView
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text2_5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
