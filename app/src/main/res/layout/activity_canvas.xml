@@ -4,11 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".uitest.canvas.CanvasActivity">
+    tools:context=".uitest.canvas.A_CanvasTestActivity">
 
-        <heartzert.test.all.uitest.canvas.CanvasView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+    <heartzert.test.all.uitest.canvas.TouchView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+<!--    <heartzert.test.all.uitest.canvas.ColorMatrixView-->
+<!--        android:background="@color/gray"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
+
+<!--        <heartzert.test.all.uitest.canvas.CanvasView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"/>-->
+
+<!--        <heartzert.test.all.uitest.canvas.CanvasMatrixView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"/>-->
 
 <!--    <heartzert.test.all.custom_views.CircularProgressBar-->
 <!--        android:id="@+id/progress_bar"-->

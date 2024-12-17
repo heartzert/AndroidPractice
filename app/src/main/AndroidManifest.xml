@@ -28,7 +28,7 @@
         android:theme="@style/NoActionBarTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".uitest.canvas.CanvasActivity"
+            android:name=".uitest.canvas.A_CanvasTestActivity"
             android:exported="false" />
         <activity android:name=".samples.systemCamera.CameraActivity" />
         <activity android:name=".samples.softkeyboard.SoftKeyboardActivity" />

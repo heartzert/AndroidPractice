@@ -61,6 +61,8 @@ class CanvasView : View {
 
 
     override fun onDraw(canvas: Canvas) {
+        canvas.drawCoordinateLine()
+
         canvas.drawPoint(width / 2f, height / 2f, redPointPaint)
         canvas.drawRect(width / 2f - 100f, height / 2f - 100f, width / 2f + 100f, height / 2f + 100f, redPointPaint)
 

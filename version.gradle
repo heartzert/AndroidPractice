@@ -1,10 +1,9 @@
 ext {
 
-    kotlin_version = '1.8.10'
+    kotlin_version = '1.9.21'
 
     androids = [
             applicationId    : "heartzert.test.all",
-            buildTool        : "33.0.0",
             minSdk           : 24,
             compileSdkVersion: 34,
             targetSdk        : 34,

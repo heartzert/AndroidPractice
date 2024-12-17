@@ -65,6 +65,11 @@ android {
     dataBinding {
         enabled = true
     }
+    
+    viewBinding {
+        enabled = true
+    }
+
     namespace 'heartzert.test.all'
 }
 
