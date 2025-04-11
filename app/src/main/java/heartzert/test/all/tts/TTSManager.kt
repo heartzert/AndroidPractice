@@ -1,14 +1,15 @@
-package translate.voice.translator.camera.translation.free.all.language.app.utils.helper
+package heartzert.test.all.tts
 
 import android.content.Context
 import android.speech.tts.TextToSpeech
 import android.speech.tts.TextToSpeech.EngineInfo
 import android.speech.tts.UtteranceProgressListener
 import android.speech.tts.Voice
-import com.beta.b_log_lib.LogExceptionHelper.logE
-import com.beta.b_log_lib.LogFileHelper
-import com.beta.translator.translate_lib.model_manage.TextTranslateSupportLanCode
-import com.translator.base_lib.TestLogHelper
+import android.util.Log
+import android.widget.Toast
+import heartzert.lib.utils.safeResume
+import heartzert.test.all.archive.oldbase.applicationContext
+import heartzert.test.all.tts.TTSManager.MyTextToSpeech.TTSListener
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -17,10 +18,6 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
-import translate.voice.translator.camera.translation.free.all.language.app.hilt.AppRepoProvider
-import translate.voice.translator.camera.translation.free.all.language.app.utils.applicationContext
-import translate.voice.translator.camera.translation.free.all.language.app.utils.helper.TTSManager.MyTextToSpeech.TTSListener
-import translate.voice.translator.camera.translation.free.all.language.app.utils.safeResume
 import java.util.Locale
 
 /**
@@ -29,6 +26,12 @@ import java.util.Locale
  */
 object TTSManager {
 
+    //支持的引擎列表
+    val supportEngines = arrayListOf<TTSEngineInfo>()
+
+    //默认引擎
+    var defaultEngine = ""
+
     //谷歌语音引擎包名
     private const val GOOGLE_TTS_ENGINE = "com.google.android.tts"
 
@@ -36,10 +39,7 @@ object TTSManager {
     private const val TIME_OUT_MILLIS = 120L
 
     //最大同时加载引擎数
-    private const val MAX_ENGINE_COUNT = 2
-
-    private val setLanUseCaseImp by lazy { AppRepoProvider.get(applicationContext).provideSetLanUseCase() }
-    private val userDataRepo by lazy { AppRepoProvider.get(applicationContext).provideUserDataRepo() }
+    private const val MAX_ENGINE_COUNT = 1
 
     private var sourceTextToSpeechList: ArrayList<MyTextToSpeech> = arrayListOf()
     private var targetTextToSpeechList: ArrayList<MyTextToSpeech> = arrayListOf()
@@ -49,12 +49,6 @@ object TTSManager {
 
     //当前正在播放的任务
     private var readJob: Job? = null
-
-    //支持的引擎列表
-    private val supportEngines = arrayListOf<TTSEngineInfo>()
-
-    //默认引擎
-    private var defaultEngine = ""
 
     fun initTextToSpeech() {
         MainScope().launch(CoroutineExceptionHandler { _, throwable ->
@@ -71,21 +65,19 @@ object TTSManager {
                     supportEngines.add(TTSEngineInfo(engine, tmpTTS.availableLanguages?.toList() ?: listOf(), tmpTTS.voices?.toList() ?: listOf()))
                     tmpTTS.shutdown()
                 }
-                TestLogHelper.d("initEngines: engines = $supportEngines, defaultEngine = $defaultEngine")
+                Log.d("=====wxz=====", "initEngines: engines = $supportEngines, defaultEngine = $defaultEngine")
             }
             //创建对应引擎的TTS对象，优先使用谷歌引擎，每个引擎创建2个对象
             val engineNames = supportEngines.map { it.engineInfo.name }.toMutableList()
             while (engineNames.isNotEmpty()) {
                 var curEngine = GOOGLE_TTS_ENGINE
-                val sourceLanCode = setLanUseCaseImp.userSourceLanCode.lanCode
-                val targetLanCode = setLanUseCaseImp.userTargetLanCode.lanCode
                 if (engineNames.contains(GOOGLE_TTS_ENGINE)) {
-                    sourceTextToSpeechList.add(MyTextToSpeech(initLanCode = sourceLanCode, engine = GOOGLE_TTS_ENGINE, tagPrefix = "source"))
-                    targetTextToSpeechList.add(MyTextToSpeech(initLanCode = targetLanCode, engine = GOOGLE_TTS_ENGINE, tagPrefix = "target"))
+                    sourceTextToSpeechList.add(MyTextToSpeech(engine = GOOGLE_TTS_ENGINE, tagPrefix = "source"))
+                    targetTextToSpeechList.add(MyTextToSpeech(engine = GOOGLE_TTS_ENGINE, tagPrefix = "target"))
                 } else {
                     curEngine = engineNames[0]
-                    sourceTextToSpeechList.add(MyTextToSpeech(initLanCode = sourceLanCode, engine = curEngine, tagPrefix = "source"))
-                    targetTextToSpeechList.add(MyTextToSpeech(initLanCode = targetLanCode, engine = curEngine, tagPrefix = "target"))
+                    sourceTextToSpeechList.add(MyTextToSpeech(engine = curEngine, tagPrefix = "source"))
+                    targetTextToSpeechList.add(MyTextToSpeech(engine = curEngine, tagPrefix = "target"))
                 }
                 engineNames.remove(curEngine)
                 if (sourceTextToSpeechList.size >= MAX_ENGINE_COUNT || targetTextToSpeechList.size >= MAX_ENGINE_COUNT) break
@@ -114,7 +106,7 @@ object TTSManager {
                         }
                     }
                     withContext(Dispatchers.Main) {
-                        ToastHelper.showPlayErrorToast(applicationContext)
+                        Toast.makeText(applicationContext, "播放失败", Toast.LENGTH_SHORT).show()
                     }
                 } else {
                     targetReadListener.forEach { listener ->
@@ -127,7 +119,7 @@ object TTSManager {
                         }
                     }
                     withContext(Dispatchers.Main) {
-                        ToastHelper.showPlayErrorToast(applicationContext)
+                        Toast.makeText(applicationContext, "播放失败", Toast.LENGTH_SHORT).show()
                     }
                 }
             }
@@ -270,11 +262,11 @@ object TTSManager {
         fun onEnd()
     }
 
-    internal class MyTextToSpeech(private val initLanCode: String, val engine: String? = null, val tagPrefix: String = "") {
+    internal class MyTextToSpeech(val engine: String? = null, val tagPrefix: String = "") {
 
         private var mTextToSpeech: TextToSpeech? = null
 
-        private var lanSetResult = false
+        private var lanSetResult = true
 
         private var lastTTSStartTime = 0L
 
@@ -282,22 +274,7 @@ object TTSManager {
 
         init {
             MainScope().launch(Dispatchers.Default) {
-                mTextToSpeech = getNewTTS(applicationContext, engine)?.also {
-                    if (setLanUseCaseImp.userSourceLanCode != TextTranslateSupportLanCode.UND) {
-                        MainScope().launch(Dispatchers.IO) {
-                            try {
-                                val result = mTextToSpeech?.setLanguage(Locale.forLanguageTag(initLanCode))
-                                LogFileHelper.logToFile(
-                                    applicationContext,
-                                    "TTSManager ${tagPrefix}TextToSpeech setLanguage $initLanCode result = $result, engine: $engine"
-                                )
-                                lanSetResult = result == TextToSpeech.LANG_AVAILABLE
-                            } catch (e: Exception) {
-                                e.printStackTrace()
-                            }
-                        }
-                    }
-                }
+                mTextToSpeech = getNewTTS(applicationContext, engine)
                 setTTSSpeed()
                 setOnUtteranceProgressListener()
             }
@@ -317,10 +294,10 @@ object TTSManager {
 
         fun changeTTSLan(lanCode: String) {
             MainScope().launch(CoroutineExceptionHandler { _, throwable ->
-                throwable.logE("TTSManager changeTTSLan, lanCode = $lanCode, lanSetResult = $lanSetResult")
+                throwable.printStackTrace()
             }) {
                 val result = mTextToSpeech?.setLanguage(Locale.forLanguageTag(lanCode))
-                LogFileHelper.logToFile(applicationContext, "TTSManager ${tagPrefix}TextToSpeech setLanguage $lanCode result = $result, engine: $engine")
+                Log.d("=====wxz=====", "TTSManager ${tagPrefix}TextToSpeech setLanguage $lanCode result = $result, engine: $engine")
                 lanSetResult = result == TextToSpeech.LANG_AVAILABLE
             }
         }
@@ -345,9 +322,9 @@ object TTSManager {
 //            sourceTextToSpeech?.setEngineByPackageName()
 //            sourceTextToSpeech?.defaultEngine
             val status = mTextToSpeech?.speak(readText, TextToSpeech.QUEUE_FLUSH, null, tagPrefix + readText.hashCode().toString())
-            TestLogHelper.dAndFile("TTSManager ${tagPrefix}textToSpeech speak status is $status, engine: $engine")
+            Log.d("=====wxz=====", "TTSManager ${tagPrefix}textToSpeech speak status is $status, engine: $engine")
             if (status == TextToSpeech.ERROR) {
-                LogFileHelper.logToFile(applicationContext, "TTSManager ${tagPrefix}textToSpeech speak error, lan: ${mTextToSpeech?.voice?.locale}, engine is $engine")
+                Log.d("=====wxz=====", "TTSManager ${tagPrefix}textToSpeech speak error, lan: ${mTextToSpeech?.voice?.locale}, engine is $engine")
                 return false
             }
             return true
@@ -359,17 +336,17 @@ object TTSManager {
 
         fun setTTSSpeed() {
             mTextToSpeech?.setPitch(1.0f) //设置声调
-            when (userDataRepo.getVoiceSpeed()) {
-                0 -> mTextToSpeech?.setSpeechRate(1.0f) //设置语速
-                1 -> mTextToSpeech?.setSpeechRate(0.75f) //设置语速
-                2 -> mTextToSpeech?.setSpeechRate(0.5f) //设置语速
-            }
+//            when (userDataRepo.getVoiceSpeed()) {
+//                0 -> mTextToSpeech?.setSpeechRate(1.0f) //设置语速
+//                1 -> mTextToSpeech?.setSpeechRate(0.75f) //设置语速
+//                2 -> mTextToSpeech?.setSpeechRate(0.5f) //设置语速
+//            }
         }
 
         private fun setOnUtteranceProgressListener() {
             mTextToSpeech?.setOnUtteranceProgressListener(object : UtteranceProgressListener() {
                 override fun onStart(utteranceId: String?) {
-                    TestLogHelper.dAndFile("TTSManager ${tagPrefix}TextToSpeech onStart, engine: $engine")
+                    Log.d("=====wxz=====", "TTSManager ${tagPrefix}TextToSpeech onStart, engine: $engine")
                     lastTTSStartTime = System.currentTimeMillis()
                     readListener.forEach {
                         it.onStart(utteranceId)
@@ -377,9 +354,9 @@ object TTSManager {
                 }
 
                 override fun onDone(utteranceId: String?) {
-                    TestLogHelper.dAndFile("TTSManager ${tagPrefix}TextToSpeech onDone")
+                    Log.d("=====wxz=====", "TTSManager ${tagPrefix}TextToSpeech onDone")
                     val time = System.currentTimeMillis() - lastTTSStartTime
-                    TestLogHelper.d("TTSManager ${tagPrefix}TextToSpeech read time: $time, engine: $engine")
+                    Log.d("=====wxz=====", "TTSManager ${tagPrefix}TextToSpeech read time: $time, engine: $engine")
                     if (time < TIME_OUT_MILLIS) {
                         readListener.forEach {
                             it.onReadFailed(true)
@@ -391,14 +368,14 @@ object TTSManager {
                 }
 
                 override fun onStop(utteranceId: String?, interrupted: Boolean) {
-                    TestLogHelper.dAndFile("TTSManager ${tagPrefix}TextToSpeech onStop, engine: $engine")
+                    Log.d("=====wxz=====", "TTSManager ${tagPrefix}TextToSpeech onStop, engine: $engine")
                     readListener.forEach {
                         it.onStop(utteranceId, interrupted)
                     }
                 }
 
                 override fun onError(utteranceId: String?, errorCode: Int) {
-                    TestLogHelper.dAndFile("TTSManager ${tagPrefix}TextToSpeech onError, errorCode = $errorCode, engine: $engine")
+                    Log.d("=====wxz=====", "TTSManager ${tagPrefix}TextToSpeech onError, errorCode = $errorCode, engine: $engine")
                     readListener.forEach {
                         it.onError(utteranceId, errorCode)
                     }

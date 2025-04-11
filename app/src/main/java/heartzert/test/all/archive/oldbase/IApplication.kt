@@ -23,3 +23,5 @@ open class IApplication: Application() {
         init(this)
     }
 }
+
+val applicationContext = IApplication.appContext

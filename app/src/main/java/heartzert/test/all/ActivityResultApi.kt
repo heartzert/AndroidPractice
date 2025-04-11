@@ -1,4 +1,4 @@
-package translate.voice.translator.camera.translation.free.all.language.app.utils.helper
+package heartzert.test.all
 
 import androidx.activity.ComponentActivity
 import androidx.activity.result.ActivityResultCallback

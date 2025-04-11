@@ -6,6 +6,9 @@ package heartzert.test.algrithom.kotlin
  */
 
 fun main() {
+}
+
+fun tt() {
     mytest(
         listOf(
             mutableListOf("a", "b", "c"),

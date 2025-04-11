@@ -1,11 +1,13 @@
 package heartzert.lib.utils
 
 import androidx.lifecycle.*
+import kotlinx.coroutines.CancellableContinuation
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
+import kotlin.coroutines.resume
 
 /**
  * Created by heartzert on 2023/4/27.
@@ -136,3 +138,9 @@ fun LifecycleCoroutineScope.launchWhenStart(block: suspend CoroutineScope.() -> 
  * 规避警告
  */
 fun LifecycleCoroutineScope.launchWhenResume(block: suspend CoroutineScope.() -> Unit): Job = launchWhenResumed(block)
+
+fun <T> CancellableContinuation<T>.safeResume(value: T) {
+    if (isActive) {
+        resume(value)
+    }
+}
