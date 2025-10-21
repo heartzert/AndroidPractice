@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">自动滑动助手</string>
+    <string name="accessibility_service_description">自动滑动服务：每隔随机时间交替上划和下滑屏幕</string>
+</resources>
+
