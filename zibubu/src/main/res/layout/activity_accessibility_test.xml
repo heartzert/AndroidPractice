@@ -84,6 +84,30 @@
             android:layout_marginBottom="24dp"
             android:background="#CCCCCC" />
 
+        <!-- 滑动控制状态 -->
+        <TextView
+            android:id="@+id/tv_swipe_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="滑动状态：未运行"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_stop_swipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#FFC107"
+            android:text="停止滑动" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:background="#CCCCCC" />
+
         <!-- 配置按钮 -->
         <Button
             android:id="@+id/btn_open_config"

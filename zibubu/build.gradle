@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.heartzert.autoswipe'
+    namespace 'com.heartzert.zibubu'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.heartzert.autoswipe"
+        applicationId "com.heartzert.zibubu"
         minSdk 24
         targetSdk 34
         versionCode 1

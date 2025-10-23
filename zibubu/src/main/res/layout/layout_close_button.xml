@@ -1,22 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/floating_window_bg"
-    android:gravity="center"
-    android:orientation="horizontal"
+    android:background="@drawable/close_button_bg"
     android:padding="16dp">
 
     <TextView
-        android:id="@+id/tv_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AUTO\nSWIPE\nOFF"
+        android:layout_gravity="center"
+        android:text="✕\n拖到此处关闭"
         android:textColor="@android:color/white"
         android:textSize="14sp"
         android:textStyle="bold"
-        android:gravity="center" />
+        android:gravity="center"
+        android:lineSpacingExtra="4dp" />
 
-</LinearLayout>
-
+</FrameLayout>
 

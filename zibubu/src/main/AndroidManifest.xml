@@ -4,6 +4,8 @@
 
     <!-- 悬浮窗权限 -->
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 震动权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +18,7 @@
         
         <!-- 主Activity -->
         <activity
-            android:name=".AccessibilityTestActivity"
+            android:name=".ZibubuMainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,11 +27,11 @@
         </activity>
         
         <!-- 配置Activity -->
-        <activity android:name=".SwipeConfigActivity" />
+        <activity android:name=".ZibubuConfigActivity" />
 
         <!-- 无障碍服务 -->
         <service
-            android:name=".AutoSwipeAccessibilityService"
+            android:name=".ZibubuAccessibilityService"
             android:exported="true"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
@@ -43,7 +45,7 @@
 
         <!-- 悬浮窗服务 -->
         <service
-            android:name=".FloatingWindowService"
+            android:name=".ZibubuWindowService"
             android:exported="false" />
     </application>
 
